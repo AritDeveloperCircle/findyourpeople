@@ -40,4 +40,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ##  Team Members
 
--  [Neka](https://github.com/istoga)
+-  [Neka Blair](https://github.com/istoga)
