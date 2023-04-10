@@ -1,11 +1,11 @@
 ## What type of PR is this? (check all applicable)
 
-- [] Feature
-- [] Refactor
-- [] Bug Fix
-- [] Optimization
-- [] Documentation Update
-- [] Other (please specify here: <type here>)
+- [ ] Feature
+- [ ] Refactor
+- [ ] Bug Fix
+- [ ] Optimization
+- [ ] Documentation Update
+- [ ] Other (please specify here: <type here>)
   
   
 ## Description of what this Pull Request does
@@ -20,7 +20,7 @@
 <In this section, describe how to QA/review your PR. Feel free to use screenshots and/or short videos>
   
 ## Added/updated tests?
-- [] Yes
-- [] Not Yet, and here is why: __<explain here>__
-- [] I need help with tests
-- [] No, and here is why: __<explain here>__
+- [ ] Yes
+- [ ] Not Yet, and here is why: __<explain here>__
+- [ ] I need help with tests
+- [ ] No, and here is why: __<explain here>__
