@@ -39,4 +39,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Team Members
 
-Taylor D Jones
+- [Taylor D Jones](https://github.com/TaylorDJones11)
