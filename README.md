@@ -40,4 +40,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ##  Team Members
 
--  [Neka Blair](https://github.com/istoga)
+- [Neka Blair](https://github.com/istoga)
+- [Ojoachele Onuh](https://github.com/Achele)
+- [Ibimina Hart](https://github.com/ibimina)
