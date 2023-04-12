@@ -45,4 +45,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [Ojoachele Onuh](https://github.com/Achele)
 - [Ibimina Hart](https://github.com/ibimina)
 - [Taylor D Jones](https://github.com/TaylorDJones11)
+- [Ajewole seyi](https://github.com/sheyitofunmi)
 
