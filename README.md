@@ -43,7 +43,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - [Neka Blair](https://github.com/istoga)
 - [Ojoachele Onuh](https://github.com/Achele)
-- Chibuzo Idia
+- Chibuzo Idia (https://github.com/Domicaren1)
 - [Ibimina Hart](https://github.com/ibimina)
 - [Taylor D Jones](https://github.com/TaylorDJones11)
 
