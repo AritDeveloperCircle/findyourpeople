@@ -1,5 +1,4 @@
 function Button({text}) {
-    return ( <button>{text}</button>);
+    return (<button>{text}</button>);
 }
-
 export default Button;
