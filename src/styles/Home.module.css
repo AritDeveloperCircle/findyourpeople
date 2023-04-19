@@ -1,6 +1,17 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 80vh;
-}
+ .main {
+     display: grid;
+     padding: 1em;
+ }
+
+ @media (min-width: 40rem) {
+     .main {
+         grid-template-columns: repeat(2, 1fr);
+         gap: 1em;
+     }
+ }
+
+ @media (min-width: 60rem) {
+     .main {
+         grid-template-columns: repeat(3, 1fr);
+     }
+ }
