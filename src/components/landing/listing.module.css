@@ -1,0 +1,12 @@
+.listing {
+    display: flex;
+    gap: 1em;
+    border: 1px solid #bab7b7;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.listing__view__more {
+    text-align: end;
+    display: block;
+}
