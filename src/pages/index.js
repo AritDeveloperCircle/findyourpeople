@@ -5,6 +5,7 @@ import { listings } from "@/data/mockListings";
 import FooterBar from "@/common/FooterBar";
 
 export default function Home() {
+     
   return (
     <>
       <Head>
