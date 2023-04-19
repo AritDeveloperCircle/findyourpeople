@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./listing.module.css";
+
 function Listing({ data }) {
   return (
     <>
-      <article className={styles.listing}>
+       <article className={styles.listing}>
         <div className={styles.listing__image__container}>
           <Image src="/image-placeholder.png" width={50} height={50} alt={`${data.name} avatar`} />
         </div>
