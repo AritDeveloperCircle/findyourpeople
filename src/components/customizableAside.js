@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
+import styles from './aside.module.css';
 
 const CustomizableAside = ({CustomizedAvatar, asideTitle , asideParagraph,...props}) => {
     return (
