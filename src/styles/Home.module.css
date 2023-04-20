@@ -9,7 +9,6 @@
          gap: 1em;
      }
  }
-
  @media (min-width: 60rem) {
      .main {
          grid-template-columns: repeat(3, 1fr);
