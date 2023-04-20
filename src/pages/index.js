@@ -20,7 +20,7 @@ export default function Home() {
           ))}
         </section>
       </main>
-      <FooterBar/>
+      <FooterBar />
     </>
   );
 }
