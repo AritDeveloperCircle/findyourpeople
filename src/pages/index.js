@@ -6,37 +6,6 @@ import ReusableNavLink from "@/common/ReusableNavLink";
 
 
 export default function Home() {
-  const listings = [
-    {
-      id: 1,
-      name: "arit developer circle",
-      manager: "Arit dev",
-      description:
-        "Arit developer circle is a community of developers who are passionate about building software products and services that solve real world problems.",
-    },
-    {
-      id: 2,
-      name: "arit developer circle",
-      manager: "Arit dev",
-      description:
-        "Arit developer circle is a community of developers who are passionate about building software products and services that solve real world problems.",
-    },
-    {
-      id: 3,
-      name: "arit developer circle",
-      manager: "Arit dev",
-      description:
-        "Arit developer circle is a community of developers who are passionate about building software products and services that solve real world problems.",
-    },
-    {
-      id: 4,
-      name: "arit developer circle",
-      manager: "Arit dev",
-      description:
-        "Arit developer circle is a community of developers who are passionate about building software products and services that solve real world problems.",
-    },
-  ];
-   
   return (
     <>
       <Head>
@@ -47,10 +16,9 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         {listings.map((data) => (
-          <Listing data={data} key={data.id} />
+          <Listing data={data}  key={data.id} />
         ))}
       </main>
-      <FooterBar />
     </>
   );
 }
