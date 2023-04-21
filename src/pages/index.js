@@ -1,4 +1,6 @@
+import Link from 'next/link';
 import Head from 'next/head'
+import NavBar from '../components/Header/NavBar';
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
@@ -15,6 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <NavBar />
         <div className={styles.description}>
           <p>
             Get started by editing&nbsp;
