@@ -4,9 +4,16 @@
     border: 1px solid #bab7b7;
     border-radius: 5px;
     padding: 1em;
+    margin-bottom: 1em;
 }
 
 .listing__view__more {
     text-align: end;
     display: block;
+}
+
+@media (min-width:40rem) {
+    .listing{
+        margin-bottom: 0em;
+    }
 }
