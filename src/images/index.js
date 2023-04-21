@@ -1,5 +1,5 @@
 const Images = {
-  mainAvatar: require('./defaultAvatar.png').default,
+  mainAvatar: require('./mainAvatar.png').default,
 }
 
 export default Images
