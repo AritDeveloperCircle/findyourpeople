@@ -9,7 +9,7 @@ function Listing({ data }) {
           <Image src="/image-placeholder.png" width={50} height={50} alt={`${data.name} avatar`} />
         </div>
         <div className={styles.listing__content}>
-          <h2 className={styles.listing__content__name}>{data.name}</h2>
+          <h2 className={styles.listing__content__name}>{data.community_name}</h2>
           <p className={styles.listing__content__manager}>{data.manager}</p>
           <p className={styles.listing__content__description}>{data.description}</p>
           <Link href={`/${encodeURIComponent(data.id)}`} className={styles.listing__view__more}>view more</Link>
