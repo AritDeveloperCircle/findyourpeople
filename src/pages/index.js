@@ -15,9 +15,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        {listings.map((data) => (
-          <Listing data={data}  key={data.id} />
-        ))}
+        <section className={styles.listings_container}>
+          {listings.map((listing) => (
+            <Listing data={listing} key={listing.id} />
+          ))}
+        </section>
       </main>
     </>
   );
