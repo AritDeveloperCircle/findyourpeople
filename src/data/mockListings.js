@@ -1,30 +1,34 @@
 export const listings = [
   {
     id: 1,
-    name: "arit dev circle",
+    community_name: "arit dev circle",
     manager: "arit dev",
     description:
       "this is a community for developers, we are here to help each other",
+    approved: true,
   },
   {
     id: 2,
-    name: "dev circle",
+    community_name: "dev circle",
     manager: "justine dev",
     description:
       "this is a community for developers, we are here to help each other",
+    approved: true,
   },
   {
     id: 3,
-    name: "dev circle",
+    community_name: "dev circle",
     manager: "Augustine dev",
     description:
       "this is a community for developers, we are here to help each other",
+    approved: true,
   },
   {
     id: 4,
-    name: "dev circle",
+    community_name: "dev circle",
     manager: "arit dev",
     description:
       "this is a community for developers, we are here to help each other",
+    approved: true,
   },
 ];
