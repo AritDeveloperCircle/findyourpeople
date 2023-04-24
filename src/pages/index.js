@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import images from '../images/index'
 import style from '@/styles/customizableavatar.module.css'
 import CustomizableAvatar from '@/components/common/CustomizableAvatar'
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({ subsets: ['latin'] })
 
 export default function Home() {
   return (
