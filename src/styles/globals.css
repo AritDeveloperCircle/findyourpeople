@@ -73,7 +73,9 @@
   }
 }
 
-* {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -93,6 +95,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    width: 100%;
+    min-height: 100vh;
 }
 
 a {
