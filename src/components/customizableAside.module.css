@@ -1,0 +1,22 @@
+/* customizableAside css */
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .aside-container {
+        text-align: center;
+        margin: 0 auto; 
+        width: 60%;
+        padding-top: 7rem;
+    }
+    .avatar-img {
+        margin-bottom: 3rem;
+    }
+    .aside-container h2 {
+        margin-bottom: 1rem;
+    }
+    .aside-container p{
+        padding:  0 80px;
+    }
