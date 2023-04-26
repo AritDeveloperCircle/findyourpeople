@@ -5,6 +5,7 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
+
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -73,19 +74,15 @@
   }
 }
 
+
 *,
 *::after,
-*::before {
-  box-sizing: border-box;
+*:before {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -99,15 +96,16 @@ body {
     font-size: 16px;
     width: 100%;
     min-height: 100vh;
+    
+footer {
+  display: flex;
+  padding: 1em;
+  gap: 1em;
+  border-top: 1px solid grey;
+  font-size: 1.3em;
 }
 
-a {
-  color: inherit;
+.navItem a {
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+  color: grey;
 }
