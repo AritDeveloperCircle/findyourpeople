@@ -1,0 +1,52 @@
+/* buttons */
+
+.btn {
+  cursor: pointer;
+  color: #fff;
+  background: #645cff;
+  border: transparent;
+  border-radius: 0.25rem;
+  letter-spacing: 1px;
+  padding: 0.375rem 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease-in-out all;
+  text-transform: capitalize;
+  display: inline-block;
+  width: 100%;
+}
+
+/* form */
+
+.form {
+  width: 90vw;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 2rem 2.5rem;
+  margin: 3rem auto;
+}
+.form_label {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+.form_input,
+.form_textarea {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.form_row {
+  margin-bottom: 1rem;
+}
+
+.form_textarea {
+  height: 7rem;
+}
