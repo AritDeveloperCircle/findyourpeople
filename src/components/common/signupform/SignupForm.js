@@ -14,6 +14,7 @@ function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setUser({ name: '', email: '', password: '' })
   }
 
   return (
