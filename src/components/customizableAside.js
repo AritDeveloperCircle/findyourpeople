@@ -11,7 +11,7 @@ function CustomizableAside() {
                 </div>
 
                 <h2>Lorem ipsum dolor sit amet</h2>
-                <p>Sed ut perspiciatis  Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam </p>
+                <p>Sed ut perspiciatis  Nemo enim ipsam voluptatem  fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam </p>
             </div>
         
         

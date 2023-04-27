@@ -1,0 +1,87 @@
+.loginPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.loginContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #8ecae6;
+    min-height: 100vh;
+}
+.loginImage{
+    margin-bottom: 5rem;
+}
+
+/* FORM */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    
+}
+
+.field {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 0 20px;
+}
+
+.formLabel {
+    font-size: 75%;
+    text-align: start;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.input[type="text"],
+.input[type="password"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 10px;
+}
+.loginBtn{
+    margin-top: 30px;
+    padding-top: 15px;
+
+}
+.btn[type="submit"] {
+    background-color: #4361ee;
+    color: white;
+    padding: 5px 50px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: opacity 0.3s;
+}
+
+.btn[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+.que {
+    text-align: end;
+    color: blue;
+    font-size: 11px;
+    margin: 5px 5px 0;
+
+}
+.footer{
+    margin-top: 100px;
+    font-size: 70%;
+}
+.footer a{
+    text-decoration: none;
+}
