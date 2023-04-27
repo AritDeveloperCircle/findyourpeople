@@ -14,7 +14,32 @@ function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (validateForm()) {
+      console.log('Form submitted sucessfully')
+
+      setTimeout(() => {
+        resetForm()
+      }, 1000)
+    }
+  }
+
+  const resetForm = () => {
     setUser({ name: '', email: '', password: '' })
+  }
+
+  const validateForm = () => {
+    if (!user.name || !user.email || !user.password) {
+      alert('please fill out all required fields.')
+      return false
+    }
+
+    const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
+    if (!user.email.match(emailPattern)) {
+      alert('please enter a valid email address')
+      return false
+    }
+
+    return true
   }
 
   return (
@@ -23,7 +48,7 @@ function Form() {
         {/* name */}
         <div className={styles.form_row}>
           <label htmlFor='name' className={styles.form_label}>
-            Name
+            Name<span>*</span>
           </label>
           <input
             type='text'
@@ -32,12 +57,15 @@ function Form() {
             name='name'
             value={user.name}
             onChange={handleChange}
+            required
+            minLength={2}
+            maxLength={50}
           />
         </div>
         {/* email */}
         <div className={styles.form_row}>
           <label htmlFor='email' className={styles.form_label}>
-            Email
+            Email<span>*</span>
           </label>
           <input
             type='email'
@@ -46,12 +74,13 @@ function Form() {
             name='email'
             value={user.email}
             onChange={handleChange}
+            required
           />
         </div>
         {/* password */}
         <div className={styles.form_row}>
           <label htmlFor='password' className={styles.form_label}>
-            Password
+            Password<span>*</span>
           </label>
           <input
             type='password'
@@ -60,6 +89,9 @@ function Form() {
             name='password'
             value={user.password}
             onChange={handleChange}
+            required
+            minLength={6}
+            maxLength={20}
           />
         </div>
         <CustomizableButton customClass={styles.btn} text='SIGN UP' />
