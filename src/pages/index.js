@@ -5,7 +5,7 @@ import styles from "@/styles/Home.module.css";
 import FooterBar from "@/common/FooterBar";
 import ReusableNavLink from "@/common/ReusableNavLink";
 import Link from 'next/link';
-import NavBar from '../common/NavBar';
+import NavBar from '../components/Header/NavBar';
 
 const inter = Inter({ subsets: ["latin"] });
 
