@@ -2,8 +2,9 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '@/styles/NavBar.module.css';
-import SearchBar from './SearchBar';
+import {SearchBar, TemplateResults } from './SearchBar';
 import ReusableNavLink from '@/common/ReusableNavLink';
+import Data from '@/mock-data.json';
 
 function NavBar() {
     return (
@@ -17,7 +18,9 @@ function NavBar() {
                 priority
               />
             
-            < SearchBar />
+            < SearchBar  placeholder="Search for Community..." data={Data} />
+
+            
             
             <ul className={styles.nav}>
                 <li>Lorem Ipsum</li>
