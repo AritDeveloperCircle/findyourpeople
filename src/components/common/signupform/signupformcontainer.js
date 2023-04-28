@@ -10,7 +10,7 @@ function SignupFormContainer() {
       <h4 className={styles.sub}>
         Lets get started with creating your community!
       </h4>
-      <SignupForm></SignupForm>
+      <SignupForm />
     </div>
   )
 }

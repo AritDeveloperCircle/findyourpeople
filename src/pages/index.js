@@ -4,9 +4,9 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import FooterBar from '@/common/FooterBar'
 import ReusableNavLink from '@/common/ReusableNavLink'
-import SignupFormContainer from '@/components/common/signupform/Signupformcontainer'
 
 import CustomizableAvatar from '@/components/common/CustomizableAvatar'
+import SignupFormContainer from '@/components/common/signupform/signupformcontainer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,7 +20,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
-        <SignupFormContainer></SignupFormContainer>
+        <SignupFormContainer />
       </main>
       <FooterBar />
     </>
