@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import FooterBar from "@/common/FooterBar";
 import ReusableNavLink from "@/common/ReusableNavLink";
+import NavBar from "@/common/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +17,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NavBar />
       <main className={styles.main}></main>
       <FooterBar />
     </>
