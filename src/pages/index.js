@@ -4,7 +4,6 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import FooterBar from '@/common/FooterBar'
 import ReusableNavLink from '@/common/ReusableNavLink'
-
 import CustomizableAvatar from '@/components/common/CustomizableAvatar'
 import SignupFormContainer from '@/components/common/signupform/signupformcontainer'
 
