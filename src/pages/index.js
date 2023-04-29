@@ -18,8 +18,9 @@ export default function Home() {
       </Head> 
       
       <main>
-        <CustomizableAside />
-      </main> 
+        
+      </main>
+      
       
     </>
   )
