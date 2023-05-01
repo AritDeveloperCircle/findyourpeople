@@ -15,6 +15,7 @@
 .listing__content__manager {
     font-weight: 600;
     color: #ed98dc;
+    margin-bottom: 0.5em;
 }
 
 @media (min-width:40rem) {
