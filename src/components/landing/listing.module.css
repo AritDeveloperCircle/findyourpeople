@@ -12,8 +12,13 @@
     display: block;
 }
 
+.listing__content__manager {
+    font-weight: 600;
+    color: #ed98dc;
+}
+
 @media (min-width:40rem) {
-    .listing{
+    .listing {
         margin-bottom: 0em;
     }
 }
