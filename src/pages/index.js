@@ -3,7 +3,6 @@ import styles from "@/styles/Home.module.css";
 import Listing from "@/components/landing/listing";
 import { listings } from "@/data/mockListings";
 import FooterBar from "@/common/FooterBar";
-import ReusableNavLink from "@/common/ReusableNavLink";
 
 export default function Home() {
   return (
