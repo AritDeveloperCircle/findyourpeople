@@ -1,18 +1,27 @@
 *,
 *::after,
-*::before {
-  box-sizing: border-box;
+*:before {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
   width: 100%;
   min-height: 100vh;
+  font-size: 16px;
+  padding: 0 2em;
 }
 
-a {
+footer {
+  display: flex;
+  padding: 1em;
+  gap: 1em;
+  border-top: 1px solid grey;
+  font-size: 1.3em;
+}
+
+.navItem a {
   text-decoration: none;
+  color: grey;
 }
