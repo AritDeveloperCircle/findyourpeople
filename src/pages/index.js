@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import ReusableNavLink from "@/common/ReusableNavLink";
 import CustomizableAside from "@/components/customizableAside"
-import LoginForm from "@/Login/login"
+import LoginForm from "@/login/login"
 
 const inter = Inter({ subsets: ["latin"] });
 
