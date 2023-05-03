@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Inter } from "next/font/google";
 import styles from "./login.module.css";
 import CustomizableAside from "../../components/customizableAside";
+// import CustomizableAvatar from "@/components/customavatar/CustomizableAvatar"
 
 
 const { useState } = React;
@@ -30,12 +31,29 @@ function LoginForm() {
         
 
     }
+    // const asideImage = ()=> {
+    //     return < CustomizableAvatar
+    //     src={src}
+    //     height={height}
+    //     width={width}
+    //     alt={alt}
+
+    //     />
+    // }
     
     return (
         <div className={styles.loginPage}>
 
             <div className={styles.asideContainer}>
-                <CustomizableAside />
+            <CustomizableAside
+                    className={styles.some.css.file}
+                    asideImage={"path/to/img"}
+                    width={110}
+                    height={110}
+                    alt={"avatar"}
+                    h2Content={"Lorem ipsum lorem ipsum"}
+                    pContent={"Sed ut perspiciatis  Nemo enim ipsam voluptatem  fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam "}
+/>
             </div>
 
             <div className={styles.loginContainer}>
