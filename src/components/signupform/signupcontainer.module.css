@@ -1,0 +1,19 @@
+.header {
+  font-size: 2.441;
+  text-align: center;
+  color: black;
+}
+
+.sub {
+  font-size: 1.563;
+  text-align: center;
+  color: rgb(147, 147, 147);
+}
+
+.div {
+  text-align: center;
+}
+
+.login {
+  text-align: center;
+}
