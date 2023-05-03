@@ -3,7 +3,7 @@ import Hero from "@/components/landing/Hero";
 import styles from "@/styles/Home.module.css";
 import Listing from "@/components/landing/listing";
 import { listings } from "@/data/mockListings";
-import FooterBar from "@/common/FooterBar";
+import FooterBar from "@/components/common/FooterBar";
 
 export default function Home() {
   return (
