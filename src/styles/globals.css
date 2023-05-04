@@ -77,11 +77,13 @@
 
 *,
 *::after,
-*:before {
+*::before {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
 }
+
+
 
 
 body {
@@ -96,14 +98,7 @@ body {
     font-size: 16px;
     width: 100%;
     min-height: 100vh;
-    
-footer {
-  display: flex;
-  padding: 1em;
-  gap: 1em;
-  border-top: 1px solid grey;
-  font-size: 1.3em;
-}
+}    
 
 .navItem a {
   text-decoration: none;
