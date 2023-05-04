@@ -4,12 +4,14 @@ import CustomizableAvatar from '../common/customavatar/CustomizableAvatar'
 import SignupForm from './SignupForm'
 
 function SignupFormContainer() {
+  const AVATAR_HEIGHT = 100
+  const AVATAR_WIDTH = 100
   return (
     <main>
       <div className={styles.div}>
         <CustomizableAvatar
-          height={100}
-          width={100}
+          height={AVATAR_HEIGHT}
+          width={AVATAR_WIDTH}
           src={images.signupAvatar}
           alt='main avatar'
         />
