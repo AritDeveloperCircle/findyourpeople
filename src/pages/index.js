@@ -2,6 +2,9 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Listing from "@/components/landing/listing";
 import { listings } from "@/data/mockListings";
+import FooterBar from "@/common/FooterBar";
+
+
 
 
 export default function Home() {
@@ -21,6 +24,7 @@ export default function Home() {
           ))}
         </section>
       </main>
+      < FooterBar />
       
     </>
   );
