@@ -4,8 +4,11 @@ import Listing from "@/components/landing/listing";
 import { listings } from "@/data/mockListings";
 import FooterBar from "@/common/FooterBar";
 
+
+
+
 export default function Home() {
-  
+    
   return (
     <>
       <Head>
@@ -21,6 +24,7 @@ export default function Home() {
           ))}
         </section>
       </main>
+      < FooterBar />
       
     </>
   );

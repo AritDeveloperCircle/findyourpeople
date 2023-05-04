@@ -48,7 +48,7 @@ function LoginForm() {
 
             <div className={styles.loginContainer}>
                     <div className={styles.loginImage} >
-                        <Image src="/images/mainAvatar.png" width="70" height="70" priority  alt=''/>
+                        <Image src="/images/mainAvatar.png" width="70" height="70" priority  alt='' />
                     </div>
                     <form onSubmit={handleSubmit} className={styles.form}>
                         <div className={styles.field}>
