@@ -5,6 +5,31 @@
     text-align: center;
     
 }
+.asideContain{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: #219ebc;
+        min-height: 100vh;
+}
+.asideContain img{
+    margin-bottom: 5rem;
+}
+.asideContain h2 {
+    margin-bottom: 1.6rem;
+    text-align: center;
+    white-space: nowrap; 
+    padding: 0 5px;  
+    font-size: 20px;
+}
+.asideContain p{
+    max-width: 400px;
+    text-align: center;
+    font-size: 80%;
+    padding: 0 30px;
+    
+}  
 
 .loginContainer{
     display: flex;

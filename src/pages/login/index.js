@@ -1,9 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import { Inter } from "next/font/google";
 import styles from "./login.module.css";
 import CustomizableAside from "../../components/customizableAside";
-// import CustomizableAvatar from "@/components/customavatar/CustomizableAvatar"
 
 
 const { useState } = React;
@@ -31,26 +29,18 @@ function LoginForm() {
         
 
     }
-    // const asideImage = ()=> {
-    //     return < CustomizableAvatar
-    //     src={src}
-    //     height={height}
-    //     width={width}
-    //     alt={alt}
-
-    //     />
-    // }
+    
     
     return (
         <div className={styles.loginPage}>
 
             <div className={styles.asideContainer}>
             <CustomizableAside
-                    className={styles.some.css.file}
-                    asideImage={"path/to/img"}
+                    src={"/images/mainAvatar.png"}
                     width={110}
                     height={110}
                     alt={"avatar"}
+                    asideCustomClass={styles.asideContain}
                     h2Content={"Lorem ipsum lorem ipsum"}
                     pContent={"Sed ut perspiciatis  Nemo enim ipsam voluptatem  fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam "}
 />
@@ -58,7 +48,7 @@ function LoginForm() {
 
             <div className={styles.loginContainer}>
                     <div className={styles.loginImage} >
-                        <Image src="/images/customizableAvatar.svg" width="70" height="70" priority  alt=''/>
+                        <Image src="/images/mainAvatar.png" width="70" height="70" priority  alt=''/>
                     </div>
                     <form onSubmit={handleSubmit} className={styles.form}>
                         <div className={styles.field}>
@@ -87,7 +77,8 @@ function LoginForm() {
                         {error ? <p className= {styles.error}>{error}</p> : <></>}
 
                         <div className={styles.loginBtn}>
-                            <button type="submit" className={styles.btn}>LOGIN</button>
+                        
+                            { <button type="submit" className={styles.btn}>LOGIN</button> }
                         </div>
                     </form>
                     <div className={styles.footer}>

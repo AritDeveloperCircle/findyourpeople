@@ -1,33 +1,27 @@
 import React from 'react';
-import Image from 'next/image';
-import styles from './customizableAside.module.css';
+import CustomizableAvatar from "./common/customavatar/CustomizableAvatar"
 
-function CustomizableAside({asideContainer, src, height, width, alt, h2Content, pContent }) {
+function CustomizableAside({asideCustomClass, src, height, width, alt, pContent, h2Content}) {
 
     return (
-            
-            
-            <div>
-                className={asideContainer}
-                <image 
-                src={"/images/customizableAvatar.svg"}
-                priority
-                width={110}
-                height={110}
-                alt={"avatar"}
+            <div className={asideCustomClass}>
+                <CustomizableAvatar 
+                src={src}
+                height={height}
+                width={width}
+                alt={alt}
                 />
-                h2Content={"Lorem ipsum dolor sit amet"}
-                pContent={"Sed ut perspiciatis  Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam "}
-            
 
+                <h2>{h2Content}</h2>
+                <p>{pContent}</p>
             </div>
-
+        
+        
     )
-
-    console.log("customizableAside");
 
 }
     
 
 
 export default CustomizableAside
+
