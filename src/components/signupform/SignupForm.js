@@ -55,6 +55,7 @@ function Form() {
             className={styles['form-input']}
             id='name'
             name='name'
+            aria-label='name'
             value={user.name}
             onChange={handleChange}
             required
@@ -72,6 +73,7 @@ function Form() {
             className={styles['form-input']}
             id='email'
             name='email'
+            aria-label='email'
             value={user.email}
             onChange={handleChange}
             required
@@ -87,6 +89,7 @@ function Form() {
             className={styles['form-input']}
             id='password'
             name='password'
+            aria-label='password'
             value={user.password}
             onChange={handleChange}
             required
@@ -94,7 +97,11 @@ function Form() {
             maxLength={20}
           />
         </div>
-        <CustomizableButton customClass={styles.btn} text='SIGN UP' />
+        <CustomizableButton
+          customClass={styles.btn}
+          text='SIGN UP'
+          aria-label='Sign up button'
+        />
       </form>
     </div>
   )
