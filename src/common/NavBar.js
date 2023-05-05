@@ -3,8 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Navbar.module.css';
 import SearchBar from '../common/SearchBar';
-import ReusableNavLink from '../common/ReusableNavLink';
-import Data from '@/mock-data.json';
+import Data from '../mock-data.json';
 
 
 function NavBar() {

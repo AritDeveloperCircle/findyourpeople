@@ -1,14 +1,15 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import FooterBar from "@/common/FooterBar";
-import ReusableNavLink from "@/common/ReusableNavLink";
-import NavBar from "@/common/NavBar";
+import Listing from "@/components/landing/listing";
+import { listings } from "@/data/mockListings";
+import FooterBar from "../common/FooterBar";
+import NavBar from "../common/NavBar";
+import {Inter} from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+     
   return (
     <>
       <Head>
@@ -19,6 +20,13 @@ export default function Home() {
       </Head>
       <NavBar />
       <main className={styles.main}></main>
+      <main className={styles.main}>
+        <section className={styles.listings_container}>
+          {listings.map((listing) => (
+            <Listing data={listing} key={listing.id} />
+          ))}
+        </section>
+      </main>
       <FooterBar />
     </>
   );

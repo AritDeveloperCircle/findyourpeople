@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import FooterBar from "../common/FooterBar";
-import ReusableNavLink from "../common/ReusableNavLink";
 import Link from 'next/link';
 import Data from "../mock-data.json"
 import styles from "../styles/SearchBar.module.css";
