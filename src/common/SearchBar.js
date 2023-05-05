@@ -1,12 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-// import styles from "@/styles/Home.module.css";
-import FooterBar from "@/common/FooterBar";
-import ReusableNavLink from "@/common/ReusableNavLink";
+import FooterBar from "../common/FooterBar";
+import ReusableNavLink from "../common/ReusableNavLink";
 import Link from 'next/link';
 import Data from "../mock-data.json"
-import styles from "@/styles/SearchBar.module.css";
+import styles from "../styles/SearchBar.module.css";
 import {useState} from 'react';
 
 
@@ -19,14 +18,10 @@ function SearchBar({ placeholder, data }) {
         const newFilter = data.filter((value) => {
             return value.name.toLowerCase().includes(searchWord.toLowerCase());
         });
-        if (searchWord === "") {
-            setFilteredData([])
-        } else {
-            setFilteredData(newFilter)
-        } 
-    };
+        searchWord === "" ? setFilteredData([]) : setFilteredData(newFilter)};
+
     return (
-        <div>
+        <div className="parent">
             <form>
                 <div>
                     <div className="search-inputs">
@@ -44,10 +39,10 @@ function SearchBar({ placeholder, data }) {
                 </div>
             </form>
             {filteredData.length != 0 && (
-                <div className={styles.dataResults}>
-                {filteredData.slice(0, 14).map((community, index) => {
+                <div className="data-results">
+                    {filteredData.slice(0, 14).map((community, index) => {
                         return (
-                            <div className={styles.dataItem} key={community.id}>
+                            <div className="data-item" key={community.id}>
                                 <p>{community.name}</p>
                             
                             </div>
@@ -63,4 +58,4 @@ function SearchBar({ placeholder, data }) {
     )
 }
 
-export {SearchBar};
+export default SearchBar;
