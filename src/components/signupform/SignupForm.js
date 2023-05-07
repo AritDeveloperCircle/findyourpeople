@@ -46,13 +46,13 @@ function Form() {
     <div>
       <form className={styles.form} onSubmit={handleSubmit}>
         {/* name */}
-        <div className={styles['form-row']}>
-          <label htmlFor='name' className={styles['form-label']}>
+        <div className={styles.formRow}>
+          <label htmlFor='name' className={styles.formLabel}>
             Name<span>*</span>
           </label>
           <input
             type='text'
-            className={styles['form-input']}
+            className={styles.formInput}
             id='name'
             name='name'
             aria-label='name'
@@ -64,13 +64,13 @@ function Form() {
           />
         </div>
         {/* email */}
-        <div className={styles['form-row']}>
-          <label htmlFor='email' className={styles['form-label']}>
+        <div className={styles.formRow}>
+          <label htmlFor='email' className={styles.formLabel}>
             Email<span>*</span>
           </label>
           <input
             type='email'
-            className={styles['form-input']}
+            className={styles.formInput}
             id='email'
             name='email'
             aria-label='email'
@@ -80,13 +80,13 @@ function Form() {
           />
         </div>
         {/* password */}
-        <div className={styles['form-row']}>
-          <label htmlFor='password' className={styles['form-label']}>
+        <div className={styles.formRow}>
+          <label htmlFor='password' className={styles.formLabel}>
             Password<span>*</span>
           </label>
           <input
             type='password'
-            className={styles['form-input']}
+            className={styles.formInput}
             id='password'
             name='password'
             aria-label='password'
