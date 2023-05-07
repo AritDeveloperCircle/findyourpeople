@@ -60,6 +60,7 @@ function LoginForm() {
                             type="text"
                             name="email"
                             placeholder="joe.deo@gmail.com"
+                            required
                             />
                         </div>
                         <div className= {styles.field}>
@@ -71,6 +72,7 @@ function LoginForm() {
                             type="password"
                             name="password"
                             placeholder="*********"
+                            required
                             />
                             <p className={styles.que}>Forgot Password?</p>
                         </div>
