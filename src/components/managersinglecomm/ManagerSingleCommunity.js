@@ -5,7 +5,7 @@ import CustomizableButton from '../common/CustomizableButton'
 function ManagerCommunity({ customClass }) {
   return (
     <main className={styles.card}>
-      <div className={styles['img-container']}>
+      <div className={styles.imgContainer}>
         <Image
           src='/background.png'
           className={styles.img}
@@ -14,11 +14,11 @@ function ManagerCommunity({ customClass }) {
           alt='community photo'
         />
       </div>
-      <div className={styles['card-body']}>
+      <div className={styles.cardBody}>
         <p className={customClass}>
           Community Name: <span>Approved</span>
         </p>
-        <div className={styles['cta-buttons']}>
+        <div className={styles.ctaButtons}>
           <CustomizableButton customClass={styles.edit} text='Edit Page' />
           <CustomizableButton customClass={styles.view} text='View Page' />
         </div>
