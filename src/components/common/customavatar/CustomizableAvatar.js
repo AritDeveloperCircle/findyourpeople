@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import style from '@/styles/customizableavatar.module.css'
+import style from './customizableavatar.module.css'
 
 function CustomizableAvatar({ customClass, src, height, width, alt }) {
   return (
