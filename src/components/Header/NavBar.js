@@ -16,7 +16,7 @@ export default function NavBar() {
               />
             
             <form>
-                <input id="search-input-bar" type="text" placeholder="Search" name='search' required/>
+                <input id="searchInputBar" type="text" placeholder="Search" name='search' required/>
                 <button type='submit'>
                     <Image
                         src="/search-glass.svg"
