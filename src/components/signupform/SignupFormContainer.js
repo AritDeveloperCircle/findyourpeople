@@ -12,7 +12,7 @@ function SignupFormContainer() {
         <CustomizableAvatar
           height={AVATAR_HEIGHT}
           width={AVATAR_WIDTH}
-          src={images.signupAvatar}
+          src='/image-placeholder.png'
           alt='main avatar'
         />
       </div>
