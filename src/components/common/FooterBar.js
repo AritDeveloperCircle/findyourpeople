@@ -1,4 +1,4 @@
-import ReusableNavLink from "../components/common/ReusableNavLink";
+import ReusableNavLink from "./ReusableNavLink";
 
 function FooterBar() {
   const navList = [
