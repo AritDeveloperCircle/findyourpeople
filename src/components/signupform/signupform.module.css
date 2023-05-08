@@ -27,15 +27,15 @@
   padding: 2rem 2.5rem;
   margin: 3rem auto;
 }
-.form-label {
+.formLabel {
   display: block;
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
   text-transform: capitalize;
   letter-spacing: 1px;
 }
-.form-input,
-.form-textarea {
+.formInput,
+.formTextarea {
   width: 100%;
   padding: 0.375rem 0.75rem;
   border-radius: 0.25rem;
@@ -43,10 +43,10 @@
   border: 1px solid #e2e8f0;
 }
 
-.form-row {
+.formRow {
   margin-bottom: 1rem;
 }
 
-.form-textarea {
+.formTextarea {
   height: 7rem;
 }
