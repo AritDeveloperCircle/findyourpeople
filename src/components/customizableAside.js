@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomizableAvatar from "./common/customavatar/CustomizableAvatar"
 
-function CustomizableAside({asideCustomClass, src, height, width, alt, pContent, h2Content}) {
+function CustomizableAside({asideCustomClass, src, height, width, alt, paragraphText, headerText}) {
 
     return (
             <div className={asideCustomClass}>
@@ -12,8 +12,8 @@ function CustomizableAside({asideCustomClass, src, height, width, alt, pContent,
                 alt={alt}
                 />
 
-                <h2>{h2Content}</h2>
-                <p>{pContent}</p>
+                <h2>{paragraphText}</h2>
+                <p>{headerText}</p>
             </div>
         
         

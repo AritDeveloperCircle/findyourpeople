@@ -41,8 +41,8 @@ function LoginForm() {
                     height={110}
                     alt={"avatar"}
                     asideCustomClass={styles.asideContain}
-                    h2Content={"Lorem ipsum lorem ipsum"}
-                    pContent={"Sed ut perspiciatis  Nemo enim ipsam voluptatem  fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam "}
+                    headerText={"Lorem ipsum lorem ipsum"}
+                    paragraphText={"Sed ut perspiciatis  Nemo enim ipsam voluptatem  fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam "}
 />
             </div>
 
