@@ -4,9 +4,7 @@ import styles from "@/styles/Home.module.css";
 import Listing from "@/components/landing/listing";
 import { listings } from "@/data/mockListings";
 import FooterBar from "@/components/common/FooterBar";
-import NavBar from '../components/Header/NavBar';
-
-const inter = Inter({ subsets: ["latin"] });
+import NavBar from "../components/Header/NavBar";
 
 export default function Home() {
   return (
