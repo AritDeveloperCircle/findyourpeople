@@ -1,4 +1,4 @@
-.hero_section{
+.heroSection{
     background: url('https://img.freepik.com/free-vector/gradient-galaxy-background_23-2148982723.jpg?w=996&t=st=1682266296~exp=1682266896~hmac=c0f652c6c255fc713ade650b62e36892e979bb965887acd5e2d63771e9996742') no-repeat;
     background-size: cover;
     background-position: inherit;
@@ -7,7 +7,7 @@
     display: flex;
 }
 
-.hero_wrap {
+.heroWrap {
     padding:0 0 0 2em;
     margin-top: 5em;
 }

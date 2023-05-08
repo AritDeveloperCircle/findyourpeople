@@ -2,8 +2,8 @@ import Link from "next/link";
 import styles from "./hero.module.css";
 function Hero() {
   return (
-    <section className={styles.hero_section}>
-      <div className={styles.hero_wrap}>
+    <section className={styles.heroSection}>
+      <div className={styles.heroWrap}>
         <h1>find your people</h1>
         <p>Find communities that interest you</p>
         <p>Are you a community manager?</p>
