@@ -9,10 +9,8 @@ import FooterBar from "@/components/common/FooterBar";
 
 
 export default function Home() {
-<<<<<<< HEAD
     
-=======
->>>>>>> origin
+
   return (
     <>
       <Head>
