@@ -23,8 +23,8 @@ function SearchBar({ placeholder, data }) {
         <div className="parent">
             <form>
                 <div>
-                    <div className="search-inputs">
-                    <input id="search-input-bar" type="text" placeholder= {placeholder} name='search' required onChange={handleFilter} />
+                    <div className="searchInputs">
+                    <input id="searchInputBar" type="text" placeholder= {placeholder} name='search' required onChange={handleFilter} />
                     <button type='submit'>
                     <Image
                         src="/search-glass.svg"
@@ -38,21 +38,17 @@ function SearchBar({ placeholder, data }) {
                 </div>
             </form>
             {filteredData.length != 0 && (
-                <div className="data-results">
+                <div className="dataResults">
                     {filteredData.slice(0, 14).map((community, index) => {
                         return (
-                            <div className="data-item" key={community.id}>
+                            <div className="dataItem" key={community.id}>
                                 <p>{community.name}</p>
-                            
                             </div>
                         );
                     })
                 }
                 </div>
-            )
-                
-            }
-            
+            )}
         </div>
     )
 }
