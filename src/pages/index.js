@@ -4,7 +4,6 @@ import styles from "@/styles/Home.module.css";
 import Listing from "@/components/landing/listing";
 import { listings } from "@/data/mockListings";
 import FooterBar from "@/components/common/FooterBar";
-import NavBar from "../common/NavBar";
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NavBar />
       <main className={styles.main}>
         <Hero />
         <section className={styles.listings_container}>
