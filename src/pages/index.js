@@ -1,15 +1,12 @@
 import Head from "next/head";
+import Hero from "@/components/landing/Hero";
 import styles from "@/styles/Home.module.css";
 import Listing from "@/components/landing/listing";
 import { listings } from "@/data/mockListings";
-import FooterBar from "../common/FooterBar";
+import FooterBar from "@/components/common/FooterBar";
 import NavBar from "../common/NavBar";
-import {Inter} from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-     
   return (
     <>
       <Head>
@@ -21,6 +18,7 @@ export default function Home() {
       <NavBar />
       <main className={styles.main}></main>
       <main className={styles.main}>
+        <Hero />
         <section className={styles.listings_container}>
           {listings.map((listing) => (
             <Listing data={listing} key={listing.id} />
