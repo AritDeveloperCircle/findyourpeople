@@ -15,13 +15,13 @@
 }
 
 /* ============= Card Body =============== */
-.card-body {
+.cardBody {
   padding: 2px 16px;
   text-align: center;
   margin: 2rem 0 2rem 0;
 }
 
-.cta-buttons {
+.ctaButtons {
   padding: 15px;
 }
 
