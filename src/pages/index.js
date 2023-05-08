@@ -4,6 +4,7 @@ import styles from "@/styles/Home.module.css";
 import Listing from "@/components/landing/listing";
 import { listings } from "@/data/mockListings";
 import FooterBar from "@/components/common/FooterBar";
+import NavBar from "../components/Header/NavBar";
 
 
 
@@ -20,6 +21,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <NavBar />
         <Hero />
         <section className={styles.listings_container}>
           {listings.map((listing) => (
