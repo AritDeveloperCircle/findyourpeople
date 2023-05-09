@@ -18,7 +18,7 @@ export default function Home() {
       <main className={styles.main}>
         <NavBar />
         <Hero />
-        <section className={styles.listings_container}>
+        <section className={styles.listingsContainer}>
           {listings.map((listing) => (
             <Listing data={listing} key={listing.id} />
           ))}
