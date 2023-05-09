@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import style from '@/styles/customizableavatar.module.css'
+import Image from "next/image";
+import style from "@/components/common/customavatar/customizableavatar.module.css";
 
 function CustomizableAvatar({ customClass, src, height, width, alt }) {
   return (
@@ -12,7 +12,7 @@ function CustomizableAvatar({ customClass, src, height, width, alt }) {
         alt={alt}
       />
     </div>
-  )
+  );
 }
 
-export default CustomizableAvatar
+export default CustomizableAvatar;
