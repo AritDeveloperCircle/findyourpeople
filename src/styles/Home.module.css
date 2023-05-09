@@ -1,17 +1,17 @@
-.listings_container {
-  padding: 1em;
+.listingsContainer {
+  padding: 16px;
   display: grid;
 }
 
 @media (min-width:40rem) {
-  .listings_container {
+  .listingsContainer {
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 1em;
   }
 }
 
 @media (min-width:60rem) {
-  .listings_container {
+  .listingsContainer {
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 1em;
   }
