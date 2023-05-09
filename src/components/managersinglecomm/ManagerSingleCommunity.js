@@ -1,17 +1,17 @@
-import Image from 'next/image'
-import styles from './managersinglecomm.module.css'
-import CustomizableButton from '../common/CustomizableButton'
+import Image from "next/image";
+import styles from "./managersinglecomm.module.css";
+import CustomizableButton from "../common/CustomizableButton";
 
-function ManagerCommunity({ customClass }) {
+function ManagerSingleCommunity({ customClass }) {
   return (
     <main className={styles.card}>
       <div className={styles.imgContainer}>
         <Image
-          src='/background.png'
+          src="/background.png"
           className={styles.img}
           height={100}
           width={100}
-          alt='community photo'
+          alt="community photo"
         />
       </div>
       <div className={styles.cardBody}>
@@ -19,13 +19,13 @@ function ManagerCommunity({ customClass }) {
           Community Name: <span>Approved</span>
         </p>
         <div className={styles.ctaButtons}>
-          <CustomizableButton customClass={styles.edit} text='Edit Page' />
-          <CustomizableButton customClass={styles.view} text='View Page' />
+          <CustomizableButton customClass={styles.edit} text="Edit Page" />
+          <CustomizableButton customClass={styles.view} text="View Page" />
         </div>
-        <CustomizableButton customClass={styles.delete} text='DELETE' />
+        <CustomizableButton customClass={styles.delete} text="DELETE" />
       </div>
     </main>
-  )
+  );
 }
 
-export default ManagerCommunity
+export default ManagerSingleCommunity;
