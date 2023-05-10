@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomizableAvatar from "./components/common/customavatar/CustomizableAvatar"
+import CustomizableAvatar from "../components/common/customavatar/CustomizableAvatar";
 
 function CustomizableAside({asideCustomClass, src, height, width, alt, headerText, paragraphText}) {
 
