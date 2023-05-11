@@ -1,0 +1,45 @@
+/* ============= Card CSS =============== */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 30%;
+  border-radius: 5px;
+  padding-bottom: 20px;
+}
+
+/* ============= Card Image =============== */
+
+.img {
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+}
+
+/* ============= Card Body =============== */
+.cardBody {
+  padding: 2px 16px;
+  text-align: center;
+  margin: 2rem 0 2rem 0;
+}
+
+.ctaButtons {
+  padding: 15px;
+}
+
+.edit,
+.view {
+  padding: 0.2rem 0.5rem;
+}
+
+.edit {
+  margin-right: 10px;
+}
+
+.view {
+  margin-left: 10px;
+}
+
+.delete {
+  width: 80%;
+  padding: 0.3rem;
+  margin-top: 4rem;
+}
