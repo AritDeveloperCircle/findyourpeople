@@ -5,12 +5,8 @@ import Listing from "@/components/landing/listing";
 import { listings } from "@/data/mockListings";
 import FooterBar from "@/components/common/FooterBar";
 import NavBar from "../components/Header/NavBar";
-<<<<<<< HEAD
 
 
-
-=======
->>>>>>> 8dc97bd1a56bb54601d005417cb65be4063822c8
 
 export default function Home() {
     
@@ -32,12 +28,9 @@ export default function Home() {
           ))}
         </section>
       </main>
-<<<<<<< HEAD
+
       < FooterBar />
       
-=======
-      <FooterBar />
->>>>>>> 8dc97bd1a56bb54601d005417cb65be4063822c8
     </>
   );
 }
