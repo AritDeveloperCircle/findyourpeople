@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./managersinglecomm.module.css";
 import CustomizableButton from "../common/CustomizableButton";
 
-function ManagerSingleCommunity({ customClass }) {
+function DashboardListing({ customClass }) {
   return (
     <main className={styles.card}>
       <div className={styles.imgContainer}>
