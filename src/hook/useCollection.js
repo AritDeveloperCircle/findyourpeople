@@ -10,10 +10,10 @@ export function useCollection() {
   useEffect(() => {
     setIsLoading(true);
     const queryManagersRef = collection(firebaseDb, "MANAGERS");
+    let communityArray = [];
     const querySnapshot = onSnapshot(
       queryManagersRef,
       (snap) => {
-        let communityArray = [];
         snap.forEach(async (manager) => {
           const communityRef = collection(
             firebaseDb,
@@ -24,20 +24,20 @@ export function useCollection() {
           const docSnap = await getDocs(communityRef);
           docSnap.forEach((community) => {
             communityArray.push({
-              coummunit: community.data(),
+              ...community.data(),
               community_id: community.id,
             });
           });
           setData(communityArray);
-          setError(null)
+          setIsLoading(false);
+          setError(null);
         });
       },
       (err) => {
         setError(err.message);
-        setIsLoading(false)
+        setIsLoading(false);
       }
     );
-    setIsLoading(false);
     return () => querySnapshot;
   }, []);
   return { data, error, isLoading };
