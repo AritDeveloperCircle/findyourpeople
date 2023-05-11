@@ -5,6 +5,7 @@ import CustomizableAvatar from "../common/customavatar/CustomizableAvatar"
 
 function CustomizableAside({asideCustomClass, src, height, width, alt, headerText, paragraphText}) {
 
+
     return (
             <div className={asideCustomClass}>
                 <CustomizableAvatar 
@@ -18,9 +19,9 @@ function CustomizableAside({asideCustomClass, src, height, width, alt, headerTex
                 <p>{headerText}</p>
 
                 
+
             </div>
-        
-        
+
     )
 
 }
