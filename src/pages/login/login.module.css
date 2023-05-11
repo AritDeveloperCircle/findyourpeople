@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    border: 2px solid black;
     
 }
 .asideContain{
@@ -10,7 +11,6 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background: #219ebc;
         min-height: 100vh;
 }
 .asideContain img{
@@ -36,7 +36,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #8ecae6;
     min-height: 100vh;
 }
 .loginImage{
