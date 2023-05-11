@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./managersinglecomm.module.css";
+import styles from "./dashboardlisting.module.css";
 import CustomizableButton from "../common/CustomizableButton";
 
 function DashboardListing({ customClass }) {
@@ -28,4 +28,4 @@ function DashboardListing({ customClass }) {
   );
 }
 
-export default ManagerSingleCommunity;
+export default DashboardListing;
