@@ -1,0 +1,40 @@
+.btn {
+  padding: 0.5em;
+}
+
+.managerDetailsWrapper {
+  background: rgb(246, 243, 243);
+  margin: 1em 0;
+  max-width: 450px;
+  height: 80vh;
+}
+
+.managerDetailsWrapper > h2 {
+  padding: 1.5em;
+  text-align: center;
+}
+
+.card {
+  max-width: 300px;
+  background: rgb(183, 181, 181);
+  margin: 0 auto;
+  padding: 3em 0em;
+  text-align: center;
+  line-height: 2.5;
+  color: white;
+}
+
+.editBtn {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.editBioForm {
+  width: 50%;
+  border: 0.1em solid #dbdbdb;
+  border-radius: 0.2em;
+  padding: 0.5em;
+  margin-top: 0.5em;
+}
