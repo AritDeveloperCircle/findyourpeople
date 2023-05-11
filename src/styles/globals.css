@@ -28,7 +28,10 @@ footer {
 .navItem a {
   text-decoration: none;
   color: grey;
+
 }
+
+
 
 .data-results {
   width: 200px;
@@ -41,3 +44,4 @@ footer {
   border: 2px solid #000;
   border-radius: 5px;
 }
+
