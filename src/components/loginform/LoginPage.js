@@ -1,11 +1,10 @@
-import CustomizableAside from "../customizableAside";
+import CustomizableAside from "../common/customizableAside";
 import CustomizableAvatar from "../common/customavatar/CustomizableAvatar";
 import LoginForm from "./LoginForm";
 import styles from "./loginpage.module.css";
 
 
 function LoginPage() {
-
     return(
         <div className= {styles.login}>
             {/* aside content */}
