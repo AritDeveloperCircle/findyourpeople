@@ -7,6 +7,7 @@
 }
 .asideContainer{
     background: #d9d9d9;
+    width: 400px;
     
 }
 .loginContainer{
@@ -23,10 +24,14 @@
     min-height: 100vh;
 }
 
-.asideContainer image,
-.loginImage{
-    margin-bottom: 5rem;
+.image {
+    margin: auto;
 }
+
+.loginImage{
+    margin-bottom: 4rem;
+}
+
 
 .asideContainer h2{
     margin-bottom: 1.6rem;

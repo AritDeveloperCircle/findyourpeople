@@ -11,7 +11,7 @@ function LoginPage() {
             {/* aside content */}
             <div className= {styles.asideContainer}>
                 <CustomizableAside
-                src='/image-placeholder.png'
+                src=  '/image-placeholder.png'
                 width={110}
                 height={110}
                 alt={"avatar"}
