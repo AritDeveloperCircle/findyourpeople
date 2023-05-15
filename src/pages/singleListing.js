@@ -3,7 +3,7 @@ import NavBar from "@/components/Header/NavBar";
 import CustomizableAvatar from "@/components/common/customavatar/CustomizableAvatar";
 import CustomizableButton from "@/components/common/CustomizableButton";
 import FooterBar from "@/components/common/FooterBar";
-import styles from "../styles/single-listing.module.css"
+import styles from "../styles/singleListing.module.css"
 
 
 function SingleListing(className, text) {
