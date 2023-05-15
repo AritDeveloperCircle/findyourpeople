@@ -10,21 +10,20 @@ export default function signup() {
     "Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet";
 
   return (
-    <main className="grid grid-cols-2 mt-10">
-      <section>
+    <main className="grid grid-cols-2 h-screen">
+      <section className="mt-12">
         <SignupFormContainer />
       </section>
-      <section className="bg-zinc-300">
-        <div className="text-center">
-          <CustomizableAside
-            height={AVATAR_HEIGHT}
-            width={AVATAR_WIDTH}
-            alt="Sign Up Logo"
-            src={photo}
-            headerText={header}
-            paragraphText={info}
-          />
-        </div>
+      <section className="bg-zinc-300 text-center pt-10">
+        <CustomizableAside
+          customClass=""
+          height={AVATAR_HEIGHT}
+          width={AVATAR_WIDTH}
+          alt="Sign Up Logo"
+          src={photo}
+          headerText={header}
+          paragraphText={info}
+        />
       </section>
     </main>
   );
