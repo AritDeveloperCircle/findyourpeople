@@ -13,7 +13,6 @@ function useAuthSignUp() {
       .then((userCredential) => {
         const user = userCredential.user;
         setAddUser(user);
-        console.log("user signed up", user);
       })
       .catch((error) => {
         const errorCode = error.code;
