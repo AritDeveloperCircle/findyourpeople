@@ -2,11 +2,13 @@ import Head from "next/head";
 import Hero from "@/components/landing/Hero";
 import styles from "@/styles/Home.module.css";
 import Listing from "@/components/landing/listing";
-import { listings } from "@/data/mockListings";
 import FooterBar from "@/components/common/FooterBar";
 import NavBar from "../components/Header/NavBar";
+import { useCollection } from "@/hook/useCollection";
 
 export default function Home() {
+  const {data,error,isLoading} = useCollection()
+
   return (
     <>
       <Head>
@@ -19,9 +21,12 @@ export default function Home() {
         <NavBar />
         <Hero />
         <section className={styles.listingsContainer}>
-          {listings.map((listing) => (
-            <Listing data={listing} key={listing.id} />
-          ))}
+          {isLoading && <>loading...</>}
+          {error && <>{error}</>}
+          {
+            data.map((listing) => (
+              <Listing data={listing} key={listing.community_id} />
+            ))}
         </section>
       </main>
       <FooterBar />
