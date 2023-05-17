@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function useAuthSignUp() {
   const [addUser, setAddUser] = useState("");
-
+  const [firebaseError, setFirebaseError] = useState("");
   const signup = ({ name, email, password }) => {
     createUserWithEmailAndPassword(firebaseAuth, email, password)
       .then((userCredential) => {
@@ -15,12 +15,11 @@ function useAuthSignUp() {
         setAddUser(user);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        setFirebaseError(error.message);
       });
   };
 
-  return { addUser, signup };
+  return { addUser, signup, firebaseError };
 }
 
 export { useAuthSignUp };

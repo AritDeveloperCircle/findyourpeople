@@ -11,7 +11,7 @@ function Form() {
     password: "",
   });
 
-  const { addUser, signup } = useAuthSignUp();
+  const { addUser, signup, firebaseError } = useAuthSignUp();
   const [error, setError] = useState({});
 
   const handleChange = (e) => {
@@ -77,6 +77,9 @@ function Form() {
           />
           {error.email && (
             <span className="text-red-800 text-xs"> {error.email} </span>
+          )}
+          {firebaseError && (
+            <span className="text-red-800 text-xs">User already exists </span>
           )}
         </div>
         {/* password */}

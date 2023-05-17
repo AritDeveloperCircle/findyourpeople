@@ -31,6 +31,19 @@ function regexValidation(user) {
       "Password must contain one digit, one lowercase letter, one uppercase letter, and one special character";
   }
 
+  // Check if user exists
+  // try {
+  //   const signInMethods = await fetchSignInMethodsForEmail(
+  //     firebaseAuth,
+  //     user.email
+  //   );
+  //   if (signInMethods.length > 0) {
+  //     errors.email = "User already exists";
+  //   }
+  // } catch (error) {
+  //   console.error("Error checking user", error);
+  // }
+
   return errors;
 }
 export default regexValidation;
