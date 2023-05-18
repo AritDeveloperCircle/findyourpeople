@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Urbanist", sans-serif;
   width: 100%;
   min-height: 100vh;
   font-size: 16px;
@@ -28,10 +28,7 @@ footer {
 .navItem a {
   text-decoration: none;
   color: grey;
-
 }
-
-
 
 .data-results {
   width: 200px;
@@ -44,4 +41,3 @@ footer {
   border: 2px solid #000;
   border-radius: 5px;
 }
-
