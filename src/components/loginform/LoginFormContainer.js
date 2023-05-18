@@ -2,7 +2,6 @@ import Link from "next/link";
 import LoginForm from "./LoginForm";
 import styles from "./logincontainer.module.css"
 
-
 function LoginFormContainer() {
     return(
         <main>
@@ -14,14 +13,8 @@ function LoginFormContainer() {
             <div div className="text-center mt-4">
                 <p>Dont have an account? <Link href="/">SignUp</Link></p>
             </div>
-        </main>
-        
-                
-
-
-        
+        </main>  
     )
 }
 
 export default LoginFormContainer;
-

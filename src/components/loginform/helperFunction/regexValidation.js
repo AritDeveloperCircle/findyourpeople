@@ -25,5 +25,3 @@ function regexValidation(user) {
   }
 
   export default regexValidation;
-
-  

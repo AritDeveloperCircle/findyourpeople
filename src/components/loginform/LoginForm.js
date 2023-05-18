@@ -4,7 +4,6 @@ import styles from "./loginform.module.css";
 import regexValidation from "./helperFunction/regexValidation";
 import { useAuthLogIn } from "@/composables/authLogIn";
 
-
 function LoginForm() {
 
     const [user, setUser] = useState({
@@ -34,7 +33,6 @@ function LoginForm() {
         setUser({ email: "", password: "" });
       };
 
-    
     return (
       <form onSubmit={handleSubmit} className= {styles.form}>
 
@@ -91,9 +89,4 @@ function LoginForm() {
     );
   }
 
-
-  
 export default LoginForm;
-
-
-
