@@ -1,54 +1,39 @@
 import { useState } from "react";
 import CustomizableButton from "../common/CustomizableButton";
-import styles from "./loginform.module.css" 
+import styles from "./loginform.module.css"; 
+import regexValidation from "./helperFunction/regexValidation";
+import { useAuthLogIn } from "@/composables/authLogIn";
+
 
 function LoginForm() {
 
-    const [formData, setFormData] = useState({
+    const [user, setUser] = useState({
         email: '',
         password: '',
       });
-      const [errors, setErrors] = useState({});
+
+      const { addUser, firebaseError, LogIn } = useAuthLogIn();
+      const [error, setError] = useState({});
     
       const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-          ...formData,
-          [name]: value,
-        });
+        setUser({ ...user, [e.target.name]: e.target.value.trim()})
       };
-    
-      const validateForm = () => {
-        const errors = {};
-        if (!formData.email) {
-          errors.email = 'Email is required';
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-          errors.email = 'Invalid email address';
-        }
-        if (!formData.password) {
-          errors.password = 'Password is required';
-        }
-        setErrors(errors);
-        return Object.keys(errors).length === 0;
-      };
-    
+
       const handleSubmit = (e) => {
         e.preventDefault();
-        if (validateForm()) {
-          // submit form data
-          console.log(formData);
-          // reset form
-          resetForm();
+        const errors = regexValidation(user);
+        if (Object.keys(errors).length === 0){
+          LogIn(user);
+          resetForm()
+        }else {
+          setError(errors)
         }
-      };
-    
+      }
+        
       const resetForm = () => {
-        setFormData({
-          email: '',
-          password: '',
-        });
-        setErrors({});
+        setUser({ email: "", password: "" });
       };
+
     
     return (
       <form onSubmit={handleSubmit} className= {styles.form}>
@@ -61,10 +46,17 @@ function LoginForm() {
           type="email"
           id="email"
           name="email"
-          value={formData.email}
+          value={user.email}
           onChange={handleChange}
+          placeholder="Enter your email"
           required
         />
+        {firebaseError && (
+            <span className="text-red-800 text-xs">Wrong Email</span>
+        )}
+        {error.email && (
+            <span className="text-red-800 text-xs"> {error.email} </span>
+        )}
         </div>
 
         {/* password */}
@@ -75,24 +67,33 @@ function LoginForm() {
           type="password"
           id="password"
           name="password"
-          value={formData.password}
+          value={user.password}
           onChange={handleChange}
-          minLength={20}
-          maxLength={6}
+          placeholder="**********"
           required
         />
+        {firebaseError && (
+            <span className="text-red-800 text-xs">Wrong Password</span>
+        )}
+        {error.password && (
+            <span className="text-red-800 text-xs"> {error.password} </span>
+        )}
         </div>
-        {errors.password && <span>{errors.password}</span>}
-
+        
         {/* button */}
         <CustomizableButton
         customClass={styles.btn}
-        text= "LOGIN"
+        text="LOGIN"
          />
          <p className= {styles.que}>Forgotten Password?</p>
         
       </form>
     );
   }
+
+
   
-  export default LoginForm;
+export default LoginForm;
+
+
+
