@@ -7,16 +7,18 @@ import ReusableNavLink from '../common/ReusableNavLink';
 export default function NavBar() {
     return (
         <div class=" relative flex items-center justify-evenly w-full text-lg py-4 px-24">
-            <Image
-                src="/LOGO.png"
-                alt="Find Your People Tech Logo"
-                className={styles.vercelLogo}
-                width={80}
-                height={28}
-                priority
-              />
+            <Link href="/">
+                <Image
+                    src="/LOGO.png"
+                    alt="Find Your People Tech Logo"
+                    className={styles.vercelLogo}
+                    width={80}
+                    height={28}
+                    priority
+                />
+            </Link>
             <div class="flex items-center justify-between gap-10">
-                <Link href="./index.js" class="text-slate-700 hover:text-blue-500 cursor-pointer">Home</Link>
+                <Link href="/" class="text-slate-700 hover:text-blue-500 cursor-pointer">Home</Link>
                 <Link href="#" class="text-slate-700 text-base hover:text-blue-500 cursor-pointer">About Us</Link>
                 <Link href="#" class="text-slate-700 text-base hover:text-blue-500 cursor-pointer">Contact</Link>
                 <form class="flex items-center border-2 border-solid border-gray-300 rounded-xl border-r-0" role="search">
