@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CustomizableButton from "../common/CustomizableButton";
 import styles from "./loginform.module.css"; 
-import regexValidation from "./helperFunction/regexValidation";
+import regexValidation from "../signupform/helperFunctions/regexValidation";
 import { useAuthLogIn } from "@/composables/authLogIn";
 
 function LoginForm() {
