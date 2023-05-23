@@ -1,110 +1,114 @@
-import { useState } from 'react'
-import CustomizableButton from '../common/CustomizableButton'
-import styles from './signupform.module.css'
+import { useState } from "react";
+import CustomizableButton from "../common/CustomizableButton";
+import styles from "./signupform.module.css";
+import { useAuthSignUp } from "@/composables/authSignUp";
+import regexValidation from "./helperFunctions/regexValidation";
 
 function Form() {
   const [user, setUser] = useState({
-    name: '',
-    email: '',
-    password: '',
-  })
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const { addUser, signup, firebaseError } = useAuthSignUp();
+  const [error, setError] = useState({});
+
   const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value })
-  }
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    if (validateForm()) {
-      console.log('Form submitted sucessfully')
-      // Will direct the user to the Login Form
+    e.preventDefault();
+
+    const errors = regexValidation(user);
+
+    if (Object.keys(errors).length === 0) {
+      signup(user);
+
       setTimeout(() => {
-        resetForm()
-      }, 1000)
+        resetForm();
+      }, 1000);
+    } else {
+      setError(errors);
     }
-  }
+  };
 
   const resetForm = () => {
-    setUser({ name: '', email: '', password: '' })
-  }
-
-  const validateForm = () => {
-    if (!user.name || !user.email || !user.password) {
-      alert('please fill out all required fields.')
-      return false
-    }
-
-    const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
-    if (!user.email.match(emailPattern)) {
-      alert('please enter a valid email address')
-      return false
-    }
-
-    return true
-  }
+    setUser({ name: "", email: "", password: "" });
+  };
 
   return (
     <div>
       <form className={styles.form} onSubmit={handleSubmit}>
         {/* name */}
         <div className={styles.formRow}>
-          <label htmlFor='name' className={styles.formLabel}>
+          <label htmlFor="name" className={styles.formLabel}>
             Name<span>*</span>
           </label>
           <input
-            type='text'
+            type="text"
             className={styles.formInput}
-            id='name'
-            name='name'
-            aria-label='name'
+            id="name"
+            name="name"
+            aria-label="name"
             value={user.name}
             onChange={handleChange}
             required
-            minLength={2}
-            maxLength={50}
           />
+          {error.name && (
+            <span className="text-red-800 text-xs"> {error.name} </span>
+          )}
         </div>
         {/* email */}
         <div className={styles.formRow}>
-          <label htmlFor='email' className={styles.formLabel}>
+          <label htmlFor="email" className={styles.formLabel}>
             Email<span>*</span>
           </label>
           <input
-            type='email'
+            type="email"
             className={styles.formInput}
-            id='email'
-            name='email'
-            aria-label='email'
+            id="email"
+            name="email"
+            aria-label="email"
             value={user.email}
             onChange={handleChange}
             required
           />
+          {error.email && (
+            <span className="text-red-800 text-xs"> {error.email} </span>
+          )}
+          {firebaseError && (
+            <span className="text-red-800 text-xs">User already exists </span>
+          )}
         </div>
         {/* password */}
         <div className={styles.formRow}>
-          <label htmlFor='password' className={styles.formLabel}>
+          <label htmlFor="password" className={styles.formLabel}>
             Password<span>*</span>
           </label>
           <input
-            type='password'
+            type="password"
             className={styles.formInput}
-            id='password'
-            name='password'
-            aria-label='password'
+            id="password"
+            name="password"
+            aria-label="password"
             value={user.password}
             onChange={handleChange}
             required
-            minLength={6}
-            maxLength={20}
           />
+          {error.password && (
+            <span className="text-red-800 text-xs"> {error.password} </span>
+          )}
         </div>
         <CustomizableButton
           customClass={styles.btn}
-          text='SIGN UP'
-          aria-label='Sign up button'
+          text="SIGN UP"
+          aria-label="Sign up button"
         />
       </form>
     </div>
-  )
+  );
 }
 
-export default Form
+export default Form;
