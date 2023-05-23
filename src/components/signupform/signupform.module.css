@@ -4,6 +4,7 @@
   cursor: pointer;
   color: #fff;
   background: #645cff;
+  margin-top: 20px;
   border: transparent;
   border-radius: 0.25rem;
   letter-spacing: 1px;
@@ -18,7 +19,7 @@
 /* form */
 
 .form {
-  width: 90vw;
+  width: 80%;
   max-width: 600px;
   background: #fff;
   border-radius: 0.25rem;
