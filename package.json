@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/font": "^13.4.2",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "firebase": "^9.20.0",

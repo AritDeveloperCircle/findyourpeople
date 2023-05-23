@@ -9,6 +9,8 @@ export default function signup() {
   const info = "Let's get you started with joining our community";
 
   return (
+    <main className="grid grid-cols-2 h-screen">
+      <section className="mt-12">
     <main className="grid grid-cols-2 min-h-screen">
       <section>
         <SignupFormContainer />

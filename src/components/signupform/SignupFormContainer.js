@@ -11,10 +11,7 @@ function SignupFormContainer() {
       <SignupForm />
       <div className="text-center mt-4">
         <p>
-          Have an account?
-          <a className="text-sky-600 ml-1" href="#">
-            Login
-          </a>
+          Have an account? <Link href="/">Login</Link>
         </p>
       </div>
     </main>

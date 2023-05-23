@@ -1,6 +1,8 @@
 import { useState } from "react";
 import CustomizableButton from "../common/CustomizableButton";
 import styles from "./signupform.module.css";
+import { useAuthSignUp } from "@/composables/authSignUp";
+import regexValidation from "./helperFunctions/regexValidation";
 
 function Form() {
   const [user, setUser] = useState({
@@ -8,38 +10,32 @@ function Form() {
     email: "",
     password: "",
   });
+
+  const { addUser, signup, firebaseError } = useAuthSignUp();
+  const [error, setError] = useState({});
+
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      console.log("Form submitted sucessfully");
-      // Will direct the user to the Login Form
+
+    const errors = regexValidation(user);
+
+    if (Object.keys(errors).length === 0) {
+      signup(user);
+
       setTimeout(() => {
         resetForm();
       }, 1000);
+    } else {
+      setError(errors);
     }
   };
 
   const resetForm = () => {
     setUser({ name: "", email: "", password: "" });
-  };
-
-  const validateForm = () => {
-    if (!user.name || !user.email || !user.password) {
-      alert("please fill out all required fields.");
-      return false;
-    }
-
-    const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-    if (!user.email.match(emailPattern)) {
-      alert("please enter a valid email address");
-      return false;
-    }
-
-    return true;
   };
 
   return (
@@ -48,7 +44,7 @@ function Form() {
         {/* name */}
         <div className={styles.formRow}>
           <label htmlFor="name" className={styles.formLabel}>
-            Name
+            Name<span>*</span>
           </label>
           <input
             type="text"
@@ -60,11 +56,14 @@ function Form() {
             onChange={handleChange}
             required
           />
+          {error.name && (
+            <span className="text-red-800 text-xs"> {error.name} </span>
+          )}
         </div>
         {/* email */}
         <div className={styles.formRow}>
           <label htmlFor="email" className={styles.formLabel}>
-            Email
+            Email<span>*</span>
           </label>
           <input
             type="email"
@@ -76,11 +75,17 @@ function Form() {
             onChange={handleChange}
             required
           />
+          {error.email && (
+            <span className="text-red-800 text-xs"> {error.email} </span>
+          )}
+          {firebaseError && (
+            <span className="text-red-800 text-xs">User already exists </span>
+          )}
         </div>
         {/* password */}
         <div className={styles.formRow}>
           <label htmlFor="password" className={styles.formLabel}>
-            Password
+            Password<span>*</span>
           </label>
           <input
             type="password"
@@ -92,6 +97,9 @@ function Form() {
             onChange={handleChange}
             required
           />
+          {error.password && (
+            <span className="text-red-800 text-xs"> {error.password} </span>
+          )}
         </div>
         <CustomizableButton
           customClass={styles.btn}
