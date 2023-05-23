@@ -1,7 +1,6 @@
 function regexValidation(user) {
   const errors = {};
 
-  // Validate Name
   const namePattern = /^[a-zA-Z]{2,50}(?:\s+[a-zA-Z]{2,50})+$/;
   if (!user.name) {
     errors.name = "Please enter your name";
@@ -11,7 +10,6 @@ function regexValidation(user) {
     errors.name = "Please enter a valid name";
   }
 
-  // Valid Email
   const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   if (!user.email) {
     errors.email = "Please enter your email address";
@@ -19,7 +17,6 @@ function regexValidation(user) {
     errors.email = "Please enter a valid email address";
   }
 
-  // Valid Password
   const passwordPattern =
     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/;
   if (!user.password) {
@@ -30,20 +27,6 @@ function regexValidation(user) {
     errors.password =
       "Password must contain one digit, one lowercase letter, one uppercase letter, and one special character";
   }
-
-  // Check if user exists
-  // try {
-  //   const signInMethods = await fetchSignInMethodsForEmail(
-  //     firebaseAuth,
-  //     user.email
-  //   );
-  //   if (signInMethods.length > 0) {
-  //     errors.email = "User already exists";
-  //   }
-  // } catch (error) {
-  //   console.error("Error checking user", error);
-  // }
-
   return errors;
 }
 export default regexValidation;
