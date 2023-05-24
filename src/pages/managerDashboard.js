@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-// import Image from 'next/image';
+import Image from 'next/image';
 import NavBar from '@/components/Header/NavBar';
 import CustomizableAvatar from '@/components/common/customavatar/CustomizableAvatar';
 import CustomizableButton from '@/components/common/CustomizableButton';
@@ -20,12 +20,12 @@ function managerDashboard () {
                     <h3>Edit Profile</h3>
                 </div>
                 <div>
-                    {/* <Image
+                    <Image
                         src="./profile/manager-dashboard-character.png"
                         alt="manager character"
                         width={80}
                         height={28}
-                    /> */}
+                    />
                 </div>
             </div>
 
