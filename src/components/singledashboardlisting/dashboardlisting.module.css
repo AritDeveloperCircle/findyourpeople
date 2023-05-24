@@ -5,6 +5,7 @@
   width: 30%;
   border-radius: 5px;
   padding-bottom: 20px;
+  background: white;
 }
 
 /* ============= Card Image =============== */
@@ -28,14 +29,21 @@
 .edit,
 .view {
   padding: 0.2rem 0.5rem;
+  font-weight: 700;
 }
 
 .edit {
   margin-right: 10px;
+  background: #2D65B4;
+  border-radius: 5px;
+  color: white;
 }
 
 .view {
   margin-left: 10px;
+  border: solid 2px #2D65B4;
+  border-radius: 5px;
+  color: #2D65B4;
 }
 
 .delete {
