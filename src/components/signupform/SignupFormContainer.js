@@ -8,7 +8,7 @@ function SignupFormContainer() {
         <h2 className="text-grey-dark font-bold text-4xl tracking-normal">
           Create an account
         </h2>
-        <h4 className="text-grey-dark tracking-wider text-sm">
+        <h4 className="text-grey-dark tracking-wider text-sm opacity-80 mb-4">
           Lets get started with <br /> creating your community
         </h4>
       </div>

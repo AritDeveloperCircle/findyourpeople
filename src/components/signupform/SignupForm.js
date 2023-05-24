@@ -40,11 +40,11 @@ function Form() {
   return (
     <div>
       <form
-        className="container w-full max-w-lg bg-white rounded-md py-5 px-10 mt-12 mx-auto"
+        className="container w-full max-w-lg bg-white rounded-md py-5 px-10 mx-auto"
         onSubmit={handleSubmit}
       >
         {/* name */}
-        <div className="mb-4">
+        <div className="my-6">
           <label
             htmlFor="name"
             className="block text-sm mb-2 capitalize tracking-wide font-medium"
@@ -53,7 +53,7 @@ function Form() {
           </label>
           <input
             type="text"
-            className="w-full py-3.5 px-2 rounded-lg bg-white border border-gray-300"
+            className="w-full py-4 px-2 rounded-lg bg-white border border-gray-300"
             id="name"
             name="name"
             aria-label="name"
@@ -67,7 +67,7 @@ function Form() {
           )}
         </div>
         {/* email */}
-        <div className="mb-4">
+        <div className="mb-6">
           <label
             htmlFor="email"
             className="block text-sm mb-2 capitalize tracking-wide font-medium"
@@ -76,7 +76,7 @@ function Form() {
           </label>
           <input
             type="email"
-            className="w-full py-3.5 px-2 rounded-lg bg-white border border-gray-300"
+            className="w-full py-4 px-2 rounded-lg bg-white border border-gray-300"
             id="email"
             name="email"
             aria-label="email"
@@ -102,7 +102,7 @@ function Form() {
           </label>
           <input
             type="password"
-            className="w-full py-3.5 px-2 rounded-lg bg-white border border-gray-300"
+            className="w-full py-4 px-2 rounded-lg bg-white border border-gray-300"
             id="password"
             name="password"
             aria-label="password"
@@ -117,7 +117,7 @@ function Form() {
         </div>
         <div className="mb-2">
           <input type="checkbox" name="acceptTerms" id="acceptTerms" />
-          <label htmlFor="acceptTerms" className="ml-2">
+          <label htmlFor="acceptTerms" className="ml-2 text-base">
             I accept the <span className="text-primary">Terms of Use</span> &
             <span className="text-primary"> Privacy Policy</span>
           </label>

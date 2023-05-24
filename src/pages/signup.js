@@ -2,8 +2,8 @@ import CustomizableAside from "@/components/common/customizableAside";
 import SignupFormContainer from "@/components/signupform/SignupFormContainer";
 
 export default function signup() {
-  const AVATAR_HEIGHT = 350;
-  const AVATAR_WIDTH = 350;
+  const AVATAR_HEIGHT = 400;
+  const AVATAR_WIDTH = 400;
   const photo = "/Signupimage.png";
   const header = "You are just a step away from an";
   const span = " amazing experience!";
@@ -14,14 +14,14 @@ export default function signup() {
       <section>
         <SignupFormContainer />
       </section>
-      <section className="bg-cover bg-[url('/AsideBackground.png')] flex justify-center">
+      <section className="bg-cover  bg-[url('/AsideBackground.png')] flex justify-center">
         <div className="flex flex-col items-center justify-center px-14">
           <CustomizableAside
             height={AVATAR_HEIGHT}
             width={AVATAR_WIDTH}
             alt="Sign Up Logo"
             src={photo}
-            avatarCustomClass="flex justify-center"
+            avatarCustomClass="flex justify-center mb-28"
             headerText={header}
             spanText={span}
             paragraphText={info}
