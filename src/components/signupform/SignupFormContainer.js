@@ -18,7 +18,7 @@ function SignupFormContainer() {
         <p className="text-gray-500 text-md">
           Have an account?
           <Link href="/">
-            <span className="text-blue-500 ml-2 font-semibold">Sign in</span>
+            <span className="text-accent-blue ml-2 font-semibold">Sign in</span>
           </Link>
         </p>
       </div>
