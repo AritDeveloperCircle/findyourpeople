@@ -8,9 +8,9 @@ function FooterBar() {
   ];
 
   return (
-    <footer>
-      <span>Logo</span>
-      <section className="navItem">
+    <footer className="bg-blue-1000 ">
+      <span className="text-blue-500 uppercase text-s mt-6">Logo</span>
+      <section className="navItem mt-6 flex flex-row space-x-6 space-x">
         {navList.map(({ text, href }) => (
           <ReusableNavLink key={href} text={text} href={href} />
         ))}

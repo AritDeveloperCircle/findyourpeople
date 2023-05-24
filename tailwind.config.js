@@ -6,8 +6,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'blue': {
+          1000: '#02102E',
+          
+        },
       fontFamily: {
         sans: ["var(--font-urbanist)"],
+        },
       },
     },
   },
