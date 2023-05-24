@@ -1,6 +1,5 @@
 import { useState } from "react";
 import CustomizableButton from "../common/CustomizableButton";
-import styles from "./signupform.module.css";
 import { useAuthSignUp } from "@/composables/authSignUp";
 import regexValidation from "./helperFunctions/regexValidation";
 
@@ -40,20 +39,27 @@ function Form() {
 
   return (
     <div>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form
+        className="container w-full max-w-md bg-white rounded-md py-8 px-10 mt-12 mx-auto"
+        onSubmit={handleSubmit}
+      >
         {/* name */}
-        <div className={styles.formRow}>
-          <label htmlFor="name" className={styles.formLabel}>
-            Name<span>*</span>
+        <div className="mb-4">
+          <label
+            htmlFor="name"
+            className="block text-sm mb-2 capitalize tracking-wide font-medium"
+          >
+            Name
           </label>
           <input
             type="text"
-            className={styles.formInput}
+            className="w-full py-3.5 px-2 rounded-lg bg-white border border-gray-300"
             id="name"
             name="name"
             aria-label="name"
             value={user.name}
             onChange={handleChange}
+            placeholder="Enter your full name"
             required
           />
           {error.name && (
@@ -61,18 +67,22 @@ function Form() {
           )}
         </div>
         {/* email */}
-        <div className={styles.formRow}>
-          <label htmlFor="email" className={styles.formLabel}>
-            Email<span>*</span>
+        <div className="mb-4">
+          <label
+            htmlFor="email"
+            className="block text-sm mb-2 capitalize tracking-wide font-medium"
+          >
+            Email Address
           </label>
           <input
             type="email"
-            className={styles.formInput}
+            className="w-full py-3.5 px-2 rounded-lg bg-white border border-gray-300"
             id="email"
             name="email"
             aria-label="email"
             value={user.email}
             onChange={handleChange}
+            placeholder="Enter your email"
             required
           />
           {error.email && (
@@ -83,18 +93,22 @@ function Form() {
           )}
         </div>
         {/* password */}
-        <div className={styles.formRow}>
-          <label htmlFor="password" className={styles.formLabel}>
-            Password<span>*</span>
+        <div className="mb-4">
+          <label
+            htmlFor="password"
+            className="block text-sm mb-2 capitalize tracking-wide font-medium"
+          >
+            Password
           </label>
           <input
             type="password"
-            className={styles.formInput}
+            className="w-full py-3.5 px-2 rounded-lg bg-white border border-gray-300"
             id="password"
             name="password"
             aria-label="password"
             value={user.password}
             onChange={handleChange}
+            placeholder="*********"
             required
           />
           {error.password && (
@@ -102,8 +116,8 @@ function Form() {
           )}
         </div>
         <CustomizableButton
-          customClass={styles.btn}
-          text="SIGN UP"
+          customClass="cursor-pointer text-white bg-gradient-to-r from-gradient-lite-blue to-gradient-dark-blue mt-5 border-transparent rounded-lg tracking-wider py-3 px-2 shadow-md transition-all duration-300 ease-in-out  inline-block w-full"
+          text="Sign Up"
           aria-label="Sign up button"
         />
       </form>

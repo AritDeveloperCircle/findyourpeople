@@ -9,6 +9,10 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-urbanist)"],
       },
+      colors: {
+        "gradient-dark-blue": "#182978",
+        "gradient-lite-blue": "#2D65B4",
+      },
     },
   },
   plugins: [],
