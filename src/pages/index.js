@@ -5,6 +5,7 @@ import Listing from "@/components/landing/listing";
 import FooterBar from "@/components/common/FooterBar";
 import NavBar from "../components/Header/NavBar";
 import { useCollection } from "@/hook/useCollection";
+import DashboardListing from "@/components/singledashboardlisting/DashboardListing";
 
 export default function Home() {
   const {data,error,isLoading} = useCollection()
