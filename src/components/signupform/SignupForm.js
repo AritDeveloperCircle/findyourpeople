@@ -40,7 +40,7 @@ function Form() {
   return (
     <div>
       <form
-        className="container w-full max-w-md bg-white rounded-md py-8 px-10 mt-12 mx-auto"
+        className="container w-full max-w-lg bg-white rounded-md py-5 px-10 mt-12 mx-auto"
         onSubmit={handleSubmit}
       >
         {/* name */}
@@ -114,6 +114,13 @@ function Form() {
           {error.password && (
             <span className="text-red-800 text-xs"> {error.password} </span>
           )}
+        </div>
+        <div className="mb-2">
+          <input type="checkbox" name="acceptTerms" id="acceptTerms" />
+          <label htmlFor="acceptTerms" className="ml-2">
+            I accept the <span className="text-primary">Terms of Use</span> &
+            <span className="text-primary"> Privacy Policy</span>
+          </label>
         </div>
         <CustomizableButton
           customClass="cursor-pointer text-white bg-gradient-to-r from-gradient-lite-blue to-gradient-dark-blue mt-5 border-transparent rounded-lg tracking-wider py-3 px-2 shadow-md transition-all duration-300 ease-in-out  inline-block w-full"
