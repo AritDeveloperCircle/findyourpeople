@@ -2,28 +2,34 @@ import CustomizableAside from "@/components/common/customizableAside";
 import SignupFormContainer from "@/components/signupform/SignupFormContainer";
 
 export default function signup() {
-  const AVATAR_HEIGHT = 100;
-  const AVATAR_WIDTH = 100;
-  const photo = "/image-placeholder.png";
-  const header = "Lorem ipsum dolor sit amet";
-  const info =
-    "Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet";
+  const AVATAR_HEIGHT = 400;
+  const AVATAR_WIDTH = 400;
+  const photo = "/Signupimage.png";
+  const header = "You are just a step away from an";
+  const span = " amazing experience!";
+  const info = "Let's get you started with joining our community";
 
   return (
     <main className="grid grid-cols-2 h-screen">
-      <section className="mt-12">
+      <section>
         <SignupFormContainer />
       </section>
-      <section className="bg-zinc-300 text-center pt-10">
-        <CustomizableAside
-          customClass=""
-          height={AVATAR_HEIGHT}
-          width={AVATAR_WIDTH}
-          alt="Sign Up Logo"
-          src={photo}
-          headerText={header}
-          paragraphText={info}
-        />
+      <section className="bg-cover  bg-[url('/AsideBackground.png')] flex justify-center">
+        <div className="flex flex-col items-center justify-center px-14">
+          <CustomizableAside
+            height={AVATAR_HEIGHT}
+            width={AVATAR_WIDTH}
+            alt="Sign Up Logo"
+            src={photo}
+            avatarCustomClass="flex justify-center mb-28"
+            headerText={header}
+            spanText={span}
+            paragraphText={info}
+            headerClassName="font-semibold text-5xl leading-15 tracking-wide text-white"
+            spanClassName="font-semibold text-5xl leading-15 tracking-wide text-accent-blue"
+            paragraphClassName="text-white text-base tracking-wider mt-2"
+          />
+        </div>
       </section>
     </main>
   );
