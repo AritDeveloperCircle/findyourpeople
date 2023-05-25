@@ -6,8 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
       fontFamily: {
         sans: ["var(--font-urbanist)"],
+        },
       },
       colors: {
         "primary-lite": "#E8EDF6",
