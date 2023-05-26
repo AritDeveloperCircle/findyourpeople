@@ -3,7 +3,7 @@ import SignupForm from "./SignupForm";
 
 function SignupFormContainer() {
   return (
-    <main className="mt-24 h-screen">
+    <main>
       <div className="text-center ">
         <h2 className="text-grey-dark font-bold text-4xl tracking-normal">
           Create an account
