@@ -1,4 +1,4 @@
-/* buttons */
+/* button */
 
 .btn {
   cursor: pointer;
@@ -17,7 +17,6 @@
 }
 
 /* form */
-
 .form {
   width: 80%;
   max-width: 600px;
@@ -43,11 +42,10 @@
   background: #f8fafc;
   border: 1px solid #e2e8f0;
 }
-
 .formRow {
   margin-bottom: 1rem;
 }
-
 .formTextarea {
   height: 7rem;
 }
+
