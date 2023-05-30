@@ -15,7 +15,7 @@ export default function signup() {
         <SignupFormContainer />
       </section>
       <section className="hidden  md:bg-cover  md:bg-[url('/AsideBackground.png')] md:flex lg:justify-center">
-        <div className="flex flex-col max-w-md items-center justify-center">
+        <div className="flex flex-col max-w-sm items-center justify-center">
           <CustomizableAside
             height={AVATAR_HEIGHT}
             width={AVATAR_WIDTH}
@@ -26,8 +26,8 @@ export default function signup() {
             headerText={header}
             spanText={span}
             paragraphText={info}
-            headerClassName="font-semibold text-3xl text-left leading-10  text-white"
-            spanClassName="font-semibold text-3xl leading-15 tracking-wide text-accent-blue"
+            headerClassName="font-semibold text-4xl text-left leading-10 text-white"
+            spanClassName="font-semibold block text-4xl leading-15  text-accent-blue"
             paragraphClassName="text-white text-base text-left self-start tracking-wider mt-2"
           />
         </div>
