@@ -9,16 +9,15 @@ export default function NavBar() {
     const navList = [
         { text: "About", href: "/about" },
         { text: "Contact", href: "/contact" },
-        { text: "Terms of use", href: "/terms of use" },
       ];
 
     return (
-        <div className=" relative flex items-center justify-evenly w-full text-lg py-4 px-24">
+        <div className=" relative flex items-center justify-evenly place-content-center sm:text-left md:flex py-4 px-24 lg:flex-row flex-col">
             <Link href="/">
                 <Image
                     src="/LOGO.png"
                     alt="Find Your People Tech Logo"
-                    className={styles.vercelLogo}
+                    className="sm:h-full"
                     width={80}
                     height={28}
                     priority
@@ -31,11 +30,10 @@ export default function NavBar() {
             </ul>
 
                 <form className="flex items-center border-2 border-solid border-gray-300 rounded-xl border-r-0" role="search">
-                    <div className="flex gap-3 px-3">
+                    <div className="center flex px-3 min-w-fit">
                         <Image
                             src="/search-glass.svg"
                             alt="Search Image"
-                            className={styles.searchImage}
                             width={20}
                             height={20}
                         />
