@@ -3,24 +3,24 @@ import Image from 'next/image';
 import styles from "./hero.module.css";
 function Hero() {
   return (
-    <section className="bg-white text-center ">
-      <div className="flex flex-row justify-center items-center gap-20 px-96 py-36 md:text-left">
-        <div>
+    <section className="bg-white">
+      <div className="flex flex-row items-center gap-20 px-96 py-36 sm:text-left md:text-left ">
+        <div className="">
           <Image 
             src="/arrow.png"
-            className="pt-15 sm:invisible lg:visible"
+            className="pt-44 overflow sm:overflow-hidden lg:visible"
             height={100}
             width={150}
             alt="looping arrow pointing downwards"
           />
         </div>
-        <div className="flex flex-col gap-12 justify-center">
-          <div className="text-6xl">
+        <div className="flex flex-col items-center gap-12 justify-center">
+          <div className="text-6xl text-center">
             <h1>Join the <span className="text-primary bold">Tech Community</span>and get to discover people from all around the world!</h1>
           </div>
-          <p className="px-44 text-xl md:px-2 overflow-hidden md:visible">Get to find different techies across the globe, build connections, interactions and networks by joining the community of developers and designers.</p>
-          <div>
-            <Link href="/register" className="bg-primary rounded-lg text-white text-2xl px-10 py-3">
+          <p className="px-44 text-xl md:px-2 lg:visible text-center">Get to find different techies across the globe, build connections, interactions and networks by joining the community of developers and designers.</p>
+          <div className="flex justify-center sm:hidden lg:visible">
+            <Link href="/register" className="bg-primary rounded-lg text-white text-2xl px-10 py-3 ">
               Click to Register
             </Link>
           </div>
