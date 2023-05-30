@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import computerPicture from '/public/computer-pic.png'
 import NavBar from '@/components/Header/NavBar';
 import CustomizableAvatar from '@/components/common/customavatar/CustomizableAvatar';
 import CustomizableButton from '@/components/common/CustomizableButton';
@@ -13,9 +14,9 @@ function managerDashboard () {
     <div>
         <NavBar />
 
-        <main className='bg-white'>
-            <div className='bg-sky-200 m-20 rounded-md flex justify-between sm-text-center'>
-                <div className='flex flex-col gap-3 p-20'>
+        <main className='bg-white container mx-auto p-10'>
+            <div className='bg-primary-lite my-10 rounded-md flex justify-between sm-text-center'>
+                <div className='flex flex-col gap-5 p-10  lg:text-left'>
                     <h1 className='text-5xl text-blue-800'>Welcome Back, Emmanuel!</h1>
                     <p className='text-2xl'>You have 8 new members!</p>
                     <div className='pt-10'>
@@ -23,7 +24,8 @@ function managerDashboard () {
                     </div>
                 </div>
                 <div className='pr-40 pt-8 md:flex lg:shrink-0 '>
-                    <Image className='min-[320px]:text-center max-[1240px]:inherit'
+                    <Image 
+                    className='min-[320px]:text-center max-[1240px]:inherit sm:invisible md:invisible lg:visible'
                         src="/manager-dashboard-character.png"
                         alt="manager character"
                         width={500}
@@ -32,20 +34,18 @@ function managerDashboard () {
                 </div>
             </div>
 
-            <div className='bg-slate-200 text-center p-20 m-20 rounded-md'>
-                <h1 className='text-5xl'>Community Dashboard</h1>
-                    <div className='flex flex-row justify-stretch min-[320px]:text-center max-[1240px]:inherit'
-                    // 'grid grid-cols-2 place-content-center p-40'
-                    >
-                        <div className='flex-initial '>
+            <div className='bg-grey-lite p-10 rounded-md'>
+                <h1 className='text-5xl p-10 text-center'>Community Dashboard</h1>
+                    <div className="grid grid-cols-2 col-span-1 auto-rows-max justify-items-center sm:grid-cols-1 lg:grid-cols-2 my-10">
+                        <div className='col-span-1'>
+                            <DashboardListing 
+                            className="" />
+                        </div>
+                        <div className='col-span-1'>
                             <DashboardListing />
                         </div>
-                        <div className='flex-initial '>
-                            <DashboardListing />
-                        </div>
-                        
                     </div>
-                <h2 className='text-2xl'>+ Add new community</h2>
+                <h2 className='text-2xl text-center'>+ Add new community</h2>
             </div>
         </main>
         
