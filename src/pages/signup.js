@@ -2,8 +2,8 @@ import CustomizableAside from "@/components/common/customizableAside";
 import SignupFormContainer from "@/components/signupform/SignupFormContainer";
 
 export default function signup() {
-  const AVATAR_HEIGHT = 300;
-  const AVATAR_WIDTH = 300;
+  const AVATAR_HEIGHT = 350;
+  const AVATAR_WIDTH = 350;
   const photo = "/Signupimage.png";
   const header = "You are just a step away from an";
   const span = " amazing experience!";
