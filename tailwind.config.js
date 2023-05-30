@@ -29,6 +29,9 @@ module.exports = {
         "accent-green": "#53BA02",
         "accent-blue": "#31B8EE",
       },
+      backgroundImage: {
+        'blue-background': "url('/bkgd-overlay-image.png')"
+      }
     },
   },
   plugins: [],

@@ -19,7 +19,7 @@ function Hero() {
             <h1>Join the <span className="text-primary bold">Tech Community</span>and get to discover people from all around the world!</h1>
           </div>
           <p className="px-44 text-xl md:px-2 lg:visible text-center">Get to find different techies across the globe, build connections, interactions and networks by joining the community of developers and designers.</p>
-          <div className="flex justify-center sm:hidden lg:visible">
+          <div className="flex justify-center">
             <Link href="/register" className="bg-primary rounded-lg text-white text-2xl px-10 py-3 ">
               Click to Register
             </Link>
@@ -36,6 +36,36 @@ function Hero() {
           />
         </div>
           
+      </div>
+      
+      <div className="bg-blue-background bg-cover       bg-no-repeat  bg-center flex p-20 justify-evenly gap-6">
+        <Image 
+              src="/woman-smile.png"
+              height={500}
+              width={500}
+              className="z-1"
+            />
+            <Image 
+              src="/laptops.png"
+              height={500}
+              width={500}
+              className="z-1"
+            />
+            <Image 
+              src="/sketch.png"
+              height={500}
+              width={500}
+              className="z-1"
+            />
+          </div>
+          <div className="flex justify-center py-12">
+            <Image 
+            src="/hero-text.png"
+            height={300}
+            width={600}
+            alt="descriptive words about hero images"
+            />
+          </div>
       </div>
     </section>
   );
