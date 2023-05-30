@@ -38,9 +38,8 @@ function Form() {
   };
 
   return (
-    <div>
       <form
-        className="container w-full max-w-lg bg-white rounded-md py-5 px-10 mx-auto"
+        className="container w-full max-w-lg bg-white px-2 rounded-md mx-auto"
         onSubmit={handleSubmit}
       >
         {/* name */}
@@ -128,7 +127,6 @@ function Form() {
           aria-label="Sign up button"
         />
       </form>
-    </div>
   );
 }
 
