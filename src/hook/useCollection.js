@@ -14,6 +14,7 @@ export function useCollection() {
     const querySnapshot = onSnapshot(
       queryManagersRef,
       (snap) => {
+
         snap.forEach(async (manager) => {
           const communityRef = collection(
             firebaseDb,
@@ -22,13 +23,14 @@ export function useCollection() {
             "MANAGER_LISTINGS"
           );
           const docSnap = await getDocs(communityRef);
+         
           docSnap.forEach((community) => {
             communityArray.push({
               ...community.data(),
               community_id: community.id,
             });
           });
-          setData(communityArray);
+          setData([...communityArray]);
           setIsLoading(false);
           setError(null);
         });

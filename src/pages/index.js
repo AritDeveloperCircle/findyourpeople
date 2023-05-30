@@ -8,7 +8,7 @@ import { useCollection } from "@/hook/useCollection";
 import DashboardListing from "@/components/singledashboardlisting/DashboardListing";
 
 export default function Home() {
-  const {data,error,isLoading} = useCollection()
+  const { data, error, isLoading } = useCollection();
 
   return (
     <>
@@ -24,10 +24,9 @@ export default function Home() {
         <section className={styles.listingsContainer}>
           {isLoading && <>loading...</>}
           {error && <>{error}</>}
-          {
-            data.map((listing) => (
-              <Listing data={listing} key={listing.community_id} />
-            ))}
+          {data.map((listing) => (
+            <Listing data={listing} key={listing.community_id} />
+          ))}
         </section>
       </main>
       <FooterBar />
