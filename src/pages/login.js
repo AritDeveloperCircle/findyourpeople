@@ -12,7 +12,7 @@ export default function login() {
 
   
     return (
-      <main className="flex min-h-screen">
+      <main className="flex min-h-screen font-[var(--font-urbanist)]">
         <section className="relative w-1/2">
         <Image
         src="/AsideBackground.png"
