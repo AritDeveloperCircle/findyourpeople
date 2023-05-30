@@ -3,7 +3,7 @@ import LoginForm from "./LoginForm";
 
 function LoginFormContainer() {
     return(
-        <main>
+        <main className="lg:max-w-lg lg:w-11/12">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-grey-dark/90">
                 Hello! Welcome Back.

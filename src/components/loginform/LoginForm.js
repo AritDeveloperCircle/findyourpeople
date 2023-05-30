@@ -34,7 +34,8 @@ function LoginForm() {
 
     return (
       <div>
-        <form  onSubmit={handleSubmit} className="space-y-6" >
+        <form  onSubmit={handleSubmit} 
+          className="container w-full max-w-lg bg-white px-2 rounded-md mx-auto" >
              {/* email */}
             <div>
               <label 
@@ -112,7 +113,7 @@ function LoginForm() {
 
             <div>
               <CustomizableButton
-                customClass="flex w-full cursor-pointer justify-center rounded-md bg-gradient-to-r from-gradient-lite-blue to-gradient-dark-blue px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                customClass="flex w-full cursor-pointer justify-center rounded-md bg-gradient-to-r from-gradient-lite-blue to-gradient-dark-blue px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-10"
                 text= "Sign in"
                 aria-label="Login button"
               />
