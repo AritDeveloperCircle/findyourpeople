@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from 'next/image';
 import styles from "./hero.module.css";
+
 function Hero() {
   return (
     <section className="bg-white">
       <div className="flex flex-row items-center gap-20 px-96 py-36 sm:text-left md:text-left ">
-        <div className="">
+        <div>
           <Image 
             src="/arrow.png"
             className="pt-44 overflow sm:overflow-hidden lg:visible"
@@ -38,36 +39,43 @@ function Hero() {
           
       </div>
       
-      <div className="bg-blue-background bg-cover       bg-no-repeat  bg-center flex p-20 justify-evenly gap-6">
+      <div className="bg-[url('/bkgd-overlay-image.png')] bg-cover bg-no-repeat  bg-center ">
+        <div className="flex p-20 justify-evenly gap-6">
+          <Image 
+            src="/woman-smile.png"
+            height={500}
+            width={500}
+            className="z-1"
+            alt="woman smiling"
+          />
+          <Image 
+            src="/laptops.png"
+            height={500}
+            width={500}
+            className="z-1"
+            alt="laptops with sitting around table"
+          />
+          <Image 
+            src="/sketch.png"
+            height={500}
+            width={500}
+            className="z-1"
+            alt="person sketching on notepad"
+          />
+        </div>
+        <div className="flex justify-center pt-1 pb-12">
         <Image 
-              src="/woman-smile.png"
-              height={500}
-              width={500}
-              className="z-1"
-            />
-            <Image 
-              src="/laptops.png"
-              height={500}
-              width={500}
-              className="z-1"
-            />
-            <Image 
-              src="/sketch.png"
-              height={500}
-              width={500}
-              className="z-1"
-            />
-          </div>
-          <div className="flex justify-center py-12">
-            <Image 
-            src="/hero-text.png"
-            height={300}
-            width={600}
-            alt="descriptive words about hero images"
-            />
-          </div>
+          src="/hero-text.png"
+          height={300}
+          width={600}
+          alt="descriptive words about hero images"
+          className="z-1"
+          />
       </div>
-    </section>
+      </div>
+      
+  </section>
+
   );
 }
 
