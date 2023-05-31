@@ -12,7 +12,7 @@ export default function NavBar() {
       ];
 
     return (
-        <div className=" relative flex items-center justify-evenly place-content-center sm:text-left md:flex py-4 px-24 lg:flex-row flex-col">
+        <div className=" relative flex items-center justify-evenly sm:text-left md:flex py-4 px-9 lg:flex-row flex-col">
             <Link href="/">
                 <Image
                     src="/LOGO.png"
@@ -23,6 +23,7 @@ export default function NavBar() {
                     priority
                 />
             </Link>
+            <container className="flex gap-6">
             <ul className="flex items-center justify-between gap-10">
                 {navList.map(({ text, href }) => (
                     <ReusableNavLink key={href} text={text} href={href} />
@@ -41,6 +42,8 @@ export default function NavBar() {
                     </div>
                     <button type='submit' className="bg-gradient-to-r from-blue-800 to-sky-950 text-white py-2 px-6 rounded-xl hover:bg-gray-500 active:bg-gray-600 focus: outline-none focus:ring-2 focus:ring-blue-300">SEARCH</button>
                 </form>
+            </container>
+            
         </div>
     );
 }
