@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-      fontFamily: {
-        sans: ["var(--font-urbanist)"],
+        fontFamily: {
+          sans: ["var(--font-urbanist)"],
         },
       },
       colors: {
@@ -28,6 +28,7 @@ module.exports = {
         "accent-red": "#B42D2D",
         "accent-green": "#53BA02",
         "accent-blue": "#31B8EE",
+        "gray-lite": "#D9D9D9",
       },
     },
   },
