@@ -1,14 +1,4 @@
 
-.container {
-    padding: 1rem;
-    margin: 0;
-    box-sizing: border-box;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #c3c2c2;
-}
 
 .nav {
     list-style-type: none;
