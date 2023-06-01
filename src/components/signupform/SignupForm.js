@@ -2,6 +2,7 @@ import { useState } from "react";
 import CustomizableButton from "../common/CustomizableButton";
 import { useAuthSignUp } from "@/composables/authSignUp";
 import regexValidation from "./helperFunctions/regexValidation";
+import { useRouter } from "next/router";
 
 function Form() {
   const [user, setUser] = useState({
@@ -12,6 +13,7 @@ function Form() {
 
   const { addUser, signup, firebaseError } = useAuthSignUp();
   const [error, setError] = useState({});
+  const router = useRouter();
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -24,17 +26,10 @@ function Form() {
 
     if (Object.keys(errors).length === 0) {
       signup(user);
-
-      setTimeout(() => {
-        resetForm();
-      }, 1000);
+      router.push("/");
     } else {
       setError(errors);
     }
-  };
-
-  const resetForm = () => {
-    setUser({ name: "", email: "", password: "" });
   };
 
   return (
@@ -116,7 +111,7 @@ function Form() {
           )}
         </div>
         <div className="mb-2">
-          <input type="checkbox" name="acceptTerms" id="acceptTerms" />
+          <input type="checkbox" name="acceptTerms" id="acceptTerms" required />
           <label htmlFor="acceptTerms" className="ml-2 text-base">
             I accept the <span className="text-primary">Terms of Use</span> &
             <span className="text-primary"> Privacy Policy</span>
