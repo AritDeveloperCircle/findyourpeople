@@ -28,7 +28,7 @@ const CommunityManagersDetails = () => {
 
   return (
     <>
-      <main className={styles.manager_details_wrapper}>
+      <main className= {styles.manager_details_wrapper}>
         <h2>Welcome Back, XX!</h2>
         <div className={styles.card}>
           <CustomizableAvatar
