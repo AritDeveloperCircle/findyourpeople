@@ -9,12 +9,11 @@ const CommunityManagersDetails = () => {
   const Avatar_Width = 100;
 
   const editForm = (
-    <form className= "">
+    <form>
       <input type="text" name="nameOfUser" placeholder="username" />
       <input type="file" accept="image/*" name="photo" id="profilePhotoInput" />
       <label htmlFor="profilePhotoInput"></label>
       <CustomizableButton
-        customClass= ""
         text="Save Profile"
         aria-label="Update profile button"
       />
