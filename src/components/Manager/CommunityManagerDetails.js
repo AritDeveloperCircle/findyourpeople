@@ -1,7 +1,6 @@
-import MainAvatar from "/src/images/mainAvatar.png";
-import CustomizableAvatar from "../common/customavatar/CustomizableAvatar";
 import CustomizableButton from "../common/CustomizableButton";
-import styles from "/src/styles/Manager.module.css";
+import CustomizableAvatar from "../common/customavatar/CustomizableAvatar";
+import Image from "next/image";
 import { useState } from "react";
 
 const CommunityManagersDetails = () => {
@@ -10,12 +9,11 @@ const CommunityManagersDetails = () => {
   const Avatar_Width = 100;
 
   const editForm = (
-    <form className={styles.edit_bio_form}>
+    <form>
       <input type="text" name="nameOfUser" placeholder="username" />
       <input type="file" accept="image/*" name="photo" id="profilePhotoInput" />
       <label htmlFor="profilePhotoInput"></label>
       <CustomizableButton
-        customClass={styles.edit_btn}
         text="Save Profile"
         aria-label="Update profile button"
       />
@@ -28,21 +26,20 @@ const CommunityManagersDetails = () => {
 
   return (
     <>
-      <main className= {styles.manager_details_wrapper}>
-        <h2>Welcome Back, XX!</h2>
-        <div className={styles.card}>
-          <CustomizableAvatar
-            height={Avatar_Height}
-            width={Avatar_Width}
-            src={MainAvatar}
-          />
-          <p>You have 8 new members!</p>
           <CustomizableButton
-            customClass={styles.edit_btn}
+            customClass= "text-gradient-lite-blue bg-transparent mt-10 font-[600] text-xl"
             text="Edit Profile"
             aria-label="Edit profile button"
             onClickProp={() => handleEdit}
           />
+        </div>
+        <div className="ml-3">
+          <CustomizableAvatar
+            height= "300"
+            width= "400"
+            src= "/Manager dashboard flat character.png"
+          />
+        </div>
         </div>
       </main>
     </>
