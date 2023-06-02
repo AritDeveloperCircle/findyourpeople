@@ -3,11 +3,7 @@ import SignupForm from "./SignupForm";
 
 function SignupFormContainer() {
   return (
-<<<<<<< HEAD
-    <main>
-=======
     <main className="lg:max-w-lg lg:w-11/12">
->>>>>>> dfc64872e92804367f16b6e1c3f4e1f8b7ec5801
       <div className="text-center ">
         <h2 className="text-grey-dark font-bold text-4xl tracking-normal">
           Create an account
