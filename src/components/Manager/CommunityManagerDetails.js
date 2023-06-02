@@ -26,23 +26,12 @@ const CommunityManagersDetails = () => {
 
   return (
     <>
-<<<<<<< HEAD
-      <main className= {styles.manager_details_wrapper}>
-        <h2>Welcome Back, XX!</h2>
-        <div className={styles.card}>
-          <CustomizableAvatar
-            height={Avatar_Height}
-            width={Avatar_Width}
-            src={MainAvatar}
-          />
-          <p>You have 8 new members!</p>
-=======
       <main className= "flex justify-center  items-between mt-[150px]">
         <div className= " flex bg-gradient-lite-grey w-[1000px] justify-between rounded-2xl px-[50px] " >
         <div className= "pt-6 mr-2">
           <h2 className="text-[#031B4E]  font-[600] text-[34px]">Welcome Back, Emmanuel!</h2>
           <p className="text-grey-dark text-opacity-3 font-normal text-lg pt-1">You have 8 new members!</p>
->>>>>>> dfc64872e92804367f16b6e1c3f4e1f8b7ec5801
+
           <CustomizableButton
             customClass= "text-gradient-lite-blue bg-transparent mt-10 font-[600] text-xl"
             text="Edit Profile"
