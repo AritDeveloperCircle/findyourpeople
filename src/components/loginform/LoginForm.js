@@ -25,6 +25,7 @@ function LoginForm() {
         if (Object.keys(errors).length === 0){
           LogIn(user);
           router.push("/")
+          console.log("submit")
           // resetForm()
 
         }else {
@@ -37,7 +38,7 @@ function LoginForm() {
       console.log(user);
 
     return (
-      <div>
+      
         <form  onSubmit={handleSubmit} 
           className="container w-full max-w-lg bg-white px-2 rounded-md mx-auto" >
              {/* email */}
@@ -83,7 +84,7 @@ function LoginForm() {
                   name="password"
                   type="password"
                   value={user.password}
-                  onChange={handleChange}s
+                  onChange={handleChange}
                   placeholder="**********"
                   required
                   className="w-full py-4 px-2 rounded-lg bg-white border border-gray-300"
@@ -125,7 +126,7 @@ function LoginForm() {
               />
             </div>
           </form>
-      </div>
+    
       
       
     );
