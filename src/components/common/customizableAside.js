@@ -28,7 +28,6 @@ function CustomizableAside({
         {headerText}
         <span className={spanClassName}>{spanText}</span>
       </h2>
-
       <p className={paragraphClassName}>{paragraphText}</p>
     </div>
   );

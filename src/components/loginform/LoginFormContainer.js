@@ -15,9 +15,9 @@ function LoginFormContainer() {
             <LoginForm />
             <p className=" text-center text-sm text-gray-500 mt-[70px]">
             Dont have an account?{' '}
-             <a href="#" className="font-semibold leading-6 text-primary hover:text-indigo-500">
+             <Link href="/signup" className="font-semibold leading-6 text-primary hover:text-indigo-500">
               Sign Up
-             </a>
+             </Link>
             </p>
            </div> 
 

@@ -1,7 +1,6 @@
-import MainAvatar from "/src/images/mainAvatar.png";
-import CustomizableAvatar from "../common/customavatar/CustomizableAvatar";
 import CustomizableButton from "../common/CustomizableButton";
-import styles from "/src/styles/Manager.module.css";
+import CustomizableAvatar from "../common/customavatar/CustomizableAvatar";
+import Image from "next/image";
 import { useState } from "react";
 
 const CommunityManagersDetails = () => {
@@ -10,12 +9,11 @@ const CommunityManagersDetails = () => {
   const Avatar_Width = 100;
 
   const editForm = (
-    <form className={styles.edit_bio_form}>
+    <form>
       <input type="text" name="nameOfUser" placeholder="username" />
       <input type="file" accept="image/*" name="photo" id="profilePhotoInput" />
       <label htmlFor="profilePhotoInput"></label>
       <CustomizableButton
-        customClass={styles.edit_btn}
         text="Save Profile"
         aria-label="Update profile button"
       />
@@ -28,6 +26,7 @@ const CommunityManagersDetails = () => {
 
   return (
     <>
+<<<<<<< HEAD
       <main className= {styles.manager_details_wrapper}>
         <h2>Welcome Back, XX!</h2>
         <div className={styles.card}>
@@ -37,12 +36,27 @@ const CommunityManagersDetails = () => {
             src={MainAvatar}
           />
           <p>You have 8 new members!</p>
+=======
+      <main className= "flex justify-center  items-between mt-[150px]">
+        <div className= " flex bg-gradient-lite-grey w-[1000px] justify-between rounded-2xl px-[50px] " >
+        <div className= "pt-6 mr-2">
+          <h2 className="text-[#031B4E]  font-[600] text-[34px]">Welcome Back, Emmanuel!</h2>
+          <p className="text-grey-dark text-opacity-3 font-normal text-lg pt-1">You have 8 new members!</p>
+>>>>>>> dfc64872e92804367f16b6e1c3f4e1f8b7ec5801
           <CustomizableButton
-            customClass={styles.edit_btn}
+            customClass= "text-gradient-lite-blue bg-transparent mt-10 font-[600] text-xl"
             text="Edit Profile"
             aria-label="Edit profile button"
             onClickProp={() => handleEdit}
           />
+        </div>
+        <div className="ml-3">
+          <CustomizableAvatar
+            height= "300"
+            width= "400"
+            src= "/Manager dashboard flat character.png"
+          />
+        </div>
         </div>
       </main>
     </>

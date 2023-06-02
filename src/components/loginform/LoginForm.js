@@ -2,6 +2,7 @@ import { useState } from "react";
 import CustomizableButton from "../common/CustomizableButton";
 import regexValidation from "../signupform/helperFunctions/regexValidation";
 import { useAuthLogIn } from "@/composables/authLogIn";
+import { useRouter } from "next/router";
 
 function LoginForm() {
 
@@ -12,6 +13,7 @@ function LoginForm() {
 
       const { addUser, firebaseError, LogIn } = useAuthLogIn();
       const [error, setError] = useState({});
+      const router = useRouter();
     
       const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value.trim()})
@@ -22,7 +24,9 @@ function LoginForm() {
         const errors = regexValidation(user);
         if (Object.keys(errors).length === 0){
           LogIn(user);
-          resetForm()
+          router.push("/")
+          // resetForm()
+
         }else {
           setError(errors)
         }
@@ -97,10 +101,12 @@ function LoginForm() {
                       id="offers"
                       name="offers"
                       type="checkbox"
+                      required
                       className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-indigo-600"
                     />
                     <label htmlFor="candidates" className="font-medium text-base">
-                Remember Me
+                Remember Me.
+                
                     </label>
               </div>
               <div className="text-sm">
