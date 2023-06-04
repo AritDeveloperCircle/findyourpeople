@@ -6,7 +6,7 @@ import FooterBar from '@/components/common/FooterBar';
 import DashboardListing from '@/components/singledashboardlisting/DashboardListing';
 // import styles from '../styles/managerDashboard.module.css';
 
-function managerDashboard () {
+function ManagerDashboard () {
   return (
     <div>
         <NavBar />
@@ -49,4 +49,4 @@ function managerDashboard () {
   )
 }
 
-export default managerDashboard;
+export default ManagerDashboard;
