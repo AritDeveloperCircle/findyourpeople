@@ -23,7 +23,7 @@ export default function NavBar() {
                     priority
                 />
             </Link>
-            <container className="flex gap-6">
+            <div className="flex gap-6">
             <ul className="flex items-center justify-between gap-10">
                 {navList.map(({ text, href }) => (
                     <ReusableNavLink key={href} text={text} href={href} />
@@ -42,7 +42,7 @@ export default function NavBar() {
                     </div>
                     <button type='submit' className="bg-gradient-to-r from-blue-800 to-sky-950 text-white py-2 px-6 rounded-xl hover:bg-gray-500 active:bg-gray-600 focus: outline-none focus:ring-2 focus:ring-blue-300">SEARCH</button>
                 </form>
-            </container>
+            </div>
             
         </div>
     );
