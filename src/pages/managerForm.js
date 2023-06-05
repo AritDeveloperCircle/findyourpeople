@@ -19,28 +19,30 @@ const managerForm = () => {
             <div className={styles.firstBanner}>New Community</div>
             <div className={styles.secondBanner}>
                 <h2>Choose category(s)</h2>
-
                 <div className={styles.secondBannerButtons}>
-                    <button 
-                        className={styles.disableButton}
-                        onClick={() => console.log("clicked the button")} disabled
-                    >UI/UX
-                    </button>
-                    <button 
-                        className={styles.disableButton}
-                        onClick={categoryChoice} disabled
-                    >Frontend
-                    </button>
-                    <button 
-                        className={styles.highlightButton}
-                        onClick={categoryChoice} disabled
-                    >Software Engineering
-                    </button>
-                    <button 
-                        className={styles.disableButton}
-                        onClick={categoryChoice} disabled
-                    >Product Design
-                    </button>
+                    <CustomizableButton
+                        customClass={styles.disableButton}
+                        onClickProp={categoryChoice}
+                        text="UI/UX"
+                    />
+                    
+                    <CustomizableButton
+                        customClass={styles.disableButton}
+                        onClickProp={categoryChoice}
+                        text="Frontend"
+                    />
+                    
+                    <CustomizableButton
+                        customClass={styles.highlightButton}
+                        onClickProp={categoryChoice}
+                        text="Software Engineering"
+                    />
+
+                    <CustomizableButton
+                        customClass={styles.disableButton}
+                        onClickProp={categoryChoice}
+                        text="Product Design"
+                    />
 
                     <Image
                         src='/arrow-right-line.png'
@@ -48,25 +50,6 @@ const managerForm = () => {
                         height={25}
                         alt='arrow pointing to the right'
                     />
-                    
-
-                    <CustomizableButton
-                        className={styles.disableButton}
-                        // onClick={onClickProp}
-                    >Frontend
-                    </CustomizableButton>
-
-                    <CustomizableButton
-                        className={styles.disableButton}
-                        // onClick={onClickProp}
-                    >Software Engineering
-                    </CustomizableButton>
-
-                    <CustomizableButton
-                        className={styles.disableButton}
-                        // onClick={onClickProp}
-                    >Product 
-                    </CustomizableButton>
                 </div>
 
                 <div className={styles.communityGrid}>
