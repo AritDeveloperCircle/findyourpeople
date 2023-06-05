@@ -1,0 +1,59 @@
+.textColor {
+    color: red;
+}
+
+.firstBanner {
+    background: #2D65B4;
+    color: white;
+    height: 5rem;
+    font-size: 2.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.secondBanner {
+    background: #E8EDF6;
+    height: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+    gap: 6rem;
+}
+
+.secondBanner > h2 {
+    font-size: 1.5rem;
+}
+
+.secondBannerButtons > button:hover {
+    color: yellow;
+    background: black;
+}
+
+.disableButton {
+    background: #E5E5E5;
+    color: #707070;
+    padding: 8px 15px;
+    border-radius: 25px;
+
+}
+
+.highlightButton {
+    background: #F1E18E;
+    padding: 8px 15px;
+    border-radius: 25px;
+}
+
+.secondBannerButtons {
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    gap: 2rem;
+}
+
+.communityGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
