@@ -4,24 +4,24 @@ import Image from 'next/image';
 function Hero() {
   return (
     <section className="bg-white flex flex-col justify-center">
-      <div className="flex items-center relative gap-20 my-8 mx-4">
+      <div className="flex items-center relative  my-8 mx-4">
         <div>
           <Image
             src="/arrow.png"
-            className="absolute left-40 top-28 sm:invisible lg:visible"
+            className="absolute lg:left-40 lg:top-28 hidden lg:block"
             height={107}
             width={80}
             alt="looping arrow pointing downwards"
           />
         </div>
         <div className="flex flex-col max-w-4xl mx-auto items-center space-y-10 justify-center md:text-sm">
-          <div className="text-6xl  font-medium text-center ">
+          <div className="font-bold lg:text-6xl  text-center ">
             <h1>
               Join the <span className="text-primary bold">Tech Community</span>{" "}
               and get to discover people from all around the world!
             </h1>
           </div>
-          <p className="px-4 text-xl md:px-2 lg:visible text-center sm:px-20  xl:px-20">
+          <p className="px-4 lg:text-xl md:px-2 lg:visible text-center sm:px-20  xl:px-20">
             Get to find different techies across the globe, build connections,
             interactions and networks by joining the community of developers and
             designers.
@@ -38,7 +38,7 @@ function Hero() {
         <div>
           <Image
             src="/bulb.png"
-            className="absolute right-12 mix-blend-hard-light bottom-20 sm:invisible lg:visible"
+            className="absolute lg:right-12 mix-blend-hard-light lg:bottom-20 hidden lg:block"
             height={108}
             width={105}
             alt="light bulb"
@@ -46,8 +46,8 @@ function Hero() {
         </div>
       </div>
 
-      <div className="bg-[url('/bkgd-overlay-image.png')] bg-cover bg-no-repeat bg-center ">
-        <div className="flex flex-col p-20 justify-evenly gap-6 items-center xl:flex-row">
+      <div className="bg-[url('/bkgd-overlay-image.png')] bg-cover bg-no-repeat bg-center  ">
+        <div className="flex p-14  gap-6 items-center xl:flex-row overflow-scroll">
           <Image
             src="/woman-smile.png"
             height={500}
