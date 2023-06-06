@@ -31,6 +31,7 @@ const CommunityManagersDetails = () => {
         <div className= "pt-6 mr-2">
           <h2 className="text-[#031B4E]  font-[600] text-[34px]">Welcome Back, Emmanuel!</h2>
           <p className="text-grey-dark text-opacity-3 font-normal text-lg pt-1">You have 8 new members!</p>
+
           <CustomizableButton
             customClass= "text-gradient-lite-blue bg-transparent mt-10 font-[600] text-xl"
             text="Edit Profile"
