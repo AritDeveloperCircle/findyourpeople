@@ -19,6 +19,7 @@ const managerForm = () => {
             <div className={styles.firstBanner}>New Community</div>
             <div className={styles.secondBanner}>
                 <h2>Choose category(s)</h2>
+
                 <div className={styles.secondBannerButtons}>
                     <CustomizableButton
                         customClass={styles.disableButton}
@@ -52,11 +53,35 @@ const managerForm = () => {
                     />
                 </div>
 
-                <div className={styles.communityGrid}>
-
-                </div>
-                
             </div>
+            <container className={styles.communityLayout}>
+                <div className={styles.layoutRow}>
+                    <label>Community Name</label><input className={styles.inputStyle} />
+                </div>
+                <div className={styles.layoutRow}>
+                <label>Community Manager</label><input className={styles.inputStyle} />
+                </div>
+                <div className={styles.layoutRow}>
+                    <label>Date Established</label><input className={styles.inputStyle} />
+                </div >
+
+                <div className={styles.layoutRow}>
+                    <label>Location</label><input className={styles.inputStyle} />
+                </div>
+                <div className={styles.layoutRow}>
+                <label>Community URL</label><input className={styles.inputStyle} />
+                </div>
+                <div className={styles.layoutRow}>
+                    <label>Community LinkedIn</label><input className={styles.inputStyle} />
+                </div >
+
+                <div className={styles.layoutRow}>
+                    <label>Community Twitter</label><input className={styles.inputStyle} />
+                </div>
+                <div className={styles.layoutRow}>
+                <label>Community Facebook</label><input className={styles.inputStyle} />
+                </div>
+                </container>
             <FooterBar />
         </div>
       
