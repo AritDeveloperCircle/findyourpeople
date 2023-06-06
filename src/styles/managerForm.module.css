@@ -105,4 +105,31 @@
     border: dashed 2px black;
     height: 20rem;
     border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.lowerFormIcons {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.lowerFormIcons > div {
+    display: flex;
+    gap: 1rem;
+}
+
+.buttonsBottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 30rem;
+}
+
+.communityBottomButtons {
+    padding: 1rem 3rem;
+    background: blue;
+    margin: 2rem;
+    border-radius: 25px;
+    color: white;
 }

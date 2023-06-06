@@ -109,18 +109,48 @@ const managerForm = () => {
                             <label>Upload a File</label>
                             <input type='file' id='imageFile' name='imageFile' />
                             {/* <input type='submit'/> */}
+                            <Image
+                                src='/uploadFile.png'
+                                height={20}
+                                width={20}
+                                alt='file upload icon'
+                            />
+                            <h3>Upload a File</h3>
+                            <p>Drag and drop files here</p>
+                            <div className={styles.lowerFormIcons}>
+                                <div>
+                                    <p>Upload</p>
+                                    <Image
+                                        src='/uploadFile.png'
+                                        height={20}
+                                        width={20}
+                                        alt='file upload icon'
+                                    />
+                                </div>
+                            
+                            <div>
+                                <p>Remove</p>
+                                <Image
+                                    src='/trash.png'
+                                    height={20}
+                                    width={20}
+                                    alt='file upload icon'
+                                />
+                            </div>
+                            </div>
+                            
                         </form>
                     </div>
                 </section>
 
                 <div className={styles.buttonsBottom}>
                     <CustomizableButton
-                        customClass={styles.disableButton}
+                        customClass={styles.communityBottomButtons}
                         onClickProp={goHome}
                         text="Return to Home"
                     />
                     <CustomizableButton
-                        customClass={styles.disableButton}
+                        customClass={styles.communityBottomButtons}
                         onClickProp={submitCommunity}
                         text="Submit"
                     />
