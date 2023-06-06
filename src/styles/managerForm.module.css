@@ -75,3 +75,34 @@
     padding: 1rem;
     border-radius: 20px;
 }
+
+.lowerHalfInput {
+    /* display: flex;
+    flex-direction: column;
+    padding: 2rem; */
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5rem;
+    padding: 2rem 8rem;
+}
+
+.imageUploadBackground {
+    padding: 2rem 8rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.uploadFileBackground {
+    background: grey;
+    padding: 5rem 30em;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.inputUploadFile {
+    border: dashed 2px black;
+    height: 20rem;
+    border-radius: 25px;
+}

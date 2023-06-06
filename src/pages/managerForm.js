@@ -12,11 +12,19 @@ const managerForm = () => {
     const categoryChoice = () => {
         console.log("clicked the button")
     }
+
+    const submitCommunity = () => {
+        console.log("submitted the community")
+    }
+
+    const goHome = () => {
+        console.log("routing to homepage")
+    }
+
     return (
         <div>
             <NavBar />
-            <h1 className={styles.textColor}>managerForm!!!</h1>
-            <div className={styles.firstBanner}>New Community</div>
+            <h1 className={styles.firstBanner}>New Community</h1>
             <div className={styles.secondBanner}>
                 <h2>Choose category(s)</h2>
 
@@ -69,7 +77,7 @@ const managerForm = () => {
                     <label>Location</label><input className={styles.inputStyle} />
                 </div>
                 <div className={styles.layoutRow}>
-                <label>Community URL</label><input className={styles.inputStyle} />
+                    <label>Community URL</label><input className={styles.inputStyle} />
                 </div>
                 <div className={styles.layoutRow}>
                     <label>Community LinkedIn</label><input className={styles.inputStyle} />
@@ -79,10 +87,47 @@ const managerForm = () => {
                     <label>Community Twitter</label><input className={styles.inputStyle} />
                 </div>
                 <div className={styles.layoutRow}>
-                <label>Community Facebook</label><input className={styles.inputStyle} />
+                    <label>Community Facebook</label><input className={styles.inputStyle} />
                 </div>
+
                 </container>
+
+                <section className={styles.lowerHalfInput}>
+                    <div className={styles.layoutRow}>
+                        <label>Community Vision</label><input className={styles.inputStyle} />
+                    </div>
+
+                    <div className={styles.layoutRow}>
+                        <label>Community Description</label><input className={styles.inputStyle} />
+                    </div>
+                </section>
+
+                <section className={styles.imageUploadBackground}>
+                    <div className={styles.uploadFileBackground}>
+                        <h3>Add Image</h3>
+                        <form className={styles.inputUploadFile}>
+                            <label>Upload a File</label>
+                            <input type='file' id='imageFile' name='imageFile' />
+                            {/* <input type='submit'/> */}
+                        </form>
+                    </div>
+                </section>
+
+                <div className={styles.buttonsBottom}>
+                    <CustomizableButton
+                        customClass={styles.disableButton}
+                        onClickProp={goHome}
+                        text="Return to Home"
+                    />
+                    <CustomizableButton
+                        customClass={styles.disableButton}
+                        onClickProp={submitCommunity}
+                        text="Submit"
+                    />
+                </div>
+
             <FooterBar />
+
         </div>
       
     )
