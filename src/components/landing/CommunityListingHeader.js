@@ -4,9 +4,7 @@ import Image from "next/image";
 
 const CommunityHeader = ({ listing }) => {
   const photo = "/community dashoard  img 1.jpg";
-  const Manager_Avatar = "/avarar 1.png";
-  const AVATAR_WIDTH = 50;
-  const AVATAR_HEIGHT = 50;
+  const Manager_Avatar = "/avatar 1.png";
   const SmallAvatar_WIDTH = 20;
   const SmallAvatar_HEIGHT = 20;
   const LOGO_WIDTH = 20;
