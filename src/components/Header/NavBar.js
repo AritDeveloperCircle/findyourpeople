@@ -1,9 +1,6 @@
 import Link from 'next/link';
-import Head from 'next/head';
 import Image from 'next/image';
-import styles from './NavBar.module.css';
 import ReusableNavLink from '../common/ReusableNavLink';
-
 
 export default function NavBar() {
     const navList = [
@@ -12,7 +9,7 @@ export default function NavBar() {
       ];
 
     return (
-      <div className=" relative flex items-center justify-between place-content-center sm:text-left md:flex py-8 px-8 lg:flex-row flex-col">
+      <div className=" relative flex items-center justify-between place-content-center sm:text-left md:flex py-8 px-8 ">
         <Link href="/">
           <Image
             src="/LOGO.png"
