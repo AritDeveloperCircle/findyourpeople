@@ -13,19 +13,10 @@ const CommunityHeader = ({ listing }) => {
   const LOGO_HEIGHT = 20;
   return (
     <header className="">
-      <div className=" bg-primary-lite p-5 md:flex lg:flex items-center justify-between px-10">
-        <article className="flex items-center pb-4">
-          <CustomizableAvatar
-            src={photo}
-            width={AVATAR_WIDTH}
-            height={AVATAR_HEIGHT}
-            avatarImage={"rounded-full"}
-            avatarCustomClass={"mx-2"}
-          />
-          <h1 className="text-grey-dark text-xl font-medium capitalize">
-            {listing?.community_name}
-          </h1>
-        </article>
+      <div className=" bg-primary-lite p-5  flex items-center justify-between px-10">
+        <h1 className="text-grey-dark text-xl font-medium capitalize">
+          {listing?.community_name}
+        </h1>
 
         <div className="flex items-center px-4">
           <div className="flex items-center bg-white rounded-lg py-2 px-4 text-justify">
@@ -40,31 +31,29 @@ const CommunityHeader = ({ listing }) => {
             </p>
           </div>
 
-          <Link
-            href={
-              listing?.social_links?.twitter !== undefined
-                ? listing?.social_links?.twitter
-                : ""
-            }
-            className={"px-4"}
-          >
-            <Image
-              src="/twitter.svg"
-              alt="Twitter Logo"
-              width={LOGO_WIDTH}
-              height={LOGO_HEIGHT}
-            />
-          </Link>
-          <Link href={"#"}>
-            <Image
-              src="/facebook-logo-2019.svg"
-              alt="Facebook Logo"
-              width={LOGO_WIDTH}
-              height={LOGO_HEIGHT}
-            />
-          </Link>
+          {listing &&
+            listing.social_links &&
+            Object.keys(listing.social_links).map((key) => (
+              <Link
+                key={key}
+                href={
+                  listing.social_links[key] !== undefined
+                    ? listing.social_links[key]
+                    : ""
+                }
+                className={"px-4"}
+              >
+                <Image
+                  src={`/${key}.svg`}
+                  alt={`${key} Logo`}
+                  width={LOGO_WIDTH}
+                  height={LOGO_HEIGHT}
+                />
+              </Link>
+            ))}
         </div>
       </div>
+      {/* TODO:This needs to be hooked up to the Community size property of the listing so it reflects the correct size  */}
 
       <section className="bg-primary-dark md:flex text-center justify-between p-3 px-10">
         <span className="flex items-center justify-between">
