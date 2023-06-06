@@ -3,7 +3,6 @@ import NavBar from "@/components/Header/NavBar";
 import CustomizableAvatar from "@/components/common/customavatar/CustomizableAvatar";
 import CustomizableButton from "@/components/common/CustomizableButton";
 import FooterBar from "@/components/common/FooterBar";
-import styles from "@/styles/singleListing.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
