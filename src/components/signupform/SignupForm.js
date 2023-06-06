@@ -11,7 +11,7 @@ function Form() {
     password: "",
   });
 
-  const { addUser, signup, firebaseError } = useAuthSignUp();
+  const {  signup, firebaseError } = useAuthSignUp();
   const [error, setError] = useState({});
   const router = useRouter();
 
@@ -19,14 +19,13 @@ function Form() {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const errors = regexValidation(user);
-
     if (Object.keys(errors).length === 0) {
       signup(user);
-      router.push("/managerDashboard");
+      router.push("/managerDashboard"); 
     } else {
       setError(errors);
     }
