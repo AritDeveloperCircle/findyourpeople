@@ -5,7 +5,8 @@ import {
 import { firebaseAuth, firebaseDb } from "@/firebase/config";
 import { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
-import { useAuthContext } from "@/context/reducer";
+import useAuthContext from "@/context/useAuthContext";
+
 
 function useAuthSignUp() {
 const {dispatch} = useAuthContext()
