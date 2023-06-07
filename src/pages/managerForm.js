@@ -21,6 +21,14 @@ const managerForm = () => {
         console.log("routing to homepage")
     }
 
+    const uploadFile = () => {
+        console.log("uploaded a file")
+    }
+
+    const deleteFile = () => {
+        console.log("deleted a file")
+    }
+
     return (
         <div>
             <NavBar />
@@ -106,10 +114,8 @@ const managerForm = () => {
                     <div className={styles.uploadFileBackground}>
                         <h3>Add Image</h3>
                         <form className={styles.inputUploadFile}>
-                            <label>Upload a File</label>
-                            <input type='file' id='imageFile' name='imageFile' />
-                            {/* <input type='submit'/> */}
                             <Image
+                                onClick={uploadFile}
                                 src='/uploadFile.png'
                                 height={20}
                                 width={20}
@@ -117,8 +123,10 @@ const managerForm = () => {
                             />
                             <h3>Upload a File</h3>
                             <p>Drag and drop files here</p>
-                            <div className={styles.lowerFormIcons}>
-                                <div>
+                        </form>
+
+                        <div className={styles.lowerFormIcons}>
+                                <div onClick={uploadFile}>
                                     <p>Upload</p>
                                     <Image
                                         src='/uploadFile.png'
@@ -128,18 +136,16 @@ const managerForm = () => {
                                     />
                                 </div>
                             
-                            <div>
-                                <p>Remove</p>
-                                <Image
-                                    src='/trash.png'
-                                    height={20}
-                                    width={20}
-                                    alt='file upload icon'
-                                />
+                                <div classname={styles.trashIcon} onClick={deleteFile}>
+                                    <p className={styles.deleteText}>Remove</p>
+                                    <Image
+                                        src='/delete-bin-2-line.png'
+                                        height={20}
+                                        width={20}
+                                        alt='file upload icon'
+                                    />
+                                </div>
                             </div>
-                            </div>
-                            
-                        </form>
                     </div>
                 </section>
 
