@@ -1,15 +1,15 @@
-import React from 'react';
-import Link from 'next/link';
-import NavBar from '@/components/Header/NavBar';
-import CustomizableAvatar from '@/components/common/customavatar/CustomizableAvatar';
-import CustomizableButton from '@/components/common/CustomizableButton';
-import FooterBar from '@/components/common/FooterBar';
-import styles from '../styles/singleListing.module.css';
+import React, { useEffect } from "react";
+import { useAuthContext } from "@/context/reducer";
+import { useRouter } from "next/router";
+const ManagerDashboard = () => {
+  const { state } = useAuthContext();
+  const { router } = useRouter();
+  useEffect(() => {
+    if (state?.user?.uid.length <= 0) {
+      router.push("/login");
+    }
+  });
+  return <div>managerDashboard</div>;
+};
 
-const managerDashboard = () => {
-  return (
-    <div>managerDashboard</div>
-  )
-}
-
-export default managerDashboard
+export default ManagerDashboard;
