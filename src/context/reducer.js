@@ -4,6 +4,8 @@ import { firebaseAuth, firebaseDb } from "@/firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 
+export const AuthContext = createContext();
+
 export const InitialState = {
   user: {
     uid: "",
@@ -41,11 +43,11 @@ export const authReducer = ( state, action) => {
   }
   return state;
 };
-export const AuthContext = createContext();
+
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, InitialState);
-
+console.log(state)
   useEffect(() => {
     const unsub = onAuthStateChanged(firebaseAuth, async (user) => {
       if (user) {
@@ -66,7 +68,7 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ state, dispatch }}>
+    <AuthContext.Provider value={{ ...state, dispatch }}>
       {children}
     </AuthContext.Provider>
   );
