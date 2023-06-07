@@ -22,12 +22,6 @@ export const authReducer = ( state, action) => {
       user: action.payload,
     };
   }
-  if (action.type === "LOG_IN") {
-    return {
-      ...state,
-      user: action.payload,
-    };
-  }
   if (action.type === "SIGN_OUT") {
     return {
       ...state,
