@@ -6,8 +6,7 @@ import NavBar from '@/components/Header/NavBar';
 import CustomizableAvatar from '@/components/common/customavatar/CustomizableAvatar';
 import CustomizableButton from '@/components/common/CustomizableButton';
 import FooterBar from '@/components/common/FooterBar';
-import DashboardListing from '@/components/singledashboardlisting/DashboardListing';
-import styles from '../styles/managerDashboard.module.css';
+import styles from '../styles/singleListing.module.css';
 
 function managerDashboard () {
   return (
