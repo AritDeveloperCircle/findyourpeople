@@ -99,6 +99,7 @@
     flex-direction: column;
     padding: 4rem 10rem;
     align-items: center;
+    cursor: pointer;
 }
 
 .inputUploadFile > h3 {
@@ -109,6 +110,7 @@
     display: flex;
     justify-content: center;
     gap: 5rem;
+    cursor: pointer;
 }
 
 .lowerFormIcons > div {
