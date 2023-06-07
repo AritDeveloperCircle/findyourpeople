@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./listing.module.css";
 
 function Listing({ data }) {
+
   return (
     <>
       <article className={styles.listing}>
