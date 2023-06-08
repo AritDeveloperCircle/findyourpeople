@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { firebaseDb } from "@/firebase/config";
 import CommunityHeader from "@/components/landing/CommunityListingHeader";
+import ListingDetails from "@/components/landing/ListingDetails";
 
 function SingleListing(className, text) {
   const router = useRouter();
@@ -28,6 +29,7 @@ function SingleListing(className, text) {
         }
       });
     };
+
     if (id) {
       fetchData();
     }
@@ -37,6 +39,7 @@ function SingleListing(className, text) {
     <>
       <NavBar />
       <CommunityHeader listing={listing} />
+      <ListingDetails listing={listing} />
       <FooterBar />
     </>
   );
