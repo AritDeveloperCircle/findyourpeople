@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function termsAndConditions() {
+export default function TermsAndConditions() {
   return (
     <div>
       <Link href="/signup">

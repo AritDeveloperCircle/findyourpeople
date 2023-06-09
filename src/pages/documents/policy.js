@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function privacyPolicy() {
+export default function PrivacyPolicy() {
   return (
     <div>
       <Link href="/signup">

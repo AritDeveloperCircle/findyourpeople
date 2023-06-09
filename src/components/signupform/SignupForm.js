@@ -113,11 +113,11 @@ function Form() {
         <input type="checkbox" name="acceptTerms" id="acceptTerms" required />
         <label htmlFor="acceptTerms" className="ml-2 text-base">
           I accept the{" "}
-          <Link href="/termsAndConditions">
+          <Link href="documents/terms">
             <span className="text-primary">Terms of Use </span>
           </Link>
           &
-          <Link href="/privacyPolicy">
+          <Link href="documents/policy">
             <span className="text-primary"> Privacy Policy</span>
           </Link>
         </label>
