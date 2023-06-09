@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import React from 'react';
 import { useRouter } from 'next/navigation'
 import Link from 'next/link';
@@ -7,11 +7,16 @@ import NavBar from '@/components/Header/NavBar';
 import CustomizableButton from '@/components/common/CustomizableButton';
 import FooterBar from '@/components/common/FooterBar';
 import styles from '../styles/managerForm.module.css';
-import { firebaseAuth, firebaseDb,firebaseStorage } from "@/firebase/config"
+import { firebaseAuth, firebaseDb, firebaseStorage } from "@/firebase/config"
 import { firestore, getFirestore, collection, getDocs, addDoc } from "firebase/firestore"; 
+import { ref, getStorage} from "firebase/storage";
+import firebase from "firebase/app";
+import "firebase/compat/storage";
 
 
 function ManagerForm() {
+
+   
 
     const [formData, setFormData] = useState({
         community_name:"",
@@ -25,6 +30,8 @@ function ManagerForm() {
         community_vision:"",
         community_description:"",
     });
+    const [fileUpload, setFileUpload] = useState();
+
     const router = useRouter()
 
     const handleChange = (event) => {
@@ -37,6 +44,8 @@ function ManagerForm() {
     }
 
     const db = getFirestore();
+
+    const storage = getStorage();
 
     const submitCommunity = async (event) => {
         event.preventDefault();
@@ -67,20 +76,53 @@ function ManagerForm() {
                     community_description: setFormData.community_description.value,
                 })
                 .then(() => {
-                    setFormData.reset()
+                    setFormData.reset("")
                 })
                     console.log("Document writtern with ID:", docRef.id)
             }
 
         } 
 
-    const uploadFile = () => {
-        console.log("uploaded a file")
+    const imageUpload = async (file) => {
+        // if (!file) return;
+
+        try {
+            const imageRef = firebase.storage().ref();
+            const fileName = `${Date.now()}_${file.name}`;
+            const fileRef = imageRef.child(fileName);
+            await fileRef.put(file);
+            const downloadURL = await fileRef.getDownloadURL();
+            return downloadURL;
+        } catch (error) {
+            console.error("Error uploading image:", error)
+            throw error;
+        }
+    } 
+
+    const uploadFile = async (event, file) => {
+        event.preventDefault()
+        try {
+            const downloadURL = await imageUpload(file)
+            console.log("Image uploaded! Download URL:", downloadURL)
+        } catch (error) {
+            console.error("Error uploading image", error)
+        }
+    };
+
+    const deletFile = () => {
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
     }
 
-    const deleteFile = () => {
-        console.log("remove an uploaded file")
+    const goHome = (event) => {
+        event.preventDefault();
+        <Link href="/" />
     }
+
+    const fileInputRef = useRef(null);
+    const deleteFile = useRef(null) 
+    
 
     return (
         <div>
@@ -263,48 +305,71 @@ function ManagerForm() {
                 <section className={styles.imageUploadBackground}>
                     <div className={styles.uploadFileBackground}>
                         <h3>Add Image</h3>
-                        <div className={styles.inputUploadFile}>
-                            <Image
-                                onClick={uploadFile}
+                        <div 
+                            onChange={(event) => {setFileUpload(event.target.files[0])}}
+                            onClick={imageUpload}
+                            className={styles.inputUploadFile}>
+                                <label htmlFor='myImage'>Upload</label>
+                                <input 
+                                    type="file"
+                                    id="myImage"
+                                    name="myImage"
+                                    ref={fileInputRef}
+                                    onChange={(event) => {setFileUpload(event.target.files[0])}}
+                                />
+                                <input type="submit" />
+                            {/* <Image
+                                
                                 src='/uploadFile.png'
                                 height={20}
                                 width={20}
                                 alt='file upload icon'
-                            />
+                            /> */}
                             <h3>Upload a File</h3>
                             <p>Drag and drop files here</p>
                         </div>
 
                         <div className={styles.lowerFormIcons}>
-                            <div onClick={uploadFile}>
-                                <p>Upload</p>
-                                <Image
+                            <div 
+                            onClick={uploadFile}
+                            onChange={(event) => {setFileUpload(event.target.files[0])}} >
+                                <label htmlFor='myImage'>Upload</label>
+                                <input 
+                                    type="file"
+                                    id="myImage"
+                                    ref={fileInputRef}
+                                    name="myImage"
+                                    onChange={(event) => {setFileUpload(event.target.files[0])}}
+                                />
+                                <input type="submit" />
+                                {/* <Image
                                     src='/uploadFile.png'
                                     height={20}
                                     width={20}
                                     alt='file upload icon'
-                                />
+                                    type="submit"
+                                /> */}
                             </div>
                             <div className={styles.trashIcon} onClick={deleteFile}>
                                 <p className={styles.deleteText}>Remove</p>
-                                <Image
+                                {/* <Image
                                     src='/delete-bin-2-line.png'
                                     height={20}
                                     width={20}
                                     alt='file upload icon'
-                                />
+                                /> */}
                             </div>
                         </div>
                     </div>
                 </section>
 
                 <div className={styles.buttonsBottom}>
-                    <button
-                        customClass={styles.communityBottomButtons}
+                    <button className={styles.returnButton}
                         onClick={() => router.push('/')}
                         text="Return to Home"
-                        type="button"
-                    >Return to Home
+                        type="submit"
+                    >
+                    Return to Home
                     </button>
                     <CustomizableButton
                         customClass={styles.communityBottomButtons}
@@ -312,8 +377,6 @@ function ManagerForm() {
                         text="Submit"
                         type="submit"
                     />
-                    {/* Submit
-                    </button> */}
                 </div>
             </form>
             <FooterBar />

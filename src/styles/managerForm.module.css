@@ -133,6 +133,15 @@
     padding: 0 30rem;
 }
 
+.returnButton {
+    padding: 1rem 3rem;
+    background: #fff;
+    margin: 2rem;
+    border-radius: 25px;
+    border: 2px solid #2D65B4;
+    color: #2D65B4;
+}
+
 .communityBottomButtons {
     padding: 1rem 3rem;
     background: #2D65B4;
