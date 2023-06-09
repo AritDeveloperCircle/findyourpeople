@@ -25,6 +25,7 @@ function ManagerForm() {
         community_vision:"",
         community_description:"",
     });
+    const router = useRouter()
 
     const handleChange = (event) => {
         event.preventDefault();
@@ -72,11 +73,6 @@ function ManagerForm() {
             }
 
         } 
-
-    const goHome = (event) => {
-        event.preventDefault();
-        console.log("You went back to the home page!")
-    }
 
     const uploadFile = () => {
         console.log("uploaded a file")
@@ -303,14 +299,13 @@ function ManagerForm() {
                 </section>
 
                 <div className={styles.buttonsBottom}>
-                    <CustomizableButton
+                    <button
                         customClass={styles.communityBottomButtons}
                         onClick={() => router.push('/')}
                         text="Return to Home"
                         type="button"
-                    />
-                    {/* Return to Home
-                    </button> */}
+                    >Return to Home
+                    </button>
                     <CustomizableButton
                         customClass={styles.communityBottomButtons}
                         onClick={submitCommunity}
