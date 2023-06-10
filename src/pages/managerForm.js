@@ -16,8 +16,6 @@ import "firebase/compat/storage";
 
 function ManagerForm() {
 
-   
-
     const [formData, setFormData] = useState({
         community_name:"",
         community_manager:"",
@@ -109,7 +107,7 @@ function ManagerForm() {
         }
     };
 
-    const deletFile = () => {
+    const deleteFile = () => {
         if (fileInputRef.current) {
             fileInputRef.current.value = '';
         }
@@ -121,45 +119,13 @@ function ManagerForm() {
     }
 
     const fileInputRef = useRef(null);
-    const deleteFile = useRef(null) 
+    // const deleteFile = useRef(null) 
     
 
     return (
         <div>
             <NavBar />
             <h1 className={styles.firstBanner}>New Community</h1>
-            <div className={styles.secondBanner}>
-                <h2>Choose category(s)</h2>
-                <div className={styles.secondBannerButtons}>
-                    <CustomizableButton
-                        customClass={styles.disableButton}
-                        onClick={categoryChoice}
-                        text="UI/UX"
-                    />
-                    <CustomizableButton
-                        customClass={styles.disableButton}
-                        onClick={categoryChoice}
-                        text="Frontend"
-                    />
-                    <CustomizableButton
-                        customClass={styles.highlightButton}
-                        onClick={categoryChoice}
-                        text="Software Engineering"
-                    />
-                    <CustomizableButton
-                        customClass={styles.disableButton}
-                        onClick={categoryChoice}
-                        text="Product Design"
-                    />
-                    <Image
-                        src='/arrow-right-line.png'
-                        width={25}
-                        height={25}
-                        alt='arrow pointing to the right'
-                    />
-                </div>
-            </div>
-
             <form 
                 onSubmit={submitCommunity}
                 action="/send-data-here" 
@@ -169,7 +135,7 @@ function ManagerForm() {
                     <div className={styles.layoutRow}>
                         <label 
                             htmlFor='community_name'
-                        >Community Name
+                        >Community Name<span>*</span>
                         </label>
                         <input 
                             type='text' 
@@ -183,7 +149,7 @@ function ManagerForm() {
                     </div>
                     <div className={styles.layoutRow}>
                         <label 
-                            htmlFor='community_manager'
+                            htmlFor='community_manager_name'
                         >Community Manager
                         </label>
                         <input 
@@ -194,34 +160,8 @@ function ManagerForm() {
                     </div>
                     <div className={styles.layoutRow}>
                         <label 
-                            htmlFor='community_date'
-                        >Date Established
-                        </label>
-                        <input 
-                            type='text' 
-                            name='community_date' 
-                            id='date' 
-                            value={formData.community_date} onChange={handleChange}
-                            className={styles.inputStyle} 
-                        />
-                    </div >
-                    <div className={styles.layoutRow}>
-                        <label  
-                            htmlFor='community_location'
-                        >Location
-                        </label>
-                        <input 
-                            type='text' 
-                            name='community_location' 
-                            id='location' 
-                            value={formData.community_location} onChange={handleChange} 
-                            className={styles.inputStyle} 
-                        />
-                    </div>
-                    <div className={styles.layoutRow}>
-                        <label 
                             htmlFor='community_url'
-                        >Community URL
+                        >Manager URL<span>*</span>
                         </label>
                         <input 
                             type='url' 
@@ -234,7 +174,7 @@ function ManagerForm() {
                     <div className={styles.layoutRow}>
                         <label 
                             htmlFor='community_linkedin'
-                        >Community LinkedIn
+                        >Manager LinkedIn
                         </label>
                         <input 
                             type='text' 
@@ -246,7 +186,7 @@ function ManagerForm() {
 
                     <div className={styles.layoutRow}>
                         <label htmlFor='community_twitter'
-                        >Community Twitter
+                        >Manager Twitter
                         </label>
                         <input 
                             type='text' 
@@ -257,15 +197,18 @@ function ManagerForm() {
                         />
                     </div>
                     <div className={styles.layoutRow}>
-                        <label htmlFor='community_facebook'
-                        >Community Facebook
+                        <label 
+                            htmlFor='community_date'
+                        >Year Established
                         </label>
                         <input 
-                            type='text'      name='community_facebook' id='social_url' 
-                            value={formData.community_facebook} onChange={handleChange} 
-                            className={styles.inputStyle}
+                            type='text' 
+                            name='community_date' 
+                            id='date' 
+                            value={formData.community_date} onChange={handleChange}
+                            className={styles.inputStyle} 
                         />
-                    </div>
+                    </div >
                 </container>
 
                 <section className={styles.lowerHalfInput}>
@@ -286,7 +229,7 @@ function ManagerForm() {
                     </div>
                     <div className={styles.layoutRow}>
                         <label htmlFor='community_description'
-                        >Community Description
+                        >Community Description<span>*</span>
                         </label>
                         <input 
                             type='textarea' 
@@ -309,7 +252,6 @@ function ManagerForm() {
                             onChange={(event) => {setFileUpload(event.target.files[0])}}
                             onClick={imageUpload}
                             className={styles.inputUploadFile}>
-                                <label htmlFor='myImage'>Upload</label>
                                 <input 
                                     type="file"
                                     id="myImage"
@@ -317,47 +259,29 @@ function ManagerForm() {
                                     ref={fileInputRef}
                                     onChange={(event) => {setFileUpload(event.target.files[0])}}
                                 />
-                                <input type="submit" />
-                            {/* <Image
-                                
-                                src='/uploadFile.png'
-                                height={20}
-                                width={20}
-                                alt='file upload icon'
-                            /> */}
-                            <h3>Upload a File</h3>
-                            <p>Drag and drop files here</p>
+                                <label htmlFor='myImage'>Upload a File</label>
                         </div>
-
                         <div className={styles.lowerFormIcons}>
                             <div 
                             onClick={uploadFile}
                             onChange={(event) => {setFileUpload(event.target.files[0])}} >
-                                <label htmlFor='myImage'>Upload</label>
-                                <input 
-                                    type="file"
-                                    id="myImage"
-                                    ref={fileInputRef}
-                                    name="myImage"
-                                    onChange={(event) => {setFileUpload(event.target.files[0])}}
-                                />
-                                <input type="submit" />
-                                {/* <Image
+                                <input className={styles.submitFileButton} type="submit" />
+                                <Image
                                     src='/uploadFile.png'
                                     height={20}
                                     width={20}
                                     alt='file upload icon'
                                     type="submit"
-                                /> */}
+                                />
                             </div>
                             <div className={styles.trashIcon} onClick={deleteFile}>
                                 <p className={styles.deleteText}>Remove</p>
-                                {/* <Image
+                                <Image
                                     src='/delete-bin-2-line.png'
                                     height={20}
                                     width={20}
                                     alt='file upload icon'
-                                /> */}
+                                />
                             </div>
                         </div>
                     </div>
