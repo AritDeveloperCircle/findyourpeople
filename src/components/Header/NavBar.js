@@ -42,7 +42,7 @@ export default function NavBar({ query, handleInputChange, data, fetchData }) {
 
           {error && <p>{error}</p>}
           <input
-            className="pl-8 h-10 border-2 border-solid border-gray-300 rounded-tl-lg rounded-bl-lg "
+            className="pl-8 h-10 border-2 border-solid border-gray-300 rounded-lg "
             id="searchInputBar"
             type="text"
             placeholder="Search for..."
@@ -52,13 +52,13 @@ export default function NavBar({ query, handleInputChange, data, fetchData }) {
             required
             onChange={fetchData}
           />
-          <button
+          {/* <button
             type="submit"
             className="absolute right-1 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-gradient-lite-blue to-gradient-dark-blue text-white py-2 px-6 rounded-xl hover:bg-gray-500 active:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
             onClick={() => fetchData(query, data)}
           >
             SEARCH
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
