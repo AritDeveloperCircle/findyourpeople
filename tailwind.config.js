@@ -30,6 +30,7 @@ module.exports = {
         "accent-blue": "#31B8EE",
         "logo-blue": " #3181DF",
         "footer-gray":"rgba(255, 255, 255, 0.4)",
+        "gray-lite": "#D9D9D9",
       },
     },
   },
