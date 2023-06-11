@@ -49,7 +49,7 @@ function ManagerForm() {
         event.preventDefault();
         //managers id will be replace using the auth user id
             const commCollectionRef = collection(firebaseDb, "MANAGERS","3fF17YaSFLHgRgksgVU8","MANAGER_LISTINGS");
-            const docRef = await addDoc(commCollectionRef, {
+           await addDoc(commCollectionRef, {
                 formData
             })
             .then(() => {
