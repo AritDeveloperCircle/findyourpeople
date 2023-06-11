@@ -52,25 +52,6 @@ function SingleListing(className, text) {
                 
                 <h3><Link href={"#"} >Website URL</Link></h3>
             </div>
-
-            <div className="bg-gradient-lite-grey flex justify-between w-auto p-[70px] align-middle">
-
-                  <h2 
-                   className="text-grey-dark leading-12 text-3xl word-xl px-5 break-normal"
-                  >
-                    Would you like to be a part of this community?
-                  </h2>
-                
-                <Link 
-                href="/" 
-                className =" flex align-middle  cursor-pointer justify-center rounded-md w-[280px] text-center bg-gradient-lite-blue px-9 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 "
-                >
-                      Visit Community
-                </Link>
-                
-            </div>
-        
-            
             <FooterBar />
         </>
     )
