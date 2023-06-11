@@ -41,10 +41,6 @@ function ManagerForm() {
         console.log("clicked the button")
     }
 
- 
-
-    const storage = getStorage();
-
     const submitCommunity = async (event) => {
         event.preventDefault();
         //managers id will be replace using the auth user id
@@ -61,7 +57,7 @@ function ManagerForm() {
         // if (!file) return;
 
         try {
-            const imageRef = firebase.storage().ref();
+            const imageRef = firebase.firebaseStorage.ref();
             const fileName = `${Date.now()}_${file.name}`;
             const fileRef = imageRef.child(fileName);
             await fileRef.put(file);
