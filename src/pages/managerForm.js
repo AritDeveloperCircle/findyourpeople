@@ -47,38 +47,14 @@ function ManagerForm() {
 
     const submitCommunity = async (event) => {
         event.preventDefault();
-            const commCollectionRef = collection(firebaseDb, "LISTINGS");
-            getDocs(commCollectionRef)
-                .then((snapshot) => {
-                    let listing = []
-                    snapshot.docs.forEach((doc) => {
-                        listing.push({ ...doc.data(), id: doc.id})
-                    })
-                    console.log(listing)
-                })
-                .catch(error => {
-                    console.error(error.message)
-                });
-
-            const docRef = async () => {
-                await addDoc(commCollectionRef, {
-                    community_name: setFormData.community_name.value,
-                    community_manager: setFormData.community_manager.value,
-                    community_date: setFormData.community_date.value,
-                    community_location: setFormData.community_location.value,
-                    community_url: setFormData.community_url.value,
-                    community_linkedin: setFormData.community_linkedin.value,
-                    community_twitter: setFormData.community_twitter.value,
-                    community_facebook: setFormData.community_facebook.value,
-                    community_vision: setFormData.community_vision.value,
-                    community_description: setFormData.community_description.value,
-                })
-                .then(() => {
-                    setFormData.reset("")
-                })
-                    console.log("Document writtern with ID:", docRef.id)
-            }
-
+        //managers id will be replace using the auth user id
+            const commCollectionRef = collection(firebaseDb, "MANAGERS","3fF17YaSFLHgRgksgVU8","MANAGER_LISTINGS");
+            const docRef = await addDoc(commCollectionRef, {
+                formData
+            })
+            .then(() => {
+                setFormData("")
+            })
         } 
 
     const imageUpload = async (file) => {
@@ -90,6 +66,7 @@ function ManagerForm() {
             const fileRef = imageRef.child(fileName);
             await fileRef.put(file);
             const downloadURL = await fileRef.getDownloadURL();
+            console.log("Image uploaded! Download URL:", downloadURL)
             return downloadURL;
         } catch (error) {
             console.error("Error uploading image:", error)
