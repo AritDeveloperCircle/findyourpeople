@@ -41,13 +41,13 @@ function ManagerForm() {
         console.log("clicked the button")
     }
 
-    const db = getFirestore();
+ 
 
     const storage = getStorage();
 
     const submitCommunity = async (event) => {
         event.preventDefault();
-            const commCollectionRef = collection(db, "LISTINGS");
+            const commCollectionRef = collection(firebaseDb, "LISTINGS");
             getDocs(commCollectionRef)
                 .then((snapshot) => {
                     let listing = []
