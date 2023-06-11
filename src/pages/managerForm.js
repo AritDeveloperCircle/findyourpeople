@@ -7,18 +7,10 @@ import NavBar from "@/components/Header/NavBar";
 import CustomizableButton from "@/components/common/CustomizableButton";
 import FooterBar from "@/components/common/FooterBar";
 import styles from "../styles/managerForm.module.css";
-import { firebaseAuth, firebaseDb, firebaseStorage } from "@/firebase/config";
-import {
-  firestore,
-  getFirestore,
-  collection,
-  getDocs,
-  addDoc,
-} from "firebase/firestore";
-import { ref, getStorage } from "firebase/storage";
-import firebase from "firebase/app";
-import "firebase/compat/storage";
-import { uploadBytes, getDownloadURL } from "firebase/storage";
+import { firebaseDb, firebaseStorage } from "@/firebase/config";
+import {collection, addDoc} from "firebase/firestore";
+import { uploadBytes, getDownloadURL, ref } from "firebase/storage";
+
 function ManagerForm() {
   const [formData, setFormData] = useState({
     community_name: "",
