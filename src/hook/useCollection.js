@@ -7,14 +7,24 @@ export function useCollection() {
   const [isLoading, setIsLoading] = useState(null);
   const [error, setError] = useState(null);
 
+  const fetchData = (query, data) => {
+    if (query.length > 3) {
+      const array = data.filter((doc) => {
+        return doc.community_name === query;
+      });
+      console.log(array);
+      setData(array);
+    }
+  };
+
   useEffect(() => {
     setIsLoading(true);
     const queryManagersRef = collection(firebaseDb, "MANAGERS");
     let communityArray = [];
+
     const querySnapshot = onSnapshot(
       queryManagersRef,
       (snap) => {
-
         snap.forEach(async (manager) => {
           const communityRef = collection(
             firebaseDb,
@@ -23,10 +33,11 @@ export function useCollection() {
             "MANAGER_LISTINGS"
           );
           const docSnap = await getDocs(communityRef);
-         
+
           docSnap.forEach((community) => {
             communityArray.push({
               ...community.data(),
+              uid: manager.id,
               community_id: community.id,
             });
           });
@@ -42,5 +53,5 @@ export function useCollection() {
     );
     return () => querySnapshot;
   }, []);
-  return { data, error, isLoading };
+  return { data, error, isLoading, fetchData };
 }
