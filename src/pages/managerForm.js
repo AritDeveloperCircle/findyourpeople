@@ -13,7 +13,7 @@ import { ref, getStorage} from "firebase/storage";
 import firebase from "firebase/app";
 import "firebase/compat/storage";
 
-
+     
 function ManagerForm() {
 
     const [formData, setFormData] = useState({
