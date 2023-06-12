@@ -17,19 +17,6 @@ body {
   font-size: 16px;
 }
 
-footer {
-  display: flex;
-  padding: 1em;
-  gap: 1em;
-  border-top: 1px solid grey;
-  font-size: 1.3em;
-}
-
-.navItem a {
-  text-decoration: none;
-  color: grey;
-}
-
 .data-results {
   width: 200px;
   background: #fff;

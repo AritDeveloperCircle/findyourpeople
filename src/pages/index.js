@@ -5,10 +5,34 @@ import Listing from "@/components/landing/listing";
 import FooterBar from "@/components/common/FooterBar";
 import NavBar from "../components/Header/NavBar";
 import { useCollection } from "@/hook/useCollection";
-import DashboardListing from "@/components/singledashboardlisting/DashboardListing";
+import { useState } from "react";
 
 export default function Home() {
   const { data, error, isLoading } = useCollection();
+  const [query, setQuery] = useState("");
+
+  const handleInputChange = (e) => {
+    return setQuery(e.target.value);
+  };
+
+  const fetchData = (e) => {
+    const listing = document.querySelectorAll("article");
+    if (e.target.value !== "") {
+      Array.from(listing).forEach((article) => {
+        if (
+          article.children[0].children[0].textContent.includes(e.target.value)
+        ) {
+          article.style.display = "block";
+        } else {
+          article.style.display = "none";
+        }
+      });
+    } else {
+      Array.from(listing).forEach((article) => {
+        article.style.display = "block";
+      });
+    }
+  };
 
   return (
     <>
@@ -19,7 +43,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <NavBar />
+        <NavBar
+          query={query}
+          handleInputChange={handleInputChange}
+          data={data}
+          fetchData={fetchData}
+        />
         <Hero />
         <section className={styles.listingsContainer}>
           {isLoading && <>loading...</>}
