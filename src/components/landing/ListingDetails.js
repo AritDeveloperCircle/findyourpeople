@@ -1,13 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
+import EmptyListing from "./EmptyListing";
+import { useEffect, useState } from "react";
+import Loading from "../common/Loading";
 
 const ListingDetails = ({ listing }) => {
   const LOGO_WIDTH = 20;
   const LOGO_HEIGHT = 20;
   const ICON_SRC = "/octicon_goal-24.png";
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (listing) {
+      setIsLoading(false);
+    }
+  }, [listing]);
+
   return (
     <>
-      {listing && (
+      {isLoading ? (
+        <Loading />
+      ) : listing ? (
         <main className="p-10">
           <article className="w-2/3 pb-5  lg:my-0 lg:px-12 ">
             <h1 className="font-medium text-xl py-1">Our Community</h1>
@@ -35,6 +49,8 @@ const ListingDetails = ({ listing }) => {
             </p>
           </div>
         </main>
+      ) : (
+        <EmptyListing />
       )}
     </>
   );
