@@ -13,7 +13,6 @@ function managerDashboard () {
             <div className='bg-primary-lite my-10 rounded-md flex justify-between sm-text-center'>
                 <div className='flex flex-col gap-5 p-10  lg:text-left'>
                     <h1 className='text-5xl text-blue-800'>Welcome Back, Emmanuel!</h1>
-                    <p className='text-2xl'>You have 8 new members!</p>
                     <div className='pt-10'>
                         <Link href="#" class="text-slate-700 hover:text-blue-500 cursor-pointer text-2xl">Edit Profile</Link>
                     </div>
