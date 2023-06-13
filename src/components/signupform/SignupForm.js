@@ -12,7 +12,7 @@ function Form() {
     password: "",
   });
 
-  const { signup, firebaseError } = useAuthSignUp();
+  const {  signup, firebaseError } = useAuthSignUp();
   const [error, setError] = useState({});
   const router = useRouter();
 
@@ -130,5 +130,5 @@ function Form() {
     </form>
   );
 }
-
+    
 export default Form;
