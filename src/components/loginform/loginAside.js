@@ -1,5 +1,5 @@
 import React from "react";
-import CustomizableAvatar from "../common/customavatar/CustomizableAvatar";
+import CustomizableAvatar from "../common/CustomizableAvatar";
 
 function LoginAside({
   asideCustomClass,
@@ -34,6 +34,3 @@ function LoginAside({
 }
 
 export default LoginAside;
-
-
-
