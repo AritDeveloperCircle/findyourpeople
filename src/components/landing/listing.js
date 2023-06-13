@@ -1,7 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./listing.module.css";
 
 function Listing({ data }) {
+  const avatarWidth = 109
+  const avatarHeight = 109
   return (
     <>
       <article className="bg-grey-lite my-2.5 mx-4 px-13 max-w-xl md:max-w-3xl lg:max-w-5xl h-85 lg:max-h-max rounded-2xl drop-shadow-md flex content-center font-sans">
