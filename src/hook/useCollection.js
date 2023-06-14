@@ -27,11 +27,13 @@ export function useCollection() {
           const docSnap = await getDocs(communityRef);
 
           docSnap.forEach((community) => {
-            communityArray.push({
-              ...community.data(),
-              uid: manager.id,
-              community_id: community.id,
-            });
+             if (community.data().approved) {
+              communityArray.push({
+                ...community.data(),
+                uid: manager.id,
+                community_id: community.id,
+              });
+            }
           });
           setData([...communityArray]);
           setIsLoading(false);
