@@ -2,7 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import useAuthContext from '@/context/useAuthContext';
 
-
+const ManagerDashboard = () => {
+  const { state } = useAuthContext();
   return (
     <div>
       {state?.user === undefined || state?.user?.uid === "" ? (
