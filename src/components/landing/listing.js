@@ -1,7 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./listing.module.css";
 
 function Listing({ data }) {
+  const avatarWidth = 109
+  const avatarHeight = 109
   return (
     <>
       <article className={styles.listing}>
