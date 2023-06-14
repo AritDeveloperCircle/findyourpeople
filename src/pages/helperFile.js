@@ -28,22 +28,6 @@ export const deleteFile = () => {
           fileInputRef.current.value = "";
         }
       };
-
-export const resetInput = (event) => {
-        event.preventDefault();
-        setFormData(
-          {
-            community_name: "",
-            community_manager: "",
-            manager_url: "",
-            manager_linkedin: "",
-            manager_twitter: "",
-            community_date: "",
-            community_vision: "",
-            community_description: "",
-          }
-        )
-    }
     
 export const goHome = (event) => {
         event.preventDefault();

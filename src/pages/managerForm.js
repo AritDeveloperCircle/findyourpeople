@@ -13,7 +13,7 @@ import {collection, addDoc} from "firebase/firestore";
 import { uploadBytes, getDownloadURL, ref } from "firebase/storage";
 
 function ManagerForm() {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     community_name: "",
     community_manager: "",
     community_date: "",
@@ -24,7 +24,10 @@ function ManagerForm() {
     community_facebook: "",
     community_vision: "",
     community_description: "",
-  });
+  };
+  const [formData, setFormData] = useState(initialFormData);
+  const fileInputRef = useRef(null);
+  const formRef = useRef(null);
   const [fileUpload, setFileUpload] = useState();
   const router = useRouter();
   const handleChange = (event) => {
@@ -100,10 +103,14 @@ function ManagerForm() {
     await addDoc(commCollectionRef, {
       formData,
     }).then(() => {
-      setFormData("");
+      setFormData(initialFormData);
     });
+    // if (formRef.current) {
+    //   formRef.current.reset();
+    // }
   };
-  const fileInputRef = useRef(null);
+  
+  
 
   return (
     <div>
@@ -126,7 +133,7 @@ function ManagerForm() {
                 required={field.required}
                 className={styles.inputStyle}
                 placeholder={field.placeholder}
-                patter={field.pattern}
+                pattern={field.pattern}
               />
             </div>
           ))}
@@ -202,7 +209,6 @@ function ManagerForm() {
       <FooterBar />
     </div>
   );
-  resetInput();
 }
 
 export default ManagerForm;
