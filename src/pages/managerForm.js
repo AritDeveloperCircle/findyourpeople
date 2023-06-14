@@ -105,13 +105,8 @@ function ManagerForm() {
     }).then(() => {
       setFormData(initialFormData);
     });
-    // if (formRef.current) {
-    //   formRef.current.reset();
-    // }
   };
   
-  
-
   return (
     <div>
       <NavBar />
