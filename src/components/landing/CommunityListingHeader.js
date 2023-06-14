@@ -1,4 +1,4 @@
-import CustomizableAvatar from "../common/customavatar/CustomizableAvatar";
+import CustomizableAvatar from "../common/CustomizableAvatar";
 import Link from "next/link";
 import Image from "next/image";
 
