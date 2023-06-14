@@ -6,10 +6,7 @@ import ReusableNavLink from '../common/ReusableNavLink';
 
 
 export default function NavBar() {
-    const navList = [
-        { text: "About", href: "/about" },
-        { text: "Contact", href: "/contact" },
-      ];
+    
 
     return (
         <div className=" relative flex items-center justify-evenly place-content-center sm:text-left md:flex py-4 px-24 lg:flex-row flex-col">
@@ -23,11 +20,6 @@ export default function NavBar() {
                     priority
                 />
             </Link>
-            <ul className="flex items-center justify-between gap-10">
-                {navList.map(({ text, href }) => (
-                    <ReusableNavLink key={href} text={text} href={href} />
-                ))}
-            </ul>
 
                 <form className="flex items-center border-2 border-solid border-gray-300 rounded-xl border-r-0" role="search">
                     <div className="center flex px-3 min-w-fit">
