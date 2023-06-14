@@ -2,9 +2,10 @@
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  width: 30%;
+  width: 100%;
   border-radius: 5px;
   padding-bottom: 20px;
+  background: white;
 }
 
 /* ============= Card Image =============== */
@@ -28,18 +29,35 @@
 .edit,
 .view {
   padding: 0.2rem 0.5rem;
+  font-weight: 700;
 }
 
 .edit {
   margin-right: 10px;
+  background: #2D65B4;
+  border-radius: 5px;
+  color: white;
 }
 
 .view {
   margin-left: 10px;
+  border: solid 2px #2D65B4;
+  border-radius: 5px;
+  color: #2D65B4;
 }
 
 .delete {
   width: 80%;
   padding: 0.3rem;
+  margin-top: 1rem;
+  background: red;
+  border-radius: 8px;
+}
+
+.unpublish {
+  width: 80%;
+  padding: 0.3rem;
   margin-top: 4rem;
+  background: rgb(183, 183, 183);
+  border-radius: 8px;
 }
