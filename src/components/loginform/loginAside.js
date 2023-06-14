@@ -1,7 +1,7 @@
 import React from "react";
-import CustomizableAvatar from "./CustomizableAvatar";
+import CustomizableAvatar from "../common/CustomizableAvatar";
 
-function CustomizableAside({
+function LoginAside({
   asideCustomClass,
   avatarCustomClass,
   src,
@@ -17,6 +17,11 @@ function CustomizableAside({
 }) {
   return (
     <div className={asideCustomClass}>
+      <h1 className={headerClassName}>
+        {headerText}
+        <span className={spanClassName}>{spanText}</span>
+      </h1>
+      <p className={paragraphClassName}>{paragraphText}</p>
       <CustomizableAvatar
         src={src}
         height={height}
@@ -24,13 +29,8 @@ function CustomizableAside({
         alt={alt}
         avatarCustomClass={avatarCustomClass}
       />
-      <h2 className={headerClassName}>
-        {headerText}
-        <span className={spanClassName}>{spanText}</span>
-      </h2>
-      <p className={paragraphClassName}>{paragraphText}</p>
     </div>
   );
 }
 
-export default CustomizableAside;
+export default LoginAside;

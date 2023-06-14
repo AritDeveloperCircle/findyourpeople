@@ -1,25 +1,42 @@
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { firebaseAuth } from "@/firebase/config";
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { firebaseAuth, firebaseDb } from "@/firebase/config";
 import { useState } from "react";
+import { doc, setDoc } from "firebase/firestore";
 
 function useAuthSignUp() {
-  const [addUser, setAddUser] = useState("");
+
   const [firebaseError, setFirebaseError] = useState("");
+
   const signup = ({ name, email, password }) => {
     createUserWithEmailAndPassword(firebaseAuth, email, password)
       .then((userCredential) => {
-        updateProfile(userCredential.user, { displayName: name });
-      })
-      .then((userCredential) => {
         const user = userCredential.user;
-        setAddUser(user);
+        updateProfile(user, { displayName: name })
+          .then(() => {
+            const userDocRef = doc(firebaseDb, "MANAGERS", user.uid);
+            const userData = {
+              displayName: user.displayName,
+              email: user.email,
+              userid: user.uid,
+            };
+           
+            setDoc(userDocRef, userData);
+          })
+          .catch((error) => {
+            setFirebaseError(error.message);
+            console.log(error.message);
+          });
       })
       .catch((error) => {
         setFirebaseError(error.message);
+        console.log(error.message);
       });
   };
 
-  return { addUser, signup, firebaseError };
+  return { signup, firebaseError };
 }
 
 export { useAuthSignUp };
