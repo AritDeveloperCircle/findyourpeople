@@ -7,7 +7,6 @@ export default function NavBar({ fetchData }) {
 
   const navList = [
     { text: "About", href: "/about" },
-    { text: "Contact", href: "/contact" },
   ];
 
   const { error } = useCollection();
@@ -25,7 +24,11 @@ export default function NavBar({ fetchData }) {
         />
       </Link>
       <div className="flex gap-6">
-
+        <ul className="flex items-center justify-between gap-10">
+            {navList.map(({ text, href }) => (
+              <ReusableNavLink key={href} text={text} href={href} />
+            ))}
+        </ul>
         <div className=" flex px-3 min-w-fit relative">
           <div className="mr-2 absolute left-5 top-1/2 transform -translate-y-1/2">
             <Image
