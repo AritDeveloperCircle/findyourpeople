@@ -3,6 +3,7 @@ import CustomizableButton from "../common/CustomizableButton";
 import { useAuthSignUp } from "@/composables/authSignUp";
 import regexValidation from "./helperFunctions/regexValidation";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 function Form() {
   const [user, setUser] = useState({
@@ -11,7 +12,7 @@ function Form() {
     password: "",
   });
 
-  const {  signup, firebaseError } = useAuthSignUp();
+  const { signup, firebaseError } = useAuthSignUp();
   const [error, setError] = useState({});
   const router = useRouter();
 
@@ -25,7 +26,7 @@ function Form() {
     const errors = regexValidation(user);
     if (Object.keys(errors).length === 0) {
       signup(user);
-      router.push("/managerDashboard"); 
+      router.push("/managerDashboard");
     } else {
       setError(errors);
     }
@@ -111,8 +112,14 @@ function Form() {
       <div className="mb-2">
         <input type="checkbox" name="acceptTerms" id="acceptTerms" required />
         <label htmlFor="acceptTerms" className="ml-2 text-base">
-          I accept the <span className="text-primary">Terms of Use</span> &
-          <span className="text-primary"> Privacy Policy</span>
+          I accept the{" "}
+          <Link href="documents/terms">
+            <span className="text-primary">Terms of Use </span>
+          </Link>
+          &
+          <Link href="documents/policy">
+            <span className="text-primary"> Privacy Policy</span>
+          </Link>
         </label>
       </div>
       <CustomizableButton
