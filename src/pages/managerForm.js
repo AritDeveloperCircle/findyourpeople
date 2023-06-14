@@ -115,7 +115,7 @@ function ManagerForm() {
             <div className={styles.layoutRow} key={field.name}>
               <label htmlFor={field.name}>
                 {field.label}
-                {field.required && <span>*</span>}
+                {field.required && <span className="text-red-500">*</span>}
               </label>
               <input
                 type={field.type}
@@ -202,6 +202,7 @@ function ManagerForm() {
       <FooterBar />
     </div>
   );
+  resetInput();
 }
 
 export default ManagerForm;
