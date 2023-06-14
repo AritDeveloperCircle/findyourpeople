@@ -19,7 +19,8 @@ function DashboardListing({ customClass }) {
           Community Name: <span>Approved</span>
         </p>
         <div className={styles.ctaButtons}>
-          <CustomizableButton customClass={styles.edit} text="Edit Page" />
+          <CustomizableButton customClass={styles.edit} text="Edit Page"
+          href="" />
           <CustomizableButton customClass={styles.view} text="View Page" />
         </div>
         <CustomizableButton customClass={styles.unpublish} text="UNPUBLISH" />
