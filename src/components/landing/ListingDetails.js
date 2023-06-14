@@ -16,7 +16,6 @@ const ListingDetails = ({ listing }) => {
       setIsLoading(false);
     }
   }, [listing]);
-  console.log(listing);
 
   return (
     <>
