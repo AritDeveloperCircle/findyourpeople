@@ -16,12 +16,11 @@ function ManagerForm() {
   const initialFormData = {
     community_name: "",
     community_manager: "",
-    community_date: "",
     community_location: "",
-    community_url: "",
-    community_linkedin: "",
-    community_twitter: "",
-    community_facebook: "",
+    manager_url: "",
+    manager_linkedin: "",
+    manager_twitter: "",
+    community_date: "",
     community_vision: "",
     community_description: "",
   };
