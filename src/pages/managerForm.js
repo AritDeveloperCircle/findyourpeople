@@ -6,6 +6,7 @@ import Image from "next/image";
 import NavBar from "@/components/Header/NavBar";
 import CustomizableButton from "@/components/common/CustomizableButton";
 import FooterBar from "@/components/common/FooterBar";
+import { imageUpload, uploadFile, deleteFile, resetInput, goHome } from "@/pages/helperFile";
 import styles from "../styles/managerForm.module.css";
 import { firebaseDb, firebaseStorage } from "@/firebase/config";
 import {collection, addDoc} from "firebase/firestore";
@@ -25,21 +26,71 @@ function ManagerForm() {
     community_description: "",
   });
   const [fileUpload, setFileUpload] = useState();
-
   const router = useRouter();
-
   const handleChange = (event) => {
     event.preventDefault();
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
-
-  const categoryChoice = () => {
-    console.log("clicked the button");
-  };
-
+  const inputFields = [
+    {
+      name: "community_name",
+      label: "Community Name",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "community_manager",
+      label: "Community Manager",
+      type: "text",
+      required: false,
+    },
+    {
+      name: "manager_url",
+      label: "Manager URL",
+      type: "url",
+      placeholder: "https://example.com",
+      pattern: "https://.*",
+      required: true,
+    },
+    {
+      name: "manager_linkedin",
+      label: "Manager Linkedin",
+      type: "text",
+      required: false,
+    },
+    {
+      name: "manager_twitter",
+      label: "Manager Twitter",
+      type: "text",
+      required: false,
+    },
+    {
+      name: "community_date",
+      label: "Community Date",
+      type: "text",
+      required: false,
+    },
+    {
+      name: "community_vision",
+      label: "Community Vision",
+      type: "textarea",
+      minLength: 15,
+      maxLength: 300,
+      rows: 3,
+      required: false,
+    },
+    {
+      name: "community_description",
+      label: "Community Description",
+      type: "textarea",
+      minLength: 15,
+      maxLength: 300,
+      rows: 3,
+      required: true,
+    }
+  ];
   const submitCommunity = async (event) => {
     event.preventDefault();
-    //managers id will be replace using the auth user id
     const commCollectionRef = collection(
       firebaseDb,
       "MANAGERS",
@@ -52,42 +103,7 @@ function ManagerForm() {
       setFormData("");
     });
   };
-
-  const imageUpload = async (file) => {
-    try {
-      const uploadpath = `thumbnails/community/3fF17YaSFLHgRgksgVU8/${file.name}`;
-      const storageRef = ref(firebaseStorage, uploadpath);
-      await uploadBytes(storageRef, file);
-      return await getDownloadURL(storageRef);
-    } catch (error) {
-      console.error("Error uploading image:", error);
-      throw error;
-    }
-  };
-
-  const uploadFile = async (event, file) => {
-    event.preventDefault();
-    try {
-      const downloadURL = await imageUpload(file);
-      console.log("Image uploaded! Download URL:", downloadURL);
-    } catch (error) {
-      console.error("Error uploading image", error);
-    }
-  };
-
-  const deleteFile = () => {
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
-    }
-  };
-
-  const goHome = (event) => {
-    event.preventDefault();
-    <Link href="/" />;
-  };
-
   const fileInputRef = useRef(null);
-  // const deleteFile = useRef(null)
 
   return (
     <div>
@@ -95,118 +111,26 @@ function ManagerForm() {
       <h1 className={styles.firstBanner}>New Community</h1>
       <form onSubmit={submitCommunity} action="/send-data-here" method="POST">
         <container className={styles.communityLayout}>
-          <div className={styles.layoutRow}>
-            <label htmlFor="community_name">
-              Community Name<span>*</span>
-            </label>
-            <input
-              type="text"
-              name="community_name"
-              id="community_name"
-              value={formData.community_name}
-              onChange={handleChange}
-              required
-              className={styles.inputStyle}
-            />
-          </div>
-          <div className={styles.layoutRow}>
-            <label htmlFor="community_manager_name">Community Manager</label>
-            <input
-              type="text"
-              name="community_manager"
-              id="community_manager"
-              value={formData.community_manager}
-              onChange={handleChange}
-              required
-              className={styles.inputStyle}
-            />
-          </div>
-          <div className={styles.layoutRow}>
-            <label htmlFor="community_url">
-              Manager URL<span>*</span>
-            </label>
-            <input
-              type="url"
-              name="community_url"
-              id="community_url"
-              value={formData.community_url}
-              onChange={handleChange}
-              placeholder="https://example.com"
-              pattern="https://.*"
-              size="50"
-              required
-              className={styles.inputStyle}
-            />
-          </div>
-          <div className={styles.layoutRow}>
-            <label htmlFor="community_linkedin">Manager LinkedIn</label>
-            <input
-              type="text"
-              name="community_linkedin"
-              id="social_url"
-              value={formData.community_linkedin}
-              onChange={handleChange}
-              className={styles.inputStyle}
-            />
-          </div>
-
-          <div className={styles.layoutRow}>
-            <label htmlFor="community_twitter">Manager Twitter</label>
-            <input
-              type="text"
-              name="community_twitter"
-              id="social_url"
-              value={formData.community_twitter}
-              onChange={handleChange}
-              className={styles.inputStyle}
-            />
-          </div>
-          <div className={styles.layoutRow}>
-            <label htmlFor="community_date">Year Established</label>
-            <input
-              type="text"
-              name="community_date"
-              id="date"
-              value={formData.community_date}
-              onChange={handleChange}
-              className={styles.inputStyle}
-            />
-          </div>
+          {inputFields.map((field) => (
+            <div className={styles.layoutRow} key={field.name}>
+              <label htmlFor={field.name}>
+                {field.label}
+                {field.required && <span>*</span>}
+              </label>
+              <input
+                type={field.type}
+                name={field.name}
+                id={field.name}
+                value={formData[field.name]}
+                onChange={handleChange}
+                required={field.required}
+                className={styles.inputStyle}
+                placeholder={field.placeholder}
+                patter={field.pattern}
+              />
+            </div>
+          ))}
         </container>
-
-        <section className={styles.lowerHalfInput}>
-          <div className={styles.layoutRow}>
-            <label htmlFor="community_vision">Community Vision</label>
-            <input
-              type="textarea"
-              name="community_vision"
-              id="community_vision"
-              value={formData.community_vision}
-              onChange={handleChange}
-              minLength={15}
-              maxLength={300}
-              rows={3}
-              className={styles.inputStyle}
-            />
-          </div>
-          <div className={styles.layoutRow}>
-            <label htmlFor="community_description">
-              Community Description<span>*</span>
-            </label>
-            <input
-              type="textarea"
-              name="community_description"
-              id="description"
-              value={formData.community_description}
-              onChange={handleChange}
-              minLength={15}
-              maxLength={300}
-              rows={3}
-              required
-              className={styles.inputStyle}
-            />
-          </div>
-        </section>
 
         <section className={styles.imageUploadBackground}>
           <div className={styles.uploadFileBackground}>
