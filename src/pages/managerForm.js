@@ -12,6 +12,7 @@ import { firebaseDb, firebaseStorage } from "@/firebase/config";
 import {collection, addDoc} from "firebase/firestore";
 import { uploadBytes, getDownloadURL, ref } from "firebase/storage";
 
+
 function ManagerForm() {
   const initialFormData = {
     community_name: "",
