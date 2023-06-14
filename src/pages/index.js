@@ -7,6 +7,7 @@ import NavBar from "../components/Header/NavBar";
 import { useCollection } from "@/hook/useCollection";
 import { useState } from "react";
 
+
 export default function Home() {
   const { data, error, isLoading } = useCollection();
   const [query, setQuery] = useState("");
