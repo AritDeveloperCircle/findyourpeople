@@ -7,15 +7,7 @@ export function useCollection() {
   const [isLoading, setIsLoading] = useState(null);
   const [error, setError] = useState(null);
 
-  const fetchData = (query, data) => {
-    if (query.length > 3) {
-      const array = data.filter((doc) => {
-        return doc.community_name === query;
-      });
-      console.log(array);
-      setData(array);
-    }
-  };
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -53,5 +45,5 @@ export function useCollection() {
     );
     return () => querySnapshot;
   }, []);
-  return { data, error, isLoading, fetchData };
+  return { data, error, isLoading };
 }

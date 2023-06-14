@@ -1,9 +1,7 @@
-import React from "react";
+import React from 'react';
+import Link from 'next/link';
+import useAuthContext from '@/context/useAuthContext';
 
-import useAuthContext from "@/context/useAuthContext";
-import Link from "next/link";
-const ManagerDashboard = () => {
-  const { state } = useAuthContext();
 
   return (
     <div>
