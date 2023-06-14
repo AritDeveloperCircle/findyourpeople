@@ -4,7 +4,6 @@ import Image from 'next/image';
 import NavBar from '@/components/Header/NavBar';
 import FooterBar from '@/components/common/FooterBar';
 import DashboardListing from '@/components/singledashboardlisting/DashboardListing';
-// import styles from '../styles/managerDashboard.module.css';
 
 function ManagerDashboard () {
   return (
@@ -34,7 +33,7 @@ function ManagerDashboard () {
                     <div className="grid grid-cols-2 col-span-1 auto-rows-max justify-items-center sm:grid-cols-1 xl:grid-cols-2 gap-10 my-10">
                         <div className='col-span-1 pb-6'>
                             <DashboardListing 
-                            className="" />
+                             />
                         </div>
                         <div className='col-span-1 pb-6'>
                             <DashboardListing />
