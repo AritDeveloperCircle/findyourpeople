@@ -1,6 +1,6 @@
 import Link from "next/link";
 import NavBar from "@/components/Header/NavBar";
-import CustomizableAvatar from "@/components/common/customavatar/CustomizableAvatar";
+import CustomizableAvatar from "@/components/common/CustomizableAvatar";
 import CustomizableButton from "@/components/common/CustomizableButton";
 import FooterBar from "@/components/common/FooterBar";
 import Image from "next/image";
@@ -40,6 +40,7 @@ function SingleListing(className, text) {
       <NavBar />
       <CommunityHeader listing={listing} />
       <ListingDetails listing={listing} />
+
       <FooterBar />
     </>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import CustomizableAvatar from "./customavatar/CustomizableAvatar";
+import CustomizableAvatar from "./CustomizableAvatar";
 
 function CustomizableAside({
   asideCustomClass,
