@@ -14,8 +14,6 @@ export default function login() {
   
     return (
       <>
-        <Link href="/"> home</Link>
-        <Link href="/signup"> signup</Link>
         <main className="flex min-h-screen font-[var(--font-urbanist)]">
           <section className="relative w-1/2">
             <Image
@@ -43,6 +41,7 @@ export default function login() {
           </section>
 
           <section className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <Link href="/"> home</Link>
             <LoginFormContainer />
           </section>
         </main>
