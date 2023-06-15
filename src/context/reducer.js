@@ -41,7 +41,7 @@ export const authReducer = ( state, action) => {
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, InitialState);
-console.log(state)
+
   useEffect(() => {
     const unsub = onAuthStateChanged(firebaseAuth, async (user) => {
       if (user) {
@@ -62,7 +62,7 @@ console.log(state)
   }, []);
 
   return (
-    <AuthContext.Provider value={{ ...state, dispatch }}>
+    <AuthContext.Provider value={{ state, dispatch }}>
       {children}
     </AuthContext.Provider>
   );
