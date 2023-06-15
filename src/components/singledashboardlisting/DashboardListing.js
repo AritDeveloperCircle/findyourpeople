@@ -22,6 +22,7 @@ function DashboardListing({ customClass }) {
           <CustomizableButton customClass={styles.edit} text="Edit Page" />
           <CustomizableButton customClass={styles.view} text="View Page" />
         </div>
+        <CustomizableButton customClass={styles.unpublish} text="UNPUBLISH" />
         <CustomizableButton customClass={styles.delete} text="DELETE" />
       </div>
     </main>
