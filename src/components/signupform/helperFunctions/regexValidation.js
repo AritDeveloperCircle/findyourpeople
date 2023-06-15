@@ -1,7 +1,7 @@
 function regexValidation(user) {
   const errors = {};
 
-  const namePattern = /^[a-zA-Z]{2,50}(?:\s+[a-zA-Z]{2,50})+$/;
+  const namePattern = /^[a-zA-Z]{2,50}(?:\s+[a-zA-Z]{2,50})+$/; 
   if (!user.name) {
     errors.name = "Please enter your name";
   } else if (user.name.length < 2 || user.name.length > 50) {
@@ -10,7 +10,7 @@ function regexValidation(user) {
     errors.name = "Please enter a valid name";
   }
 
-  const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (!user.email) {
     errors.email = "Please enter your email address";
   } else if (!user.email.match(emailPattern)) {
