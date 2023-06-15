@@ -134,56 +134,6 @@ function ManagerForm() {
           ))}
         </container>
 
-        <section className={styles.imageUploadBackground}>
-          <div className={styles.uploadFileBackground}>
-            <h3>Add Image</h3>
-            <div
-              onChange={(event) => {
-                setFileUpload(event.target.files[0]);
-              }}
-              onClick={imageUpload}
-              className={styles.inputUploadFile}
-            >
-              <input
-                type="file"
-                id="myImage"
-                name="myImage"
-                ref={fileInputRef}
-                onChange={(event) => {
-                  setFileUpload(event.target.files[0]);
-                }}
-              />
-              <label htmlFor="myImage">Upload a File</label>
-            </div>
-            <div className={styles.lowerFormIcons}>
-              <div
-                onClick={uploadFile}
-                onChange={(event) => {
-                  setFileUpload(event.target.files[0]);
-                }}
-              >
-                <input className={styles.submitFileButton} type="submit" />
-                <Image
-                  src="/uploadFile.png"
-                  height={20}
-                  width={20}
-                  alt="file upload icon"
-                  type="submit"
-                />
-              </div>
-              <div className={styles.trashIcon} onClick={deleteFile}>
-                <p className={styles.deleteText}>Remove</p>
-                <Image
-                  src="/delete-bin-2-line.png"
-                  height={20}
-                  width={20}
-                  alt="file upload icon"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
         <div className={styles.buttonsBottom}>
           <button
             className={styles.returnButton}
