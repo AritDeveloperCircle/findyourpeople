@@ -2,7 +2,6 @@ import { useState } from "react";
 import CustomizableButton from "../common/CustomizableButton";
 import regexValidation from "../signupform/helperFunctions/regexValidation";
 import { useAuthLogIn } from "@/composables/authLogIn";
-import { useRouter } from "next/router";
 
 function LoginForm() {
 
@@ -11,9 +10,8 @@ function LoginForm() {
         password: '',
       });
 
-      const { addUser, firebaseError, LogIn } = useAuthLogIn();
+      const { firebaseError, LogIn } = useAuthLogIn();
       const [error, setError] = useState({});
-      const router = useRouter();
     
       const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value.trim()})
@@ -23,20 +21,12 @@ function LoginForm() {
         e.preventDefault();
         const errors = regexValidation(user);
         if (Object.keys(errors).length === 0){
-          LogIn(user);
-          router.push("/")
-          console.log("submit")
-          // resetForm()
-
+         LogIn(user);
+         setUser({ email: "", password: "" });
         }else {
           setError(errors)
         }
       }
-      const resetForm = () => {
-        setUser({ email: "", password: "" });
-      };
-      console.log(user);
-
     return (
       
         <form  onSubmit={handleSubmit} 
