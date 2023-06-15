@@ -1,12 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
-import useAuthContext from '@/context/useAuthContext';
+import  useAuthContext  from '@/context/useAuthContext';
 
 const ManagerDashboard = () => {
   const { state } = useAuthContext();
+
   return (
     <div>
-      {state?.user === undefined || state?.user?.uid === "" ? (
+      {state?.user === undefined || state?.user?.userid === "" ? (
         <>
           <div className="bg-slate-200 h-screen flex items-center justify-center">
             <div className="w-4/12 bg-white p-6 text-center rounded">
