@@ -2,16 +2,21 @@ import Link from "next/link";
 import Image from "next/image";
 import ReusableNavLink from "../common/ReusableNavLink";
 import { useCollection } from "@/hook/useCollection";
+import CustomizableButton from "../common/CustomizableButton";
 
 export default function NavBar({ fetchData }) {
 
   const navList = [
     { text: "About", href: "/about" },
-    { text: "home", href: "/" },
+    { text: "Home", href: "/" },
     { text: "Contact", href: "/contact" },   
   ];
 
   const { error } = useCollection();
+
+  const logOut = () => {
+
+  }
 
   return (
     <div className="grid grid-cols-4 p-4 items-center gap-3">
@@ -53,6 +58,7 @@ export default function NavBar({ fetchData }) {
             <ReusableNavLink key={href} text={text} href={href} />
           ))}
         </ul>
+        <CustomizableButton  customClass="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700" onClick={logOut} text="Logout" />
       </div>
     </div>
   );
