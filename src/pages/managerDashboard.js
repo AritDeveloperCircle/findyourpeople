@@ -10,34 +10,30 @@ function ManagerDashboard () {
     <div>
         <NavBar />
         <main className='bg-white container mx-auto p-10'>
-            <div className='bg-primary-lite my-10 rounded-md flex justify-between sm-text-center'>
+            <div className='bg-primary-lite my-10 rounded-md flex flex-col sm-text-center'>
                 <div className='flex flex-col gap-5 p-10  lg:text-left'>
                     <h1 className='text-5xl text-blue-800'>Welcome Back, Emmanuel!</h1>
                     <div className='pt-10'>
-                        <Link href="#" class="text-slate-700 text-base hover:text-blue-500 cursor-pointer text-2xl">Edit Profile</Link>
+                        <Link href="#" className="text-slate-700  hover:text-blue-500 cursor-pointer text-2xl">Edit Profile</Link>
                     </div>
                 </div>
-                <div className='pr-40 pt-8 md:flex lg:shrink-0 '>
+                <div className='pr-40 pt-8 md:flex lg:shrink-0 w-full max-w-lg h-80 mx-auto relative '>
                     <Image 
-                    className='min-[320px]:text-center max-[1240px]:inherit sm:invisible md:invisible lg:visible'
+                    className='min-[320px]:text-center max-[1240px]:inherit '
                         src="/manager-dashboard-character.png"
                         alt="manager character"
-                        width={500}
-                        height={500}
+                        fill            
                     />
                 </div>
             </div>
 
-            <div className='bg-grey-lite p-10 rounded-md'>
-                <h1 className='text-5xl p-10 text-center'>Community Dashboard</h1>
-                    <div className="grid grid-cols-2 col-span-1 auto-rows-max justify-items-center sm:grid-cols-1 xl:grid-cols-2 gap-10 my-10">
-                        <div className='col-span-1 pb-6'>
+            <div className='bg-grey-lite p-4 rounded-md'>
+                <h1 className='text-lg lg:text-3xl p-2 text-center'>Community Dashboard</h1>
+                    <div className="grid auto-rows-max grid-cols-1 md:grid-cols-2 md:max-w-3xl md:mx-auto gap-10 my-10">
+                       
                             <DashboardListing 
                              />
-                        </div>
-                        <div className='col-span-1 pb-6'>
                             <DashboardListing />
-                        </div>
                     </div>
                 <h2 className='text-2xl text-center'>+ Add new community</h2>
             </div>
