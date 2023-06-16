@@ -1,13 +1,24 @@
-import React from 'react';
-import Link from 'next/link';
-import  useAuthContext  from '@/context/useAuthContext';
-
+import React from "react";
+import Link from "next/link";
+import useAuthContext from "@/context/useAuthContext";
+import { firebaseAuth } from "@/firebase/config";
+import { signOut } from "firebase/auth";
+import { useRouter } from "next/router";
 const ManagerDashboard = () => {
-  const { state } = useAuthContext();
+  const { state, dispatch } = useAuthContext();
+  const router = useRouter();
+
+  const logout = () => {
+    signOut(firebaseAuth).then(() => {
+      // Sign-out successful.
+      dispatch({ type: "LOGOUT" });
+      router.push("/");
+    });
+  };
 
   return (
     <div>
-      {state?.user === undefined || state?.user?.userid === "" ? (
+      {state?.user === null || state?.user?.useruid === "" ? (
         <>
           <div className="bg-slate-200 h-screen flex items-center justify-center">
             <div className="w-4/12 bg-white p-6 text-center rounded">
@@ -30,7 +41,10 @@ const ManagerDashboard = () => {
           </div>
         </>
       ) : (
-        <h1>Manager Dashboard</h1>
+        <>
+          <h1>Manager Dashboard</h1>
+          <button onClick={logout}>Logout</button>
+        </>
       )}
     </div>
   );
