@@ -27,13 +27,6 @@ const ListingDetails = ({ listing }) => {
             <article className="w-2/3 pb-5  lg:my-0 lg:px-12 ">
               <h1 className="font-medium text-xl py-1">Our Community</h1>
               <p>{listing.community_description}</p>
-              <p>
-                <Link href={listing.community_url} className="text-primary">
-                  Join us{" "}
-                </Link>
-                at {listing.community_name} and unlock your potentials as a
-                developer!
-              </p>
             </article>
             <div className=" flex items-center justify-center lg:w-11/12 bg-gray-lite my-6 mx-auto">
               <div className="bg-primary p-12  rounded ">
