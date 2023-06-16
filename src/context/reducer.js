@@ -8,7 +8,7 @@ export const AuthContext = createContext();
 
 export const InitialState = {
   user: {
-    uid: "",
+    useruid: "",
     email: "",
     displayName: "",
   },
@@ -25,7 +25,7 @@ export const authReducer = ( state, action) => {
   if (action.type === "SIGN_OUT") {
     return {
       ...state,
-      user: null,
+      user: InitialState.user,
     };
   }
   if (action.type === "AUTH_STATE_CHANGED") {
