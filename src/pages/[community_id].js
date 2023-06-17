@@ -1,9 +1,6 @@
 import Link from "next/link";
 import NavBar from "@/components/Header/NavBar";
-import CustomizableAvatar from "@/components/common/CustomizableAvatar";
-import CustomizableButton from "@/components/common/CustomizableButton";
 import FooterBar from "@/components/common/FooterBar";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { getDocs, collection } from "firebase/firestore";
