@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { firebaseDb } from "@/firebase/config";
 import CommunityHeader from "@/components/landing/CommunityListingHeader";
+import ListingDetails from "@/components/landing/ListingDetails";
 
 function SingleListing(className, text) {
   const router = useRouter();
@@ -28,6 +29,7 @@ function SingleListing(className, text) {
         }
       });
     };
+
     if (id) {
       fetchData();
     }
@@ -37,23 +39,7 @@ function SingleListing(className, text) {
     <>
       <NavBar />
       <CommunityHeader listing={listing} />
-
-
-      <div className="bg-gradient-lite-grey flex justify-between p-[52px] mt-12 ">
-                  <h2 
-                   className ="text-grey-dark text-lg sm:text-lg lg:text-xl font-medium leading-[52px]"               
-                  >
-                    Would you like to be a part of this community?
-                  </h2> 
-                <Link 
-                href="/" 
-                className ="bg-gradient-lite-blue cursor-pointer rounded-md w-[250px] text-center px-6 py-2 text-white shadow-sm hover:bg-indigo-500"
-                >
-                  Visit Community
-                </Link>  
-      </div>
-
-
+      <ListingDetails listing={listing} />
 
       <FooterBar />
     </>
