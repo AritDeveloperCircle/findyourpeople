@@ -133,7 +133,6 @@ function ManagerForm() {
             </div>
           ))}
         </container>
-
         <section className={styles.imageUploadBackground}>
           <div  className="bg-primary-lite lg:place-content-center max-w-7xl md:max-w-screen-2xl max-h-96 rounded-2xl" >
             <h3 className="w-32  font-sans h-9 ml-64 pt-4 font-bold text-xl leading-9 text-gray-dark ">Add Image</h3>
