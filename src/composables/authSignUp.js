@@ -5,9 +5,11 @@ import {
 import { firebaseAuth, firebaseDb } from "@/firebase/config";
 import { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
+import useAuthContext from "@/context/useAuthContext";
+
 
 function useAuthSignUp() {
-
+const {dispatch} = useAuthContext()
   const [firebaseError, setFirebaseError] = useState("");
 
   const signup = ({ name, email, password }) => {
@@ -24,6 +26,7 @@ function useAuthSignUp() {
             };
            
             setDoc(userDocRef, userData);
+             dispatch({ type: "SIGN_IN", payload: userData });
           })
           .catch((error) => {
             setFirebaseError(error.message);

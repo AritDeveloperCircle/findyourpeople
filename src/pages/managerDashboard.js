@@ -1,14 +1,53 @@
 import React from "react";
 import Link from "next/link";
-import NavBar from "@/components/Header/NavBar";
-import CustomizableAvatar from "@/components/common/CustomizableAvatar";
-import CustomizableButton from "@/components/common/CustomizableButton";
-import FooterBar from "@/components/common/FooterBar";
-import styles from "../styles/singleListing.module.css";
+import useAuthContext from "@/context/useAuthContext";
+import { firebaseAuth } from "@/firebase/config";
+import { signOut } from "firebase/auth";
+import { useRouter } from "next/router";
+const ManagerDashboard = () => {
+  const { state, dispatch } = useAuthContext();
+  const router = useRouter();
 
-const managerDashboard = () => {
-  return <div>managerDashboard</div>;
+  const logout = () => {
+    signOut(firebaseAuth).then(() => {
+      // Sign-out successful.
+      dispatch({ type: "LOGOUT" });
+      router.push("/");
+    });
+  };
+
+  return (
+    <div>
+      {state?.user === null || state?.user?.useruid === "" ? (
+        <>
+          <div className="bg-slate-200 h-screen flex items-center justify-center">
+            <div className="w-4/12 bg-white p-6 text-center rounded">
+              <h1 className="font-medium text-2xl mb-4">Manager Dashboard</h1>
+              <p>
+                To view this page{" "}
+                <Link href="/login" className="text-violet-600">
+                  login
+                </Link>{" "}
+              </p>
+
+              <p>or</p>
+              <p>
+                Go to community listings page{" "}
+                <Link href="/" className="text-violet-600">
+                  listings
+                </Link>
+              </p>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <h1>Manager Dashboard</h1>
+          <button onClick={logout}>Logout</button>
+        </>
+      )}
+    </div>
+  );
 };
 
-
-export default managerDashboard;
+export default ManagerDashboard;
