@@ -12,16 +12,16 @@ import { firebaseDb, firebaseStorage } from "@/firebase/config";
 import {collection, addDoc} from "firebase/firestore";
 import { uploadBytes, getDownloadURL, ref } from "firebase/storage";
 
+
 function ManagerForm() {
   const initialFormData = {
     community_name: "",
     community_manager: "",
-    community_date: "",
     community_location: "",
-    community_url: "",
-    community_linkedin: "",
-    community_twitter: "",
-    community_facebook: "",
+    manager_url: "",
+    manager_linkedin: "",
+    manager_twitter: "",
+    community_date: "",
     community_vision: "",
     community_description: "",
   };
@@ -126,7 +126,7 @@ function ManagerForm() {
                 value={formData[field.name]}
                 onChange={handleChange}
                 required={field.required}
-                className="border-2 w-72 md:max-w-md h-9 border-gradient-lite-grey rounded-lg"
+                className="border-2 w-72 md:max-w-md h-11 border-gradient-lite-grey rounded-lg"
                 placeholder={field.placeholder}
                 pattern={field.pattern}
               />
@@ -187,8 +187,9 @@ function ManagerForm() {
         </section>
 
         <div className="px-36 py-3 flex flex-row justify-center items-center">
+        <div className={styles.buttonsBottom}>
           <button
-            className="w-44 sm:w-64 h-9 sm:h-14 px-2 font-bold text-lg border text-primary border-primary rounded-lg  "
+            className="w-44 sm:w-64 h-9 mt-8 sm:h-14 px-2 font-bold text-lg border text-primary border-primary rounded-lg  "
             onClick={() => router.push("/")}
             text="Return to Home"
             type="submit"
@@ -201,6 +202,7 @@ function ManagerForm() {
             text="Submit"
             type="submit"
           />
+        </div>
         </div>
       </form>
       <FooterBar />
