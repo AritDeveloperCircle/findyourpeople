@@ -108,14 +108,14 @@ function ManagerForm() {
   };
   
   return (
-    <div>
+    <div className="">
       <NavBar />
-      <h1 className={styles.firstBanner}>New Community</h1>
-      <form onSubmit={submitCommunity} action="/send-data-here" method="POST">
-        <container className={styles.communityLayout}>
+      <h1 className="bg-gradient-lite-blue h-20 md:h-24 w-auto md:w-full flex flex-col justify-center items-center px-3.5 py-14 gap-2.5 font-bold text-4xl text-gray-lite">New Community</h1>
+      <form className="" onSubmit={submitCommunity} action="/send-data-here" method="POST">
+        <container  className={styles.communityLayout}>
           {inputFields.map((field) => (
-            <div className={styles.layoutRow} key={field.name}>
-              <label htmlFor={field.name}>
+            <div key={field.name}>
+              <label className="ml-2 font-bold text-xl leading-9 text-gray-dark w-52 h-9 md:w-64" htmlFor={field.name}>
                 {field.label}
                 {field.required && <span className="text-red-500">*</span>}
               </label>
@@ -126,7 +126,7 @@ function ManagerForm() {
                 value={formData[field.name]}
                 onChange={handleChange}
                 required={field.required}
-                className={styles.inputStyle}
+                className="border-2 w-72 md:max-w-md h-9 border-gradient-lite-grey rounded-lg"
                 placeholder={field.placeholder}
                 pattern={field.pattern}
               />
@@ -135,16 +135,17 @@ function ManagerForm() {
         </container>
 
         <section className={styles.imageUploadBackground}>
-          <div className={styles.uploadFileBackground}>
-            <h3>Add Image</h3>
+          <div  className="bg-primary-lite lg:place-content-center max-w-7xl md:max-w-screen-2xl max-h-96 rounded-2xl" >
+            <h3 className="w-32  font-sans h-9 ml-64 pt-4 font-bold text-xl leading-9 text-gray-dark ">Add Image</h3>
             <div
               onChange={(event) => {
                 setFileUpload(event.target.files[0]);
               }}
               onClick={imageUpload}
-              className={styles.inputUploadFile}
+              className="rounded-lg border-grey-dark border-dashed border-2 md:mx-64 sm:mx-4 mt-2 h-24 max-w-lg sm:max-w-full flex justify-between flex-col items-center"
             >
               <input
+              className="pt-4"
                 type="file"
                 id="myImage"
                 name="myImage"
@@ -153,7 +154,7 @@ function ManagerForm() {
                   setFileUpload(event.target.files[0]);
                 }}
               />
-              <label htmlFor="myImage">Upload a File</label>
+              <label className="pb-2 font-bold text-2xl leading-9" htmlFor="myImage">Upload a File</label>
             </div>
             <div className={styles.lowerFormIcons}>
               <div
@@ -162,17 +163,18 @@ function ManagerForm() {
                   setFileUpload(event.target.files[0]);
                 }}
               >
-                <input className={styles.submitFileButton} type="submit" />
+                <input className="mb-6 font-bold" type="submit" />
                 <Image
                   src="/uploadFile.png"
                   height={20}
                   width={20}
                   alt="file upload icon"
                   type="submit"
+                  className="mb-6"
                 />
               </div>
-              <div className={styles.trashIcon} onClick={deleteFile}>
-                <p className={styles.deleteText}>Remove</p>
+              <div className="mb-6" onClick={deleteFile}>
+                <p className="w-21 h-9 text-xl leading-9 font-bold text-accent-red">Remove</p>
                 <Image
                   src="/delete-bin-2-line.png"
                   height={20}
@@ -184,9 +186,9 @@ function ManagerForm() {
           </div>
         </section>
 
-        <div className={styles.buttonsBottom}>
+        <div className="px-36 py-3 flex flex-row justify-center items-center">
           <button
-            className={styles.returnButton}
+            className="w-44 sm:w-64 h-9 sm:h-14 px-2 font-bold text-lg border text-primary border-primary rounded-lg  "
             onClick={() => router.push("/")}
             text="Return to Home"
             type="submit"
