@@ -4,7 +4,7 @@ function InfoCard({
   name,
   twitter,
   linkedin,
-  avatarCustomClass,
+
   avatarImage,
   src,
   height,
@@ -13,32 +13,30 @@ function InfoCard({
 }) {
   return (
     <div>
-      <div className={`${avatarCustomClass} relative `}>
+      <div>
         <CustomizableAvatar
           src={src}
           height={height}
           width={width}
           alt={alt}
-          avatarCustomClass={avatarCustomClass}
-          className={avatarImage}
+          avatarCustomClass="flex justify-center"
+          avatarImage="rounded-full"
+          //   className={avatarImage}
         />
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{ clipPath: "circle(50%)" }}
-        ></div>
       </div>
 
-      <p className="text-semibold">{name}</p>
-      <p>
+      <p className="font-medium mb-1 text-center">{name}</p>
+      <p className="text-center">
         <a
           href={`https://twitter.com/${twitter}`}
           target="_blank"
           rel="noopener noreferrer"
+          className="text-primary hover:underline"
         >
           {twitter}
         </a>
       </p>
-      <p>
+      <p className="text-center">
         <a
           href={`https://www.linkedin.com/in/${linkedin}`}
           target="_blank"
