@@ -6,7 +6,6 @@ import { useCollection } from "@/hook/useCollection";
 export default function NavBar({ fetchData }) {
   const navList = [
     { text: "About", href: "/about" },
-    { text: "Contact", href: "/contact" },
     { text: "Login", href: "/login" },
     { text: "Sign up", href: "/signup" },
   ];
