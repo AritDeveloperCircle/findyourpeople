@@ -37,18 +37,18 @@ export default function about() {
             </div>
 
             <p className="p-10 text-center mx-auto">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque venenatis auctor pellentesque. Suspendisse potenti.
-              Duis et felis porttitor, dignissim neque in, blandit risus. Nunc
-              eu pharetra urna. Nam lacinia at sapien eu tempor. Vivamus eget
-              neque id lorem dapibus bibendum. Nunc et mauris scelerisque,
-              malesuada tellus quis, maximus dolor. Sed lectus augue, gravida eu
-              velit vitae, maximus semper diam. Curabitur rutrum nisi sed velit
-              ultricies varius. Vestibulum eget nunc velit. Nulla ullamcorper
-              sodales tellus, eget malesuada ante luctus a. In efficitur lacus
-              sed massa hendrerit, et pharetra ante bibendum. Sed at massa
-              sollicitudin, placerat nulla sit amet, maximus mauris. Fusce
-              interdum condimentum consequat.
+              Findyourpeople is a remarkable platform that empowers individuals
+              to seamlessly discover and join various technology communities.
+              Created with the vision of fostering collaboration and growth
+              within the tech ecosystem, Findyourpeople is especially notable as
+              it was developed by an inspiring group of women. These talented
+              developers saw a gap in the market and decided to create a
+              solution that would bridge the divide, enabling tech enthusiasts,
+              professionals, and beginners alike to find communities that
+              resonate with their interests and aspirations. Findyourpeople not
+              only serves as a tool for finding tech communities but also stands
+              as a testament to the power of diversity and female representation
+              in the tech industry.
             </p>
           </div>
         </section>
