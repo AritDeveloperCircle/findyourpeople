@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import NavBar from "@/components/Header/NavBar";
@@ -6,14 +6,16 @@ import FooterBar from "@/components/common/FooterBar";
 import DashboardListing from "@/components/singledashboardlisting/DashboardListing";
 import CustomizableButton from "@/components/common/CustomizableButton";
 import useAuthContext from "@/context/useAuthContext";
-import { firebaseAuth } from "@/firebase/config";
+import { firebaseAuth,firebaseDb } from "@/firebase/config";
+import { getDocs, collection } from "firebase/firestore";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/router";
 
 function ManagerDashboard() {
   const { state, dispatch } = useAuthContext();
+  const [listings, setListings] = useState([]);
   const router = useRouter();
-
+console.log(state?.user.userid)
   const logout = () => {
     signOut(firebaseAuth).then(() => {
       // Sign-out successful.
@@ -21,6 +23,15 @@ function ManagerDashboard() {
       router.push("/");
     });
   };
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(
+        collection(firebaseDb, "MANAGERS", `${state.user.userid}`, "MANAGER_LISTINGS")
+      );
+      setListings(querySnapshot.docs.map((doc) => doc.data()));
+    };
+    fetchData();
+  }, [state?.user?.userid]);
   return (
     <div>
       <NavBar />
@@ -59,7 +70,7 @@ function ManagerDashboard() {
             <div className="bg-primary-lite my-10 pt-10 rounded-md flex flex-col lg:flex-row sm-text-center">
               <div className="flex flex-col gap-5 p-10  lg:text-left">
                 <h1 className="text-5xl text-blue-800">
-                  Welcome Back, {state?.user?.displayName} 
+                  Welcome Back, {state?.user?.displayName}
                 </h1>
                 <div className="mt-2">
                   <Link
@@ -84,10 +95,16 @@ function ManagerDashboard() {
               <h1 className="text-lg lg:text-3xl p-2 text-center">
                 Community Dashboard
               </h1>
-              <div className="grid auto-rows-max grid-cols-1 md:grid-cols-2 md:max-w-3xl md:mx-auto gap-10 my-10">
-                <DashboardListing />
-                <DashboardListing />
-              </div>
+              {listings.length === 0 ? (
+                <h2 className="text-2xl text-center">No listings yet</h2>
+              ) : (
+                <div className="grid auto-rows-max grid-cols-1 md:grid-cols-2 md:max-w-3xl md:mx-auto gap-10 my-10">
+                  {listings.map((community) => (
+                    <DashboardListing key={index} community={community}/>
+                  ))}
+                </div>
+              )}
+
               <h2 className="text-2xl text-center">+ Add new community</h2>
             </div>
           </main>
