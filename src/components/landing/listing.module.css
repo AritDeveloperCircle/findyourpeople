@@ -1,26 +1,26 @@
 .listing {
-    display: flex;
-    gap: 1em;
-    border: 1px solid #bab7b7;
-    border-radius: 5px;
-    padding: 1em;
-    margin-bottom: 1em;
+  display: flex;
+  gap: 1em;
+  border: 1px solid #bab7b7;
+  border-radius: 5px;
+  padding: 1em;
+  margin-bottom: 1em;
 }
 
 .listing__view__more {
-    text-align: end;
-    display: block;
+  text-align: end;
+  display: block;
 }
 
 .listing__content__manager {
-    font-weight: 600;
-    color: #ed98dc;
-    margin-bottom: 0.5em;
-    text-transform: capitalize;
+  font-weight: 600;
+  color: #ed98dc;
+  margin-bottom: 0.5em;
+  text-transform: capitalize;
 }
 
-@media (min-width:40rem) {
-    .listing {
-        margin-bottom: 0em;
-    }
+@media (min-width: 40rem) {
+  .listing {
+    margin-bottom: 0em;
+  }
 }
