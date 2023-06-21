@@ -96,7 +96,7 @@ function ManagerDashboard() {
                 Community Dashboard
               </h1>
               {listings.length === 0 ? (
-                <h2 className="text-2xl text-center">No listings yet</h2>
+                <h2 className="text-2xl text-center my-8">No listings yet</h2>
               ) : (
                 <div className="grid auto-rows-max grid-cols-1 md:grid-cols-2 md:max-w-3xl md:mx-auto gap-10 my-10">
                   {listings.map((community) => (
