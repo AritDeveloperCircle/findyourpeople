@@ -15,7 +15,7 @@ function ManagerDashboard() {
   const { state, dispatch } = useAuthContext();
   const [listings, setListings] = useState([]);
   const router = useRouter();
-console.log(state?.user.userid)
+
   const logout = () => {
     signOut(firebaseAuth).then(() => {
       // Sign-out successful.
