@@ -15,7 +15,8 @@ function ManagerDashboard() {
   const { state, dispatch } = useAuthContext();
   const [listings, setListings] = useState([]);
   const router = useRouter();
-console.log(state?.user.userid)
+// console.log(state?.user.userid)
+console.log(state?.user)
   const logout = () => {
     signOut(firebaseAuth).then(() => {
       // Sign-out successful.
@@ -26,20 +27,34 @@ console.log(state?.user.userid)
   useEffect(() => {
     const fetchData = async () => {
       const querySnapshot = await getDocs(
-        collection(firebaseDb, "MANAGERS", `${state.user.userid}`, "MANAGER_LISTINGS")
+        // collection(firebaseDb, "MANAGERS", `${state.user.userid}`, "MANAGER_LISTINGS")
+        collection(firebaseDb, "MANAGERS", `${state.user}`, "MANAGER_LISTINGS")
       );
       setListings(querySnapshot.docs.map((doc) => doc.data()));
     };
     fetchData();
-  }, [state?.user?.userid]);
+  // }, [state?.user?.userid]);
+  }, [state?.user]);
   return (
     <div>
-      <NavBar />
-      <CustomizableButton
+      {/* <NavBar /> */}
+      <div className="flex items-center justify-between px-12 py-10">
+      <Image
+          src="/LOGO.png"
+          alt="Find Your People Tech Logo"
+          className="sm:h-full"
+          width={80}
+          height={28}
+          priority
+        />
+        <CustomizableButton
         customClass="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
         onClick={logout}
         text="Logout"
       />
+      </div>
+      
+      
 
       {state?.user === null || state?.user?.useruid === "" ? (
         <>
@@ -114,5 +129,6 @@ console.log(state?.user.userid)
     </div>
   );
 }
+
 
 export default ManagerDashboard;

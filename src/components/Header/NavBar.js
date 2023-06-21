@@ -51,9 +51,10 @@ export default function NavBar({ fetchData }) {
       </div>
       <div className="flex gap-6 ">
         <ul className="flex items-center justify-between gap-10">
-          {navList.map(({ text, href }) => (
+          {/* find another way to conditionally render links */}
+          {navList.map(({ text, href }) => 
             <ReusableNavLink key={href} text={text} href={href} />
-          ))}
+           )}
         </ul>
          </div>
     </div>
