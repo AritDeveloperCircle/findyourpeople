@@ -7,30 +7,25 @@ import { getDocs, collection } from "firebase/firestore";
 import { firebaseDb } from "@/firebase/config";
 import CommunityHeader from "@/components/landing/CommunityListingHeader";
 import ListingDetails from "@/components/landing/ListingDetails";
+import { useCollection } from "@/hook/useCollection";
 
 function SingleListing(className, text) {
   const router = useRouter();
   const id = router?.query?.community_id;
   const title = router?.query?.title;
   const [listing, setListing] = useState();
+  const { data, error, isLoading } = useCollection();
 
   useEffect(() => {
     const fetchData = async () => {
-      const querySnapshot = await getDocs(
-        collection(firebaseDb, "MANAGERS", title, "MANAGER_LISTINGS")
-      );
-
-      querySnapshot.forEach((doc) => {
-        if (doc.id === id) {
-          setListing(doc.data());
-        }
-      });
+      const d = data.filter((data) => data.community_id == id);
+      setListing(d[0]);
     };
 
-    if (id) {
+    if (id && data.length > 0) {
       fetchData();
     }
-  }, [id, listing, title]);
+  }, [id, listing, data]);
 
   return (
     <>

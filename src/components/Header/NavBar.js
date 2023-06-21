@@ -12,7 +12,6 @@ export default function NavBar({ fetchData }) {
     { text: "Home", href: "/" },
     { text: "Contact", href: "/contact" },   
 =======
-    { text: "Contact", href: "/contact" },
     { text: "Login", href: "/login" },
     { text: "Sign up", href: "/signup" },
 >>>>>>> main
