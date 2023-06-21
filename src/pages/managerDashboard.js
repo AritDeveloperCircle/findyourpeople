@@ -15,8 +15,7 @@ function ManagerDashboard() {
   const { state, dispatch } = useAuthContext();
   const [listings, setListings] = useState([]);
   const router = useRouter();
-// console.log(state?.user.userid)
-console.log(state?.user)
+
   const logout = () => {
     signOut(firebaseAuth).then(() => {
       // Sign-out successful.
@@ -27,27 +26,15 @@ console.log(state?.user)
   useEffect(() => {
     const fetchData = async () => {
       const querySnapshot = await getDocs(
-        // collection(firebaseDb, "MANAGERS", `${state.user.userid}`, "MANAGER_LISTINGS")
-        collection(firebaseDb, "MANAGERS", `${state.user}`, "MANAGER_LISTINGS")
+        collection(firebaseDb, "MANAGERS", `${state.user.userid}`, "MANAGER_LISTINGS")
       );
       setListings(querySnapshot.docs.map((doc) => doc.data()));
     };
     fetchData();
-  // }, [state?.user?.userid]);
-  }, [state?.user]);
+  }, [state?.user?.userid]);
   return (
     <div>
-      {/* <NavBar /> */}
-      <div className="flex items-center justify-between px-12 py-10">
-      <Image
-          src="/LOGO.png"
-          alt="Find Your People Tech Logo"
-          className="sm:h-full"
-          width={80}
-          height={28}
-          priority
-        />
-        <CustomizableButton
+      <CustomizableButton
         customClass="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
         onClick={logout}
         text="Logout"
@@ -111,7 +98,7 @@ console.log(state?.user)
                 Community Dashboard
               </h1>
               {listings.length === 0 ? (
-                <h2 className="text-2xl text-center">No listings yet</h2>
+                <h2 className="text-2xl text-center my-8">No listings yet</h2>
               ) : (
                 <div className="grid auto-rows-max grid-cols-1 md:grid-cols-2 md:max-w-3xl md:mx-auto gap-10 my-10">
                   {listings.map((community) => (
