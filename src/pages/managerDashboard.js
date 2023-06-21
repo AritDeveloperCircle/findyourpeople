@@ -15,10 +15,14 @@ const ManagerDashboard = () => {
       router.push("/");
     });
   };
-
   return (
     <div>
-      {state?.user === null || state?.user?.useruid === "" ? (
+      {!state.authState && (
+        <div className="flex items-center justify-center h-36">
+          <p className="text-center">loading...</p>
+        </div>
+      )}
+      {state?.user?.useruid === "" && state.authState && (
         <>
           <div className="bg-slate-200 h-screen flex items-center justify-center">
             <div className="w-4/12 bg-white p-6 text-center rounded">
@@ -40,7 +44,8 @@ const ManagerDashboard = () => {
             </div>
           </div>
         </>
-      ) : (
+      )}
+      {state?.user?.useruid !== "" && state.authState && (
         <>
           <h1>Manager Dashboard</h1>
           <button onClick={logout}>Logout</button>
