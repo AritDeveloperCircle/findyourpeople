@@ -1,63 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-<<<<<<< HEAD
 import Image from "next/image";
 import NavBar from "@/components/Header/NavBar";
 import FooterBar from "@/components/common/FooterBar";
 import DashboardListing from "@/components/singledashboardlisting/DashboardListing";
-
-function ManagerDashboard() {
-  return (
-    <div>
-      <NavBar />
-      <main className="bg-white container mx-auto  max-w-xs md:max-w-2xl lg:max-w-5xl">
-        <div className="bg-primary-lite my-10 pt-10 rounded-md flex flex-col lg:flex-row sm-text-center">
-          <div className="flex flex-col gap-5 p-10  lg:text-left">
-            <h1 className="text-5xl text-blue-800">Welcome Back, Emmanuel!</h1>
-            <div className="mt-2">
-              <Link
-                href="#"
-                className="text-slate-700  hover:text-blue-500 cursor-pointer text-2xl"
-              >
-                Edit Profile
-              </Link>
-            </div>
-          </div>
-          <div className=" md:flex lg:shrink-0 w-full max-w-lg h-80 mx-auto relative ">
-            <Image
-              className="min-[320px]:text-center max-[1240px]:inherit "
-              src="/manager-dashboard-character.png"
-              alt="manager character"
-              fill
-            />
-          </div>
-        </div>
-
-        <div className="bg-grey-lite p-4 rounded-md mb-8">
-          <h1 className="text-lg lg:text-3xl p-2 text-center">
-            Community Dashboard
-          </h1>
-          <div className="grid auto-rows-max grid-cols-1 md:grid-cols-2 md:max-w-3xl md:mx-auto gap-10 my-10">
-            <DashboardListing />
-            <DashboardListing />
-          </div>
-          <h2 className="text-2xl text-center">+ Add new community</h2>
-        </div>
-      </main>
-      <FooterBar />
-    </div>
-  );
-}
-
-=======
+import CustomizableButton from "@/components/common/CustomizableButton";
 import useAuthContext from "@/context/useAuthContext";
-import { firebaseAuth } from "@/firebase/config";
+import { firebaseAuth,firebaseDb } from "@/firebase/config";
+import { getDocs, collection } from "firebase/firestore";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/router";
-const ManagerDashboard = () => {
-  const { state, dispatch } = useAuthContext();
-  const router = useRouter();
 
+function ManagerDashboard() {
+  const { state, dispatch } = useAuthContext();
+  const [listings, setListings] = useState([]);
+  const router = useRouter();
+console.log(state?.user.userid)
   const logout = () => {
     signOut(firebaseAuth).then(() => {
       // Sign-out successful.
@@ -65,9 +23,24 @@ const ManagerDashboard = () => {
       router.push("/");
     });
   };
-
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(
+        collection(firebaseDb, "MANAGERS", `${state.user.userid}`, "MANAGER_LISTINGS")
+      );
+      setListings(querySnapshot.docs.map((doc) => doc.data()));
+    };
+    fetchData();
+  }, [state?.user?.userid]);
   return (
     <div>
+      <NavBar />
+      <CustomizableButton
+        customClass="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
+        onClick={logout}
+        text="Logout"
+      />
+
       {state?.user === null || state?.user?.useruid === "" ? (
         <>
           <div className="bg-slate-200 h-screen flex items-center justify-center">
@@ -92,13 +65,54 @@ const ManagerDashboard = () => {
         </>
       ) : (
         <>
-          <h1>Manager Dashboard</h1>
-          <button onClick={logout}>Logout</button>
+          {/* <button onClick={logout}>Logout</button> */}
+          <main className="bg-white container mx-auto  max-w-xs md:max-w-2xl lg:max-w-5xl">
+            <div className="bg-primary-lite my-10 pt-10 rounded-md flex flex-col lg:flex-row sm-text-center">
+              <div className="flex flex-col gap-5 p-10  lg:text-left">
+                <h1 className="text-5xl text-blue-800">
+                  Welcome Back, {state?.user?.displayName}
+                </h1>
+                <div className="mt-2">
+                  <Link
+                    href="#"
+                    className="text-slate-700  hover:text-blue-500 cursor-pointer text-2xl"
+                  >
+                    Edit Profile
+                  </Link>
+                </div>
+              </div>
+              <div className=" md:flex lg:shrink-0 w-full max-w-lg h-80 mx-auto relative ">
+                <Image
+                  className="min-[320px]:text-center max-[1240px]:inherit "
+                  src="/manager-dashboard-character.png"
+                  alt="manager character"
+                  fill
+                />
+              </div>
+            </div>
+
+            <div className="bg-grey-lite p-4 rounded-md mb-8">
+              <h1 className="text-lg lg:text-3xl p-2 text-center">
+                Community Dashboard
+              </h1>
+              {listings.length === 0 ? (
+                <h2 className="text-2xl text-center">No listings yet</h2>
+              ) : (
+                <div className="grid auto-rows-max grid-cols-1 md:grid-cols-2 md:max-w-3xl md:mx-auto gap-10 my-10">
+                  {listings.map((community) => (
+                    <DashboardListing key={index} community={community}/>
+                  ))}
+                </div>
+              )}
+
+              <h2 className="text-2xl text-center">+ Add new community</h2>
+            </div>
+          </main>
         </>
       )}
+      <FooterBar />
     </div>
   );
-};
+}
 
->>>>>>> main
 export default ManagerDashboard;

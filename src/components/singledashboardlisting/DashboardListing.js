@@ -3,7 +3,7 @@ import styles from "./dashboardlisting.module.css";
 import CustomizableButton from "../common/CustomizableButton";
 
 
-function DashboardListing() {
+function DashboardListing({coummnity}) {
   return (
     <main className={`bg-white py-4 rounded-lg shadow-md col-span-1 p-2`}>
       <div>
