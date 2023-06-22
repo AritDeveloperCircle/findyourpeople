@@ -18,7 +18,6 @@ function ManagerDashboard() {
 
   const logout = () => {
     signOut(firebaseAuth).then(() => {
-      // Sign-out successful.
       dispatch({ type: "LOGOUT" });
       router.push("/");
     });
@@ -39,10 +38,7 @@ function ManagerDashboard() {
         onClick={logout}
         text="Logout"
       />
-      </div>
       
-      
-
       {state?.user === null || state?.user?.useruid === "" ? (
         <>
           <div className="bg-slate-200 h-screen flex items-center justify-center">
@@ -67,7 +63,6 @@ function ManagerDashboard() {
         </>
       ) : (
         <>
-          {/* <button onClick={logout}>Logout</button> */}
           <main className="bg-white container mx-auto  max-w-xs md:max-w-2xl lg:max-w-5xl">
             <div className="bg-primary-lite my-10 pt-10 rounded-md flex flex-col lg:flex-row sm-text-center">
               <div className="flex flex-col gap-5 p-10  lg:text-left">
