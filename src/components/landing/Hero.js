@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from 'next/image';
+import Image from "next/image";
 
 function Hero() {
   return (
@@ -17,16 +17,18 @@ function Hero() {
         <div className="flex flex-col max-w-4xl mx-auto items-center space-y-10 justify-center md:text-sm">
           <div className="font-bold lg:text-6xl  text-center ">
             <h1>
-            Discover various <span className="text-primary bold">Tech Communities</span>{" "}
-            and connect with people from all around the world!
+              Discover various{" "}
+              <span className="text-primary bold">Tech Communities</span> and
+              connect with people from all around the world!
             </h1>
           </div>
           <p className="px-4 lg:text-xl md:px-2 lg:visible text-center sm:px-20  xl:px-20">
-          Locate different techies across the globe; build your connections and network by browsing our directory of tech communities
+            Locate different techies across the globe; build your connections
+            and network by browsing our directory of tech communities
           </p>
           <div className="flex justify-center">
             <Link
-              href="/register"
+              href="/signup"
               className="bg-primary rounded-lg text-white text-2xl px-10 py-3 "
             >
               Add Your Tech Community
