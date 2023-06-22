@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
         </h1>
         <h3 className="text-xl py-3 font-semibold">Introduction</h3>
         <p>
-          At FindYourPeople, accessible at Findyourpeople.com, one of our main
+          At FindYourPeople, accessible at Findyourpeople.tech, one of our main
           priorities is the privacy of our visitors. This Privacy Policy
           document contains types of information that is collected and recorded
           by Website Name and how we use it. If you have additional questions or

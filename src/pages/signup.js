@@ -12,8 +12,6 @@ export default function signup() {
 
   return (
     <>
-      <Link href="/"> home</Link>
-      <Link href="/signup"> signup</Link>
       <main className="grid items-center md:items-stretch md:grid-cols-2 h-screen">
         <section className={`flex items-center justify-center `}>
           <SignupFormContainer />
