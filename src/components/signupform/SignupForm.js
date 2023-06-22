@@ -113,7 +113,9 @@ function Form() {
         <input type="checkbox" name="acceptTerms" id="acceptTerms" required />
         <label htmlFor="acceptTerms" className="ml-2 text-base">
           I accept the{" "}
-          <Link href="documents/terms">
+          <Link
+            href={{ pathname: "documents/terms", query: { from: "/signup" } }}
+          >
             <span className="text-primary">Terms of Use </span>
           </Link>
           &
