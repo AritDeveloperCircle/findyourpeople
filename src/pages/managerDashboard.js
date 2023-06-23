@@ -30,15 +30,15 @@ function ManagerDashboard() {
         collection(
           firebaseDb,
           "MANAGERS",
-          `${state?.user?.useruid}`,
+          `${state?.user?.userid}`,
           "MANAGER_LISTINGS"
         )
       );
       setListings(querySnapshot.docs.map((doc) => doc.data()));
     };
     fetchData();
-  }, [state?.user?.useruid]);
-  console.log(state.user)
+  }, [state?.user?.userid]);
+
   return (
     <div>
       {!state.authState && (
@@ -46,7 +46,7 @@ function ManagerDashboard() {
           <p className="text-center">loading...</p>
         </div>
       )}
-      {state?.user?.useruid === "" ||
+      {state?.user?.userid === "" ||
         (state.user === null && (
           <>
             <div className="bg-slate-200 h-screen flex items-center justify-center">
@@ -70,7 +70,7 @@ function ManagerDashboard() {
             </div>
           </>
         ))}
-      {state?.user?.useruid.length > 0 && (
+      {state?.user?.userid?.length > 0 && (
         <>
           <CustomizableButton
             customClass="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
@@ -78,7 +78,7 @@ function ManagerDashboard() {
             text="Logout"
           />
 
-          <main className="bg-white container mx-auto  max-w-xs md:max-w-2xl lg:max-w-5xl">
+          <main className="bg-white container mx-auto  max-w-xs md:max-w-2xl lg:max-w-4xl">
             <div className="bg-primary-lite my-10 pt-10 rounded-md flex flex-col lg:flex-row sm-text-center">
               <div className="flex flex-col gap-5 p-10  lg:text-left">
                 <h1 className="text-5xl text-blue-800">
@@ -116,8 +116,7 @@ function ManagerDashboard() {
                   ))}
                 </div>
               )}
-
-              <h2 className="text-2xl text-center">+ Add new community</h2>
+              <Link href="/create" className="text-2xl text-center block mx-auto  w-max">+ Add new community</Link>
             </div>
           </main>
         </>
