@@ -1,5 +1,5 @@
 import CustomizableButton from "../common/CustomizableButton";
-import CustomizableAvatar from "../common/customavatar/CustomizableAvatar";
+import CustomizableAvatar from "../common/CustomizableAvatar";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -26,25 +26,30 @@ const CommunityManagersDetails = () => {
 
   return (
     <>
-      <main className= "flex justify-center  items-between mt-[150px]">
-        <div className= " flex bg-gradient-lite-grey w-[1000px] justify-between rounded-2xl px-[50px] " >
-        <div className= "pt-6 mr-2">
-          <h2 className="text-[#031B4E]  font-[600] text-[34px]">Welcome Back, Emmanuel!</h2>
-          <p className="text-grey-dark text-opacity-3 font-normal text-lg pt-1">You have 8 new members!</p>
-          <CustomizableButton
-            customClass= "text-gradient-lite-blue bg-transparent mt-10 font-[600] text-xl"
-            text="Edit Profile"
-            aria-label="Edit profile button"
-            onClickProp={() => handleEdit}
-          />
-        </div>
-        <div className="ml-3">
-          <CustomizableAvatar
-            height= "300"
-            width= "400"
-            src= "/Manager dashboard flat character.png"
-          />
-        </div>
+      <main className="flex justify-center  items-between mt-[150px]">
+        <div className=" flex bg-gradient-lite-grey w-[1000px] justify-between rounded-2xl px-[50px] ">
+          <div className="pt-6 mr-2">
+            <h2 className="text-[#031B4E]  font-[600] text-[34px]">
+              Welcome Back, Emmanuel!
+            </h2>
+            <p className="text-grey-dark text-opacity-3 font-normal text-lg pt-1">
+              You have 8 new members!
+            </p>
+
+            <CustomizableButton
+              customClass="text-gradient-lite-blue bg-transparent mt-10 font-[600] text-xl"
+              text="Edit Profile"
+              aria-label="Edit profile button"
+              onClickProp={() => handleEdit}
+            />
+          </div>
+          <div className="ml-3">
+            <CustomizableAvatar
+              height="300"
+              width="400"
+              src="/Manager dashboard flat character.png"
+            />
+          </div>
         </div>
       </main>
     </>

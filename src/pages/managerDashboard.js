@@ -1,52 +1,116 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import NavBar from '@/components/Header/NavBar';
-import FooterBar from '@/components/common/FooterBar';
-import DashboardListing from '@/components/singledashboardlisting/DashboardListing';
-// import styles from '../styles/managerDashboard.module.css';
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import NavBar from "@/components/Header/NavBar";
+import FooterBar from "@/components/common/FooterBar";
+import DashboardListing from "@/components/singledashboardlisting/DashboardListing";
+import CustomizableButton from "@/components/common/CustomizableButton";
+import useAuthContext from "@/context/useAuthContext";
+import { firebaseAuth,firebaseDb } from "@/firebase/config";
+import { getDocs, collection } from "firebase/firestore";
+import { signOut } from "firebase/auth";
+import { useRouter } from "next/router";
 
-function managerDashboard () {
+function ManagerDashboard() {
+  const { state, dispatch } = useAuthContext();
+  const [listings, setListings] = useState([]);
+  const router = useRouter();
+
+  const logout = () => {
+    signOut(firebaseAuth).then(() => {
+      dispatch({ type: "LOGOUT" });
+      router.push("/");
+    });
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(
+        collection(firebaseDb, "MANAGERS", `${state.user.userid}`, "MANAGER_LISTINGS")
+      );
+      setListings(querySnapshot.docs.map((doc) => doc.data()));
+    };
+    fetchData();
+  }, [state?.user?.userid]);
   return (
     <div>
-        <NavBar />
-        <main className='bg-white container mx-auto p-10'>
-            <div className='bg-primary-lite my-10 rounded-md flex justify-between sm-text-center'>
-                <div className='flex flex-col gap-5 p-10  lg:text-left'>
-                    <h1 className='text-5xl text-blue-800'>Welcome Back, Emmanuel!</h1>
-                    <p className='text-2xl'>You have 8 new members!</p>
-                    <div className='pt-10'>
-                        <Link href="#" class="text-slate-700 text-base hover:text-blue-500 cursor-pointer text-2xl">Edit Profile</Link>
-                    </div>
+      <CustomizableButton
+        customClass="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
+        onClick={logout}
+        text="Logout"
+      />
+      
+      {state?.user === null || state?.user?.useruid === "" ? (
+        <>
+          <div className="bg-slate-200 h-screen flex items-center justify-center">
+            <div className="w-4/12 bg-white p-6 text-center rounded">
+              <h1 className="font-medium text-2xl mb-4">Manager Dashboard</h1>
+              <p>
+                To view this page{" "}
+                <Link href="/login" className="text-violet-600">
+                  login
+                </Link>{" "}
+              </p>
+
+              <p>or</p>
+              <p>
+                Go to community listings page{" "}
+                <Link href="/" className="text-violet-600">
+                  listings
+                </Link>
+              </p>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <main className="bg-white container mx-auto  max-w-xs md:max-w-2xl lg:max-w-5xl">
+            <div className="bg-primary-lite my-10 pt-10 rounded-md flex flex-col lg:flex-row sm-text-center">
+              <div className="flex flex-col gap-5 p-10  lg:text-left">
+                <h1 className="text-5xl text-blue-800">
+                  Welcome Back, {state?.user?.displayName}
+                </h1>
+                <div className="mt-2">
+                  <Link
+                    href="#"
+                    className="text-slate-700  hover:text-blue-500 cursor-pointer text-2xl"
+                  >
+                    Edit Profile
+                  </Link>
                 </div>
-                <div className='pr-40 pt-8 md:flex lg:shrink-0 '>
-                    <Image 
-                    className='min-[320px]:text-center max-[1240px]:inherit sm:invisible md:invisible lg:visible'
-                        src="/manager-dashboard-character.png"
-                        alt="manager character"
-                        width={500}
-                        height={500}
-                    />
-                </div>
+              </div>
+              <div className=" md:flex lg:shrink-0 w-full max-w-lg h-80 mx-auto relative ">
+                <Image
+                  className="min-[320px]:text-center max-[1240px]:inherit "
+                  src="/manager-dashboard-character.png"
+                  alt="manager character"
+                  fill
+                />
+              </div>
             </div>
 
-            <div className='bg-grey-lite p-10 rounded-md'>
-                <h1 className='text-5xl p-10 text-center'>Community Dashboard</h1>
-                    <div className="grid grid-cols-2 col-span-1 auto-rows-max justify-items-center sm:grid-cols-1 xl:grid-cols-2 gap-10 my-10">
-                        <div className='col-span-1 pb-6'>
-                            <DashboardListing 
-                            className="" />
-                        </div>
-                        <div className='col-span-1 pb-6'>
-                            <DashboardListing />
-                        </div>
-                    </div>
-                <h2 className='text-2xl text-center'>+ Add new community</h2>
+            <div className="bg-grey-lite p-4 rounded-md mb-8">
+              <h1 className="text-lg lg:text-3xl p-2 text-center">
+                Community Dashboard
+              </h1>
+              {listings.length === 0 ? (
+                <h2 className="text-2xl text-center my-8">No listings yet</h2>
+              ) : (
+                <div className="grid auto-rows-max grid-cols-1 md:grid-cols-2 md:max-w-3xl md:mx-auto gap-10 my-10">
+                  {listings.map((community) => (
+                    <DashboardListing key={index} community={community}/>
+                  ))}
+                </div>
+              )}
+
+              <h2 className="text-2xl text-center">+ Add new community</h2>
             </div>
-        </main>
-        <FooterBar />
+          </main>
+        </>
+      )}
+      <FooterBar />
     </div>
-  )
+  );
 }
 
-export default managerDashboard;
+
+export default ManagerDashboard;

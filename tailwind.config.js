@@ -26,7 +26,13 @@ module.exports = {
         "accent-red": "#B42D2D",
         "accent-green": "#53BA02",
         "accent-blue": "#31B8EE",
+        "logo-blue": " #3181DF",
+        "footer-gray": "rgba(255, 255, 255, 0.4)",
+        "gray-lite": "#D9D9D9",
       },
+      backgroundImage: {
+        'blue-background': "url('/bkgd-overlay-image.png')"
+      }
     },
   },
   plugins: [],
