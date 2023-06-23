@@ -17,6 +17,7 @@ function ManagerDashboard() {
   const router = useRouter();
 
   const logout = () => {
+    
     signOut(firebaseAuth).then(() => {
       dispatch({ type: "LOGOUT" });
       router.push("/");
@@ -41,7 +42,7 @@ function ManagerDashboard() {
     <div>
       <CustomizableButton
         customClass="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
-        onClick={logout}
+        onClickProp={logout}
         text="Logout"
       />
 
