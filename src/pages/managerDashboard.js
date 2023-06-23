@@ -30,52 +30,54 @@ function ManagerDashboard() {
         collection(
           firebaseDb,
           "MANAGERS",
-          `${state.user.userid}`,
+          `${state?.user?.useruid}`,
           "MANAGER_LISTINGS"
         )
       );
       setListings(querySnapshot.docs.map((doc) => doc.data()));
     };
     fetchData();
-  }, [state?.user?.userid]);
+  }, [state?.user?.useruid]);
+  console.log(state.user)
   return (
     <div>
-      <CustomizableButton
-        customClass="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
-        onClickProp={logout}
-        text="Logout"
-      />
-
       {!state.authState && (
         <div className="flex items-center justify-center h-36">
           <p className="text-center">loading...</p>
         </div>
       )}
-      {state?.user?.useruid === "" && state.authState && (
-        <>
-          <div className="bg-slate-200 h-screen flex items-center justify-center">
-            <div className="w-4/12 bg-white p-6 text-center rounded">
-              <h1 className="font-medium text-2xl mb-4">Manager Dashboard</h1>
-              <p>
-                To view this page{" "}
-                <Link href="/login" className="text-violet-600">
-                  login
-                </Link>{" "}
-              </p>
+      {state?.user?.useruid === "" ||
+        (state.user === null && (
+          <>
+            <div className="bg-slate-200 h-screen flex items-center justify-center">
+              <div className="w-4/12 bg-white p-6 text-center rounded">
+                <h1 className="font-medium text-2xl mb-4">Manager Dashboard</h1>
+                <p>
+                  To view this page{" "}
+                  <Link href="/login" className="text-violet-600">
+                    login
+                  </Link>{" "}
+                </p>
 
-              <p>or</p>
-              <p>
-                Go to community listings page{" "}
-                <Link href="/" className="text-violet-600">
-                  listings
-                </Link>
-              </p>
+                <p>or</p>
+                <p>
+                  Go to community listings page{" "}
+                  <Link href="/" className="text-violet-600">
+                    listings
+                  </Link>
+                </p>
+              </div>
             </div>
-          </div>
-        </>
-      )}
-      {state?.user?.useruid !== "" && state.authState && (
+          </>
+        ))}
+      {state?.user?.useruid.length > 0 && (
         <>
+          <CustomizableButton
+            customClass="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
+            onClickProp={logout}
+            text="Logout"
+          />
+
           <main className="bg-white container mx-auto  max-w-xs md:max-w-2xl lg:max-w-5xl">
             <div className="bg-primary-lite my-10 pt-10 rounded-md flex flex-col lg:flex-row sm-text-center">
               <div className="flex flex-col gap-5 p-10  lg:text-left">
