@@ -20,7 +20,6 @@ function useAuthLogIn() {
       })
       .catch((error) => {
         setFirebaseError(error.message);
-        console.log(error.message);
       });
   };
   return { firebaseError, LogIn };
