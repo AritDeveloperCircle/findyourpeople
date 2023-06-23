@@ -6,7 +6,7 @@ import FooterBar from "@/components/common/FooterBar";
 import DashboardListing from "@/components/singledashboardlisting/DashboardListing";
 import CustomizableButton from "@/components/common/CustomizableButton";
 import useAuthContext from "@/context/useAuthContext";
-import { firebaseAuth,firebaseDb } from "@/firebase/config";
+import { firebaseAuth, firebaseDb } from "@/firebase/config";
 import { getDocs, collection } from "firebase/firestore";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/router";
@@ -22,10 +22,16 @@ function ManagerDashboard() {
       router.push("/");
     });
   };
+
   useEffect(() => {
     const fetchData = async () => {
       const querySnapshot = await getDocs(
-        collection(firebaseDb, "MANAGERS", `${state.user.userid}`, "MANAGER_LISTINGS")
+        collection(
+          firebaseDb,
+          "MANAGERS",
+          `${state.user.userid}`,
+          "MANAGER_LISTINGS"
+        )
       );
       setListings(querySnapshot.docs.map((doc) => doc.data()));
     };
@@ -38,8 +44,13 @@ function ManagerDashboard() {
         onClick={logout}
         text="Logout"
       />
-      
-      {state?.user === null || state?.user?.useruid === "" ? (
+
+      {!state.authState && (
+        <div className="flex items-center justify-center h-36">
+          <p className="text-center">loading...</p>
+        </div>
+      )}
+      {state?.user?.useruid === "" && state.authState && (
         <>
           <div className="bg-slate-200 h-screen flex items-center justify-center">
             <div className="w-4/12 bg-white p-6 text-center rounded">
@@ -61,7 +72,8 @@ function ManagerDashboard() {
             </div>
           </div>
         </>
-      ) : (
+      )}
+      {state?.user?.useruid !== "" && state.authState && (
         <>
           <main className="bg-white container mx-auto  max-w-xs md:max-w-2xl lg:max-w-5xl">
             <div className="bg-primary-lite my-10 pt-10 rounded-md flex flex-col lg:flex-row sm-text-center">
@@ -97,7 +109,7 @@ function ManagerDashboard() {
               ) : (
                 <div className="grid auto-rows-max grid-cols-1 md:grid-cols-2 md:max-w-3xl md:mx-auto gap-10 my-10">
                   {listings.map((community) => (
-                    <DashboardListing key={index} community={community}/>
+                    <DashboardListing key={index} community={community} />
                   ))}
                 </div>
               )}
@@ -111,6 +123,5 @@ function ManagerDashboard() {
     </div>
   );
 }
-
 
 export default ManagerDashboard;
