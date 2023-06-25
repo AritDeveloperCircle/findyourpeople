@@ -22,23 +22,9 @@ function ManagerDashboard() {
       router.push("/");
     });
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      const querySnapshot = await getDocs(
-        collection(firebaseDb, "MANAGERS", `${state.user.userid}`, "MANAGER_LISTINGS")
-      );
-      setListings(querySnapshot.docs.map((doc) => doc.data()));
-    };
-    fetchData();
-  }, [state?.user?.userid]);
+
   return (
     <div>
-      <CustomizableButton
-        customClass="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
-        onClick={logout}
-        text="Logout"
-      />
-      
       {state?.user === null || state?.user?.useruid === "" ? (
         <>
           <div className="bg-slate-200 h-screen flex items-center justify-center">
@@ -61,7 +47,8 @@ function ManagerDashboard() {
             </div>
           </div>
         </>
-      ) : (
+      )}
+      {state?.user?.useruid !== "" && state.authState && (
         <>
           <main className="bg-white container mx-auto  max-w-xs md:max-w-2xl lg:max-w-5xl">
             <div className="bg-primary-lite my-10 pt-10 rounded-md flex flex-col lg:flex-row sm-text-center">
