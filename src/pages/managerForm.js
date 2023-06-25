@@ -18,7 +18,7 @@ function ManagerForm() {
     community_name: "",
     community_manager: "",
     community_location: "",
-    manager_url: "",
+    community_url: "",
     manager_linkedin: "",
     manager_twitter: "",
     community_date: "",
@@ -45,11 +45,11 @@ function ManagerForm() {
       name: "community_manager",
       label: "Community Manager",
       type: "text",
-      required: false,
+      required: true,
     },
     {
-      name: "manager_url",
-      label: "Manager URL",
+      name: "community_url",
+      label: "Community URL",
       type: "url",
       placeholder: "https://example.com",
       pattern: "https://.*",
@@ -69,7 +69,7 @@ function ManagerForm() {
     },
     {
       name: "community_date",
-      label: "Community Date",
+      label: "Community Start Date",
       type: "text",
       required: false,
     },
@@ -105,6 +105,7 @@ function ManagerForm() {
     }).then(() => {
       setFormData(initialFormData);
     });
+    alert("Community added!")
   };
   
   return (
