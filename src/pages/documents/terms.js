@@ -1,10 +1,14 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function TermsAndConditions() {
+  const router = useRouter();
+  const from = router.query.from || "/";
+
   return (
     <div>
-      <Link href="/signup">
-        <span className="text-primary ml-2 font-semibold">Back to Signup</span>
+      <Link href={from}>
+        <span className="text-primary ml-2 font-semibold">Go Back</span>
       </Link>
       <div className="mt-5 text-left px-6">
         <h1 className="text-2xl font-bold">
@@ -14,7 +18,7 @@ export default function TermsAndConditions() {
         <p>
           These Website Standard Terms and Conditions written on this webpage
           shall manage your use of our website, Findyourpeople accessible at
-          Findyourpeople.com. These Terms will be applied fully and affect to
+          Findyourpeople.tech. These Terms will be applied fully and affect to
           your use of this Website. By using this Website, you agreed to accept
           all terms and conditions written in here. You must not use this
           Website if you disagree with any of these Website Standard Terms and

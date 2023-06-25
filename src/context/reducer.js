@@ -15,7 +15,7 @@ export const InitialState = {
   authState: false,
 };
 
-export const authReducer = ( state, action) => {
+export const authReducer = (state, action) => {
   if (action.type === "SIGN_IN") {
     return {
       ...state,
@@ -37,7 +37,6 @@ export const authReducer = ( state, action) => {
   }
   return state;
 };
-
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, InitialState);
