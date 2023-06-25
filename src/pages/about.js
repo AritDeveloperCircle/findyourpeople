@@ -4,7 +4,7 @@ import InfoCard from "@/components/common/InfoCard";
 import Achele from "../../public/AvatarImages/Achele.jpg";
 import Chibuzo from "../../public/AvatarImages/Chibuzo.jpg";
 import Neka from "../../public/AvatarImages/Neka.jpg";
-import Sheyi from "../../public/AvatarImages/Sheyi.jpg";
+import Sheyi from "../../public/AvatarImages/Sheyi.JPG";
 import Taylor from "../../public/AvatarImages/Taylor.png";
 import Ibimina from "../../public/AvatarImages/Ibimina.jpg";
 import SmilingWoman from "../../public/woman-smile.png";
