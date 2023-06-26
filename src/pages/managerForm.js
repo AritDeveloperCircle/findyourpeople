@@ -127,7 +127,7 @@ function ManagerForm() {
                 value={formData[field.name]}
                 onChange={handleChange}
                 required={field.required}
-                className="border-2 w-80 bg-pink-500 grid md:max-w-md h-9 border-gradient-lite-grey rounded-lg ms-0"
+                className="border-2 w-80 grid md:max-w-md h-9 border-gradient-lite-grey rounded-lg ms-0"
                 placeholder={field.placeholder}
                 pattern={field.pattern}
               />
