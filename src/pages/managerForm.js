@@ -4,13 +4,14 @@ import { useRouter } from "next/navigation";
 import CustomizableButton from "@/components/common/CustomizableButton";
 import FooterBar from "@/components/common/FooterBar";
 import styles from "../styles/managerForm.module.css";
-import { firebaseDb } from "@/firebase/config";
+import { firebaseDb,firebaseAuth } from "@/firebase/config";
 import { collection, addDoc } from "firebase/firestore";
 import useAuthContext from "@/context/useAuthContext";
 import Link from "next/link";
+import { signOut } from "firebase/auth";
 
 function ManagerForm() {
-  const { state } = useAuthContext();
+  const { state,dispatch } = useAuthContext();
   const initialFormData = {
     community_name: "",
     community_manager: "",
@@ -102,6 +103,12 @@ function ManagerForm() {
     });
     router.push("/managerDashboard");
   };
+ const logout = () => {
+   signOut(firebaseAuth).then(() => {
+     dispatch({ type: "LOGOUT" });
+     router.push("/");
+   });
+ };
 
   return (
     <>
@@ -112,7 +119,7 @@ function ManagerForm() {
             <Link href="/managerDashboard">Back to Dashboard</Link>
           </li>
           <li className="bg-yellow-200 px-4 py-2 rounded">
-            <button>logout</button>
+            <button onClick={logout}>logout</button>
           </li>
         </ul>
       </header>
