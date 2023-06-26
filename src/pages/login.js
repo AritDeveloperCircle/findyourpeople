@@ -4,42 +4,35 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function login() {
-  const AVATAR_HEIGHT = 500;
-  const AVATAR_WIDTH = 500;
+  const AVATAR_HEIGHT = 350;
+  const AVATAR_WIDTH = 350;
   const photo = "/SignIn.png";
-  const header = "Join Our";
+  const header = "Start your";
   const span = " Tech Community!";
   const info = "Find your people in tech, connect, brainstorm and create.";
 
   return (
     <>
-      <main className="flex min-h-screen font-[var(--font-urbanist)]">
-        <section className="relative w-1/2">
-          <Image
-            src="/AsideBackground.png"
-            alt=""
-            width="600"
-            height="600"
-            className="absolute inset-0 h-full z-0 w-full object-cover"
-          />
-          <div className="relative flex flex-col justify-center z-[2] pt-[5rem] px-12 pb-10">
+      <main className="grid items-center md:items-stretch md:grid-cols-2 h-screen">
+        <section className="hidden  md:bg-cover  md:bg-[url('/AsideBackground.png')] md:flex lg:justify-center">
+          <div className="flex flex-col max-w-sm items-center justify-center">
             <LoginAside
               height={AVATAR_HEIGHT}
               width={AVATAR_WIDTH}
               alt="Sign Up Logo"
               src={photo}
-              avatarCustomClass="mt-[90px]"
+              avatarCustomClass="mt-20"
               headerText={header}
               spanText={span}
               paragraphText={info}
-              headerClassName="text-white  text-[3.25rem] leading-[3.625rem]"
-              spanClassName="font-semibold text-5xl leading-15 tracking-wide text-accent-blue block"
-              paragraphClassName="text-white/80 text-base tracking-wider mt-2"
+              headerClassName="font-semibold text-white  text-5xl leading-[3.625rem]"
+              spanClassName="font-semibold text-5xl leading-15 tracking-wide text-accent-blue block whitespace-nowrap overflow-hidden overflow-ellipsis"
+              paragraphClassName="text-white/80 text-base self-start  tracking-wider mt-2 whitespace-nowrap overflow-hidden overflow-ellipsis"
             />
           </div>
         </section>
 
-        <section className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <section className={`flex items-center justify-center `}>
           <LoginFormContainer />
         </section>
       </main>

@@ -8,7 +8,7 @@ function SignupFormContainer() {
         <h2 className="text-grey-dark font-bold text-4xl tracking-normal">
           Create an account
         </h2>
-        <h4 className="text-grey-dark text-center  tracking-wider text-sm opacity-80">
+        <h4 className="text-grey-dark/80 text-center  tracking-wider text-sm opacity-80">
           Lets get started with creating your community
         </h4>
       </div>
@@ -18,7 +18,9 @@ function SignupFormContainer() {
         <p className="text-gray-500 text-md">
           Have an account?
           <Link href="/login">
-            <span className="text-primary ml-2 font-semibold">Sign in</span>
+            <span className="text-primary ml-2 font-semibold hover:text-indigo-500">
+              Sign in
+            </span>
           </Link>
         </p>
       </div>
