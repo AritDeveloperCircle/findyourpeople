@@ -16,7 +16,7 @@ function Listing({ data }) {
           alt={`${data.community_name} avatar`}
         />
         <div className="font-normal text-xl tracking-wide text-gray-dark">
-          <h2 className="text-primary-dark capitalize font-medium text-2xl ">
+          <h2 className="text-primary-dark capitalize font-medium text-2xl community-name">
             {data.community_name}
           </h2>
           <p className="italic text-gradient-lite-blue capitalize text-lg font-medium mb-2">
