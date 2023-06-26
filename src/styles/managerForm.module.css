@@ -1,151 +1,155 @@
-
 .firstBanner {
-    background: #2D65B4;
-    color: white;
-    height: 5rem;
-    font-size: 2.25rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
+  background: #2d65b4;
+  color: white;
+  height: 5rem;
+  font-size: 2.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
 }
 
 .secondBanner {
-    background: #E8EDF6;
-    height: 4rem;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 1rem 4rem;
+  background: #e8edf6;
+  height: 4rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem 4rem;
 }
 
 .secondBanner > h2 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .secondBannerButtons {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .secondBannerButtons > button:hover {
-    color: yellow;
-    background: black;
+  color: yellow;
+  background: black;
 }
 
 .disableButton {
-    background: #E5E5E5;
-    color: #707070;
-    padding: 8px 15px;
-    border-radius: 25px;
-
+  background: #e5e5e5;
+  color: #707070;
+  padding: 8px 15px;
+  border-radius: 25px;
 }
 
 .highlightButton {
-    background: #F1E18E;
-    padding: 8px 15px;
-    border-radius: 25px;
+  background: #f1e18e;
+  padding: 8px 15px;
+  border-radius: 25px;
 }
 
 .communityLayout {
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 5rem;
-    padding: 4rem 8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5rem;
+  padding: 4rem 8rem;
 }
 
 .layoutRow {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .inputStyle {
-    border: 2px solid black;
-    padding: 1rem;
-    border-radius: 20px;
+  border: 2px solid black;
+  padding: 1rem;
+  border-radius: 20px;
 }
 
 .lowerHalfInput {
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 5rem;
-    padding: 2rem 8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5rem;
+  padding: 2rem 8rem;
 }
 
 .imageUploadBackground {
-    padding: 2rem 8rem;
-    
+  padding: 2rem 8rem;
 }
 
 .uploadFileBackground {
-    background: #E8EDF6;
-    padding: 5rem 30rem;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    color: #1C1C1C;
+  background: #e8edf6;
+  padding: 5rem 30rem;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  color: #1c1c1c;
 }
 
 .uploadFileBackground > h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .inputUploadFile {
-    border: dashed 2px #1C1C1C;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    padding: 4rem 10rem;
-    align-items: center;
-    cursor: pointer;
+  border: dashed 2px #1c1c1c;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 10rem;
+  align-items: center;
+  cursor: pointer;
 }
 
 .inputUploadFile > label {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 .lowerFormIcons {
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  cursor: pointer;
 }
 
 .lowerFormIcons > div {
-    display: flex;
-    gap: 1rem;
-    padding-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  padding-top: 2rem;
 }
 
 .submitFileButton {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .deleteText {
-    color: #b42d2d;
+  color: #b42d2d;
 }
 
 .buttonsBottom {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 30rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 30rem;
 }
 
 .returnButton {
-    padding: 1rem 3rem;
-    background: #fff;
-    margin: 2rem;
-    border-radius: 25px;
-    border: 2px solid #2D65B4;
-    color: #2D65B4;
+  padding: 1rem 3rem;
+  background: #fff;
+  margin: 2rem;
+  border-radius: 25px;
+  border: 2px solid #2d65b4;
+  color: #2d65b4;
 }
 
 .communityBottomButtons {
-    padding: 1rem 3rem;
-    background: #2D65B4;
-    margin: 2rem;
-    border-radius: 25px;
-    color: white;
+  padding: 1rem 3rem;
+  background: #2d65b4;
+  margin: 2rem;
+  border-radius: 25px;
+  color: white;
+}
+.submitButton {
+  background: #2d65b4;
+  color: white;
+  padding: 0.4em 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
 }

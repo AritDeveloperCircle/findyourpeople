@@ -6,12 +6,19 @@ import Image from "next/image";
 import NavBar from "@/components/Header/NavBar";
 import CustomizableButton from "@/components/common/CustomizableButton";
 import FooterBar from "@/components/common/FooterBar";
-import { imageUpload, uploadFile, deleteFile, resetInput, goHome } from "@/pages/helperFile";
+import {
+  imageUpload,
+  uploadFile,
+  deleteFile,
+  resetInput,
+  goHome,
+} from "@/pages/helperFile";
 import styles from "../styles/managerForm.module.css";
-import { firebaseDb, firebaseStorage } from "@/firebase/config";
-import {collection, addDoc} from "firebase/firestore";
+import { firebaseDb, firebaseStorage, firebaseAuth } from "@/firebase/config";
+import { collection, addDoc } from "firebase/firestore";
 import { uploadBytes, getDownloadURL, ref } from "firebase/storage";
-
+import useAuthContext from "@/context/useAuthContext";
+import { signOut } from "firebase/auth";
 
 function ManagerForm() {
   const initialFormData = {
@@ -90,7 +97,7 @@ function ManagerForm() {
       maxLength: 300,
       rows: 3,
       required: true,
-    }
+    },
   ];
   const submitCommunity = async (event) => {
     event.preventDefault();
@@ -105,9 +112,11 @@ function ManagerForm() {
     }).then(() => {
       setFormData(initialFormData);
     });
-    alert("Community added!")
+    alert(
+      "Listing created! Directory admins will review your listing and approve if it meets our guidelines. Thank you!"
+    );
   };
-  
+
   return (
     <div>
       <NavBar />
