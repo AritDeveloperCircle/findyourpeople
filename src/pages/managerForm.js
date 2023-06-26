@@ -107,11 +107,11 @@ function ManagerForm() {
     <div className="">
       <NavBar />
       <h1 className="bg-gradient-lite-blue h-20 md:h-24 w-auto md:w-full flex flex-col justify-center items-center px-3.5 py-14 gap-2.5 font-bold text-4xl text-gray-lite">New Community</h1>
-      <form className="" onSubmit={submitCommunity} action="/send-data-here" method="POST">
-        <container  className={styles.communityLayout}>
+      <form className="px-4 p-2" onSubmit={submitCommunity}>
+        <div  className='grid'>
           {inputFields.map((field) => (
-            <div key={field.name}>
-              <label className="ml-2 font-bold text-xl leading-9 text-gray-dark w-52 h-9 md:w-64" htmlFor={field.name}>
+            <div key={field.name} className="mb-4">
+              <label className="ml-2 font-bold text-xl leading-9 text-gray-dark " htmlFor={field.name}>
                 {field.label}
                 {field.required && <span className="text-red-500">*</span>}
               </label>
@@ -122,19 +122,19 @@ function ManagerForm() {
                 value={formData[field.name]}
                 onChange={handleChange}
                 required={field.required}
-                className="border-2 w-72 md:max-w-md h-11 border-gradient-lite-grey rounded-lg"
+                className="border-2 px-2 p-2 block w-full border-gradient-lite-grey rounded-lg"
                 placeholder={field.placeholder}
                 pattern={field.pattern}
               />
             </div>
           ))}
-        </container>
+        </div>
         
 
-        <div className="px-36 py-3 flex flex-row justify-center items-center">
-        <div className={styles.buttonsBottom}>
+        <div className="flex justify-center items-center">
+
           <button
-            className="w-44 sm:w-64 h-9 mt-8 sm:h-14 px-2 font-bold text-lg border text-primary border-primary rounded-lg  "
+            className="px-2 font-bold text-lg border text-primary border-primary rounded-lg  "
             onClick={() => router.push("/")}
             text="Return to Home"
             type="submit"
@@ -148,7 +148,7 @@ function ManagerForm() {
             type="submit"
           />
         </div>
-        </div>
+     
       </form>
       <FooterBar />
     </div>
