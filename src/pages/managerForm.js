@@ -16,7 +16,7 @@ function ManagerForm() {
     community_name: "",
     community_manager: "",
     community_location: "",
-    manager_url: "",
+    community_url: "",
     manager_linkedin: "",
     manager_twitter: "",
     community_date: "",
