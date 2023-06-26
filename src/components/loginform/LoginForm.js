@@ -32,7 +32,7 @@ function LoginForm() {
       <div>
         <label
           htmlFor="email"
-          className="block text-sm font-medium leading-6 text-gray-dark capitalize"
+          className="block text-sm mb-2 capitalize tracking-wide font-medium"
         >
           Email address
         </label>
@@ -91,7 +91,7 @@ function LoginForm() {
 
       <div>
         <CustomizableButton
-          customClass="flex w-full cursor-pointer justify-center rounded-md bg-gradient-to-r from-gradient-lite-blue to-gradient-dark-blue px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-10"
+          customClass="cursor-pointer text-white bg-gradient-to-r from-gradient-lite-blue to-gradient-dark-blue mt-5 border-transparent rounded-lg tracking-wider py-3 px-2 shadow-md transition-all duration-300 ease-in-out  inline-block w-full"
           text="Sign in"
           aria-label="Login button"
         />

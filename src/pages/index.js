@@ -7,7 +7,6 @@ import NavBar from "../components/Header/NavBar";
 import { useCollection } from "@/hook/useCollection";
 import { useState } from "react";
 
-
 export default function Home() {
   const { data, error, isLoading } = useCollection();
   const [query, setQuery] = useState("");
@@ -21,7 +20,9 @@ export default function Home() {
     if (e.target.value !== "") {
       Array.from(listing).forEach((article) => {
         if (
-          article.children[0].children[0].textContent.includes(e.target.value)
+          article
+            .querySelector(".community-name")
+            .textContent.includes(e.target.value)
         ) {
           article.style.display = "block";
         } else {
