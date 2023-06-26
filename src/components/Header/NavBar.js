@@ -61,7 +61,7 @@ const [open, setOpen] = useState(false);
       </nav>
       <button
         onClick={() => setOpen(!open)}
-        className="z-50 grid- col-start-5 row-start-1 lg:hidden "
+        className="z-50 grid- col-start-4 col-span-2 row-start-1 lg:hidden "
       >
       {open ? "close menu": "open menu"}
       </button>
