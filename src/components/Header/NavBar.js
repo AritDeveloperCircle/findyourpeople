@@ -14,7 +14,7 @@ export default function NavBar({ fetchData }) {
   const { error } = useCollection();
 
   return (
-    <div className=" relative grid grid-cols-5 gap-4 sm:text-left md:flex py-4 px-3 lg:flex-row lg:justify-between">
+    <div className=" relative grid grid-cols-5 items-center gap-4 sm:text-left md:flex py-4 px-3 lg:flex-row lg:justify-between">
       <Link href="/">
         <Image
           src="/LOGO.png"
@@ -61,10 +61,9 @@ export default function NavBar({ fetchData }) {
       </nav>
       <button
         onClick={() => setOpen(!open)}
-        className="z-50 grid- col-start-4 col-span-2 row-start-1 lg:hidden "
-      >
-        {open ? "close menu" : "open menu"}
-      </button>
+        className={`z-50 col-start-5  row-start-1 w-10 h-6 bg-no-repeat bg-center lg:hidden ${open ? "bg-close-icon":"bg-menu-icon"}` }
+        aria-label={open ? "close menu" : "open menu"}
+      ></button>
     </div>
   );
 }
