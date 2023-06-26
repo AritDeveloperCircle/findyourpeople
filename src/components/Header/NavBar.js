@@ -3,16 +3,17 @@ import Image from "next/image";
 import ReusableNavLink from "../common/ReusableNavLink";
 import { useCollection } from "@/hook/useCollection";
 
-export default function NavBar({ query, handleInputChange, data, fetchData }) {
+export default function NavBar({ fetchData }) {
   const navList = [
     { text: "About", href: "/about" },
-    { text: "Contact", href: "/contact" },
+    { text: "Login", href: "/login" },
+    { text: "Sign up", href: "/signup" },
   ];
 
   const { error } = useCollection();
 
   return (
-    <div className=" relative flex items-center justify-evenly sm:text-left md:flex py-4 px-9 lg:flex-row flex-col">
+    <div className=" relative flex items-center justify-between sm:text-left md:flex py-4 px-8 lg:flex-row flex-col">
       <Link href="/">
         <Image
           src="/LOGO.png"
@@ -24,12 +25,6 @@ export default function NavBar({ query, handleInputChange, data, fetchData }) {
         />
       </Link>
       <div className="flex gap-6">
-        <ul className="flex items-center justify-between gap-10">
-          {navList.map(({ text, href }) => (
-            <ReusableNavLink key={href} text={text} href={href} />
-          ))}
-        </ul>
-
         <div className=" flex px-3 min-w-fit relative">
           <div className="mr-2 absolute left-5 top-1/2 transform -translate-y-1/2">
             <Image
@@ -52,15 +47,13 @@ export default function NavBar({ query, handleInputChange, data, fetchData }) {
             required
             onChange={fetchData}
           />
-          {/* <button
-            type="submit"
-            className="absolute right-1 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-gradient-lite-blue to-gradient-dark-blue text-white py-2 px-6 rounded-xl hover:bg-gray-500 active:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            onClick={() => fetchData(query, data)}
-          >
-            SEARCH
-          </button> */}
         </div>
       </div>
+      <ul className="flex items-center justify-between gap-10">
+        {navList.map(({ text, href }) => (
+          <ReusableNavLink key={href} text={text} href={href} />
+        ))}
+      </ul>
     </div>
   );
 }

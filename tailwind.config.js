@@ -30,6 +30,9 @@ module.exports = {
         "footer-gray": "rgba(255, 255, 255, 0.4)",
         "gray-lite": "#D9D9D9",
       },
+      backgroundImage: {
+        'blue-background': "url('/bkgd-overlay-image.png')"
+      }
     },
   },
   plugins: [],
