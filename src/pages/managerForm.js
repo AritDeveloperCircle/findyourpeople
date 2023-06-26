@@ -1,17 +1,26 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import React from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import NavBar from "@/components/Header/NavBar";
 import CustomizableButton from "@/components/common/CustomizableButton";
 import FooterBar from "@/components/common/FooterBar";
+import {
+  imageUpload,
+  uploadFile,
+  deleteFile,
+  resetInput,
+  goHome,
+} from "@/pages/helperFile";
 import styles from "../styles/managerForm.module.css";
-import { firebaseDb,firebaseAuth } from "@/firebase/config";
+import { firebaseDb, firebaseStorage, firebaseAuth } from "@/firebase/config";
 import { collection, addDoc } from "firebase/firestore";
+import { uploadBytes, getDownloadURL, ref } from "firebase/storage";
 import useAuthContext from "@/context/useAuthContext";
-import Link from "next/link";
 import { signOut } from "firebase/auth";
 
 function ManagerForm() {
-  const { state,dispatch } = useAuthContext();
   const initialFormData = {
     community_name: "",
     community_manager: "",
@@ -22,9 +31,11 @@ function ManagerForm() {
     community_date: "",
     community_vision: "",
     community_description: "",
-    approved:false
   };
   const [formData, setFormData] = useState(initialFormData);
+  const fileInputRef = useRef(null);
+  const formRef = useRef(null);
+  const [fileUpload, setFileUpload] = useState();
   const router = useRouter();
   const handleChange = (event) => {
     event.preventDefault();
@@ -41,11 +52,11 @@ function ManagerForm() {
       name: "community_manager",
       label: "Community Manager",
       type: "text",
-      required: false,
+      required: true,
     },
     {
-      name: "manager_url",
-      label: "Manager URL",
+      name: "community_url",
+      label: "Community URL",
       type: "url",
       placeholder: "https://example.com",
       pattern: "https://.*",
@@ -65,7 +76,7 @@ function ManagerForm() {
     },
     {
       name: "community_date",
-      label: "Community Date",
+      label: "Community Start Date",
       type: "text",
       required: false,
     },
@@ -93,47 +104,28 @@ function ManagerForm() {
     const commCollectionRef = collection(
       firebaseDb,
       "MANAGERS",
-      `${state?.user?.userid}`,
+      "3fF17YaSFLHgRgksgVU8",
       "MANAGER_LISTINGS"
     );
     await addDoc(commCollectionRef, {
-      ...formData,
+      formData,
     }).then(() => {
       setFormData(initialFormData);
     });
-    router.push("/managerDashboard");
+    alert(
+      "Listing created! Directory admins will review your listing and approve if it meets our guidelines. Thank you!"
+    );
   };
- const logout = () => {
-   signOut(firebaseAuth).then(() => {
-     dispatch({ type: "LOGOUT" });
-     router.push("/");
-   });
- };
 
   return (
-    <>
-      <header className="flex items-center justify-between px-4 py-4">
-        <h1>Findyourpeople.tech</h1>
-        <ul className="flex items-center gap-3">
-          <li>
-            <Link href="/managerDashboard">Back to Dashboard</Link>
-          </li>
-          <li className="bg-yellow-200 px-4 py-2 rounded">
-            <button onClick={logout}>logout</button>
-          </li>
-        </ul>
-      </header>
-      <h1 className="bg-gradient-lite-blue text-center py-4  font-bold text-4xl text-gray-lite">
-        New Community
-      </h1>
-      <form className="px-4 p-2" onSubmit={submitCommunity}>
-        <div className="grid lg:grid-cols-3 lg:gap-4">
+    <div>
+      <NavBar />
+      <h1 className={styles.firstBanner}>New Community</h1>
+      <form onSubmit={submitCommunity} action="/send-data-here" method="POST">
+        <container className={styles.communityLayout}>
           {inputFields.map((field) => (
-            <div key={field.name} className="mb-4">
-              <label
-                className="ml-2 font-bold text-xl leading-9 text-gray-dark "
-                htmlFor={field.name}
-              >
+            <div className={styles.layoutRow} key={field.name}>
+              <label htmlFor={field.name}>
                 {field.label}
                 {field.required && <span className="text-red-500">*</span>}
               </label>
@@ -144,22 +136,25 @@ function ManagerForm() {
                 value={formData[field.name]}
                 onChange={handleChange}
                 required={field.required}
-                className="border-2 px-2 p-2 block w-full border-gradient-lite-grey rounded-lg"
+                className={styles.inputStyle}
                 placeholder={field.placeholder}
                 pattern={field.pattern}
               />
             </div>
           ))}
-        </div>
-        <div className="flex justify-center items-center gap-2 my-4">
-          <Link
-            href="/"
-            className="cusor-pointer px-2 py-1 font-bold text-lg border text-primary border-primary rounded-lg  "
+        </container>
+
+        <div className={styles.buttonsBottom}>
+          <button
+            className={styles.returnButton}
+            onClick={() => router.push("/")}
+            text="Return to Home"
+            type="submit"
           >
             Return to Home
-          </Link>
+          </button>
           <CustomizableButton
-            customClass={styles.submitButton}
+            customClass={styles.communityBottomButtons}
             onClick={submitCommunity}
             text="Submit"
             type="submit"
@@ -167,7 +162,7 @@ function ManagerForm() {
         </div>
       </form>
       <FooterBar />
-    </>
+    </div>
   );
 }
 
