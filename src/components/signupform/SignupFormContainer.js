@@ -19,7 +19,7 @@ function SignupFormContainer() {
           Have an account?
           <Link href="/login">
             <span className="text-primary ml-2 font-semibold hover:text-indigo-500">
-              Sign in
+              Login
             </span>
           </Link>
         </p>
