@@ -7,7 +7,7 @@ function Listing({ data }) {
 
   return (
     <>
-      <article className="bg-grey-lite rounded-2xl drop-shadow-md flex gap-3 items-start font-sans">
+      <article className="bg-grey-lite rounded-2xl drop-shadow-md flex gap-4 items-start font-sans px-4 py-6">
           <Image
             className="rounded-full"
             src="/avatar 1.png"
