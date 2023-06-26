@@ -22,7 +22,7 @@ function Listing({ data }) {
           <p className="italic text-gradient-lite-blue capitalize text-lg font-medium mb-2">
             {data.community_manager}
           </p>
-          <p className="text-grey-dark font-normal text-lg max-h-[200px] overflow-auto ">
+          <p className="text-grey-dark font-normal text-lg">
             {data.community_description}
           </p>
           <Link
