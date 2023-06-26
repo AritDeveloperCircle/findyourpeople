@@ -102,21 +102,21 @@ function ManagerForm() {
     );
     await addDoc(commCollectionRef, {
       formData,
-    }).then(() => {
+    }).then(() => {  
       setFormData(initialFormData);
     });
     alert("Community added!")
   };
   
   return (
-    <div>
+    <div className="overflow-y-hidden grid place-items-stretch w-[90rem] max-h-[132rem] lg:w-auto">
       <NavBar />
-      <h1 className={styles.firstBanner}>New Community</h1>
+      <h1 className="bg-gradient-lite-blue h-20 md:h-24 w-[90rem] lg:w-auto flex flex-col justify-center items-center px-3.5 py-14 gap-2.5 font-bold text-4xl text-gray-lite">New Community</h1>
       <form onSubmit={submitCommunity} action="/send-data-here" method="POST">
         <container className={styles.communityLayout}>
           {inputFields.map((field) => (
             <div className={styles.layoutRow} key={field.name}>
-              <label htmlFor={field.name}>
+              <label className="ml-2 font-bold text-xl leading-9 text-gray-dark w-52 h-9 md:w-64" htmlFor={field.name}>
                 {field.label}
                 {field.required && <span className="text-red-500">*</span>}
               </label>
@@ -127,7 +127,7 @@ function ManagerForm() {
                 value={formData[field.name]}
                 onChange={handleChange}
                 required={field.required}
-                className={styles.inputStyle}
+                className="border-2 w-80 bg-pink-500 grid md:max-w-md h-9 border-gradient-lite-grey rounded-lg ms-0"
                 placeholder={field.placeholder}
                 pattern={field.pattern}
               />
@@ -135,9 +135,9 @@ function ManagerForm() {
           ))}
         </container>
 
-        <div className={styles.buttonsBottom}>
+        <div className="px-36 py-3 flex flex-row justify-center items-center">
           <button
-            className={styles.returnButton}
+            className="w-44 sm:w-64 h-9 sm:h-14 px-2 font-bold text-lg border text-primary border-primary rounded-lg"
             onClick={() => router.push("/")}
             text="Return to Home"
             type="submit"

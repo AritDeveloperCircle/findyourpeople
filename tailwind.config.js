@@ -6,6 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      width: {
+        '1440px': '90rem',
+      },
+      maxHeight: {
+        '2130px': '132rem'
+      },
       fontFamily: {
         sans: ["var(--font-urbanist)"],
       },
