@@ -62,7 +62,7 @@ function ManagerDashboard() {
             </ul>
           </header>
           <main className="bg-white container mx-auto  max-w-xs md:max-w-2xl lg:max-w-4xl">
-            <div className="bg-primary-lite my-10 pt-10 rounded-md flex flex-col lg:flex-row sm-text-center">
+            <div className="bg-primary-lite lg:my-10 lg:pt-10 rounded-md flex flex-col lg:flex-row sm-text-center">
               <div className="flex flex-col gap-5 p-10  lg:text-left">
                 <h1 className="text-5xl text-blue-800">
                   Welcome Back, {state?.user?.displayName}
@@ -76,7 +76,7 @@ function ManagerDashboard() {
                   </Link>
                 </div>
               </div>
-              <div className=" md:flex lg:shrink-0 w-full max-w-lg h-80 mx-auto relative ">
+              <div className=" md:flex lg:shrink-0 w-full max-w-lg h-40 lg:h-80 mx-auto relative ">
                 <Image
                   className="min-[320px]:text-center max-[1240px]:inherit "
                   src="/manager-dashboard-character.png"
