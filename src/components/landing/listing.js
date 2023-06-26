@@ -7,17 +7,15 @@ function Listing({ data }) {
 
   return (
     <>
-      <article className="bg-grey-lite my-2.5 mx-4 px-13 max-w-xl md:max-w-3xl lg:max-w-5xl h-85 lg:max-h-max rounded-2xl drop-shadow-md flex content-center font-sans">
-        <div>
+      <article className="bg-grey-lite rounded-2xl drop-shadow-md flex gap-3 items-start font-sans">
           <Image
-            className="ml-8 mt-10 rounded-full"
+            className="rounded-full"
             src="/avatar 1.png"
             width={avatarWidth}
             height={avatarHeight}
             alt={`${data.community_name} avatar`}
           />
-        </div>
-        <div className="ml-12 mt-8 mb-4 mr-8 md:mb-4 w-89 h-29 font-normal text-xl tracking-wide text-gray-dark">
+        <div className="font-normal text-xl tracking-wide text-gray-dark">
           <h2 className="text-primary-dark capitalize font-medium text-2xl ">
             {data.community_name}
           </h2>
