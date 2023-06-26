@@ -131,10 +131,10 @@ function ManagerForm() {
         </div>
         
 
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center gap-2">
 
           <button
-            className="px-2 font-bold text-lg border text-primary border-primary rounded-lg  "
+            className="px-2 py-1 font-bold text-lg border text-primary border-primary rounded-lg  "
             onClick={() => router.push("/")}
             text="Return to Home"
             type="submit"
@@ -142,7 +142,7 @@ function ManagerForm() {
             Return to Home
           </button>
           <CustomizableButton
-            customClass={styles.communityBottomButtons}
+            customClass={styles.submitButton}
             onClick={submitCommunity}
             text="Submit"
             type="submit"

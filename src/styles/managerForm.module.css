@@ -58,3 +58,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
+.submitButton {
+    background: #2D65B4;
+    color: white;
+    padding:0.4em 0.5em ;
+    border-radius: 5px;
+}
