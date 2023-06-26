@@ -8,15 +8,15 @@ function Listing({ data }) {
   return (
     <>
       <article className="bg-grey-lite rounded-2xl drop-shadow-md flex gap-4 items-start font-sans px-4 py-6">
-          <Image
-            className="rounded-full"
-            src="/avatar 1.png"
-            width={avatarWidth}
-            height={avatarHeight}
-            alt={`${data.community_name} avatar`}
-          />
+        <Image
+          className="rounded-full"
+          src="/avatar 1.png"
+          width={avatarWidth}
+          height={avatarHeight}
+          alt={`${data.community_name} avatar`}
+        />
         <div className="font-normal text-xl tracking-wide text-gray-dark">
-          <h2 className="text-primary-dark capitalize font-medium text-2xl ">
+          <h2 className="text-primary-dark capitalize font-medium text-2xl community-name">
             {data.community_name}
           </h2>
           <p className="italic text-gradient-lite-blue capitalize text-lg font-medium mb-2">

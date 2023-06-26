@@ -48,7 +48,7 @@ const ListingDetails = ({ listing }) => {
               Would you like to be a part of this community?
             </h2>
             <Link
-              href={listing.manager_url}
+              href={listing.community_url}
               className="bg-gradient-lite-blue cursor-pointer rounded-md w-[250px] text-center px-6 py-2 text-white shadow-sm hover:bg-indigo-500"
             >
               Visit Community

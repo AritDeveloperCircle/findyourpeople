@@ -8,7 +8,7 @@ export const AuthContext = createContext();
 
 export const InitialState = {
   user: {
-    useruid: "",
+    userid: "",
     email: "",
     displayName: "",
   },

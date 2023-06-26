@@ -7,10 +7,12 @@ import { useState } from "react";
 export default function NavBar({ fetchData }) {
   const navList = [
     { text: "About", href: "/about" },
+    { text: "Home", href: "/" },
+    { text: "Contact", href: "/contact" },
     { text: "Login", href: "/login" },
     { text: "Sign up", href: "/signup" },
   ];
-const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const { error } = useCollection();
 
   return (
@@ -27,13 +29,13 @@ const [open, setOpen] = useState(false);
       </Link>
       <div className="flex gap-6 col-span-5">
         <div className=" flex min-w-fit relative">
-            <Image
-              src="/search-glass.svg"
-              alt="Search Image"
-              width={20}
-              height={20}
-              className="mr-2 absolute left-3 top-1/2 transform -translate-y-1/2"
-            />    
+          <Image
+            src="/search-glass.svg"
+            alt="Search Image"
+            width={20}
+            height={20}
+            className="mr-2 absolute left-3 top-1/2 transform -translate-y-1/2"
+          />
           {error && <p>{error}</p>}
           <input
             className="pl-8 h-10 border-2 border-solid border-gray-300 rounded-lg "
@@ -63,7 +65,7 @@ const [open, setOpen] = useState(false);
         onClick={() => setOpen(!open)}
         className="z-50 grid- col-start-4 col-span-2 row-start-1 lg:hidden "
       >
-      {open ? "close menu": "open menu"}
+        {open ? "close menu" : "open menu"}
       </button>
     </div>
   );
