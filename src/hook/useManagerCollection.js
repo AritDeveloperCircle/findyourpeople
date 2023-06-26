@@ -24,13 +24,13 @@ function useManagerCollection() {
         const unsub = onSnapshot(communityRef, (snap) => {
           let communityArray = [];
           snap.forEach((community) => {
-            if (community.data().approved) {
+           
               communityArray.push({
                 ...community.data(),
                 uid: state?.user?.userid,
                 community_id: community.id,
               });
-            }
+            
           });
           setListings([...communityArray]);
         });
