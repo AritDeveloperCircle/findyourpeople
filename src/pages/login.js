@@ -1,7 +1,6 @@
 import LoginAside from "@/components/loginform/loginAside";
 import LoginFormContainer from "@/components/loginform/LoginFormContainer";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function login() {
   const AVATAR_HEIGHT = 500;
