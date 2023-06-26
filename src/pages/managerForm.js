@@ -105,10 +105,9 @@ function ManagerForm() {
     <div className="">
       <header className="flex items-center justify-between px-4 py-4">
         <h1>Findyourpeople.tech</h1>
-        <ul className="flex items-center gap-2">
+        <ul className="flex items-center gap-3">
           <li>
             <Link href="/managerDashboard">Back to Dashboard</Link>
-   
           </li>
           <li className="bg-yellow-200 px-4 py-2 rounded">
             <button>logout</button>
@@ -144,14 +143,12 @@ function ManagerForm() {
           ))}
         </div>
         <div className="flex justify-center items-center gap-2 my-4">
-          <button
+          <Link
+            href="/"
             className="cusor-pointer px-2 py-1 font-bold text-lg border text-primary border-primary rounded-lg  "
-            onClick={() => router.push("/")}
-            text="Return to Home"
-            type="submit"
           >
             Return to Home
-          </button>
+          </Link>
           <CustomizableButton
             customClass={styles.submitButton}
             onClick={submitCommunity}
