@@ -50,9 +50,9 @@ export default function Home() {
           fetchData={fetchData}
         />
         <Hero />
-        <section className={styles.listingsContainer}>
+        <section className='p-4 grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
           {isLoading && <>loading...</>}
-          {error && <>{error}</>}
+          {error && <>{error}</>}         
           {data.map((listing) => (
             <Listing data={listing} key={listing.community_id} />
           ))}
