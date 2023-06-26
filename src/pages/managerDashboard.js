@@ -23,7 +23,7 @@ function ManagerDashboard() {
   return (
     <div>
       {!state.authState && (
-        <div className="flex items-center justify-center h-36">
+        <div className="flex items-center justify-center h-screen">
           <p className="text-center">loading...</p>
         </div>
       )}
