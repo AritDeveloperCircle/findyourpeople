@@ -108,7 +108,7 @@ function ManagerForm() {
       <NavBar />
       <h1 className="bg-gradient-lite-blue h-20 md:h-24 w-auto md:w-full flex flex-col justify-center items-center px-3.5 py-14 gap-2.5 font-bold text-4xl text-gray-lite">New Community</h1>
       <form className="px-4 p-2" onSubmit={submitCommunity}>
-        <div  className='grid'>
+        <div  className='grid lg:grid-cols-3 lg:gap-4'>
           {inputFields.map((field) => (
             <div key={field.name} className="mb-4">
               <label className="ml-2 font-bold text-xl leading-9 text-gray-dark " htmlFor={field.name}>
@@ -129,12 +129,10 @@ function ManagerForm() {
             </div>
           ))}
         </div>
-        
-
-        <div className="flex justify-center items-center gap-2">
+        <div className="flex justify-center items-center gap-2 my-4">
 
           <button
-            className="px-2 py-1 font-bold text-lg border text-primary border-primary rounded-lg  "
+            className="cusor-pointer px-2 py-1 font-bold text-lg border text-primary border-primary rounded-lg  "
             onClick={() => router.push("/")}
             text="Return to Home"
             type="submit"
