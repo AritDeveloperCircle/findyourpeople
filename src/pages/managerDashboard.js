@@ -1,43 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import NavBar from "@/components/Header/NavBar";
 import FooterBar from "@/components/common/FooterBar";
 import DashboardListing from "@/components/singledashboardlisting/DashboardListing";
-import CustomizableButton from "@/components/common/CustomizableButton";
 import useAuthContext from "@/context/useAuthContext";
-import { firebaseAuth, firebaseDb } from "@/firebase/config";
-import { getDocs, collection } from "firebase/firestore";
+import { firebaseAuth } from "@/firebase/config";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/router";
+import useManagerCollection from "@/hook/useManagerCollection";
 
 function ManagerDashboard() {
   const { state, dispatch } = useAuthContext();
-  const [listings, setListings] = useState([]);
   const router = useRouter();
-
+  const { listings } = useManagerCollection();
   const logout = () => {
-    
     signOut(firebaseAuth).then(() => {
       dispatch({ type: "LOGOUT" });
       router.push("/");
     });
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const querySnapshot = await getDocs(
-        collection(
-          firebaseDb,
-          "MANAGERS",
-          `${state?.user?.userid}`,
-          "MANAGER_LISTINGS"
-        )
-      );
-      setListings(querySnapshot.docs.map((doc) => doc.data()));
-    };
-    fetchData();
-  }, [state?.user?.userid]);
 
   return (
     <div>
@@ -47,7 +28,7 @@ function ManagerDashboard() {
         </div>
       )}
       {state?.user?.userid === "" ||
-        (state.user === null && (
+        (state?.user === null && (
           <>
             <div className="bg-slate-200 h-screen flex items-center justify-center">
               <div className="w-4/12 bg-white p-6 text-center rounded">
@@ -72,15 +53,14 @@ function ManagerDashboard() {
         ))}
       {state?.user?.userid?.length > 0 && (
         <>
-          <div className="flex items-center justify-between p-4">
+          <header className="flex items-center justify-between px-4 py-4">
             <h1>Findyourpeople.tech</h1>
-            <CustomizableButton
-              customClass="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
-              onClickProp={logout}
-              text="Logout"
-            />
-          </div>
-
+            <ul className="flex items-center gap-3">
+              <li className="bg-yellow-200 px-4 py-2 rounded">
+                <button onClick={logout}>logout</button>
+              </li>
+            </ul>
+          </header>
           <main className="bg-white container mx-auto  max-w-xs md:max-w-2xl lg:max-w-4xl">
             <div className="bg-primary-lite my-10 pt-10 rounded-md flex flex-col lg:flex-row sm-text-center">
               <div className="flex flex-col gap-5 p-10  lg:text-left">
@@ -110,11 +90,11 @@ function ManagerDashboard() {
               <h1 className="text-lg lg:text-3xl p-2 text-center">
                 Community Dashboard
               </h1>
-              {listings.length === 0 ? (
+              {listings?.length === 0 ? (
                 <h2 className="text-2xl text-center my-8">No listings yet</h2>
               ) : (
                 <div className="grid auto-rows-max grid-cols-1 md:grid-cols-2 md:max-w-3xl md:mx-auto gap-10 my-10">
-                  {listings.map((community) => (
+                  {listings?.map((community, index) => (
                     <DashboardListing key={index} community={community} />
                   ))}
                 </div>
