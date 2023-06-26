@@ -35,7 +35,8 @@
 .delete {
   width: 80%;
   padding: 0.3rem;
-  background: red;
+  background: #B42D2D;
+  color: #fff;
   border-radius: 8px;
   display: block;
   margin:1em auto 0;
