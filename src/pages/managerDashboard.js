@@ -72,11 +72,14 @@ function ManagerDashboard() {
         ))}
       {state?.user?.userid?.length > 0 && (
         <>
-          <CustomizableButton
-            customClass="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
-            onClickProp={logout}
-            text="Logout"
-          />
+          <div className="flex items-center justify-between p-4">
+            <h1>Findyourpeople.tech</h1>
+            <CustomizableButton
+              customClass="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
+              onClickProp={logout}
+              text="Logout"
+            />
+          </div>
 
           <main className="bg-white container mx-auto  max-w-xs md:max-w-2xl lg:max-w-4xl">
             <div className="bg-primary-lite my-10 pt-10 rounded-md flex flex-col lg:flex-row sm-text-center">
@@ -116,7 +119,12 @@ function ManagerDashboard() {
                   ))}
                 </div>
               )}
-              <Link href="/create" className="text-2xl text-center block mx-auto  w-max">+ Add new community</Link>
+              <Link
+                href="/managerForm"
+                className="text-2xl text-center block mx-auto  w-max"
+              >
+                + Add new community
+              </Link>
             </div>
           </main>
         </>
