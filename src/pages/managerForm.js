@@ -1,66 +1,169 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image'
-import NavBar from '@/components/Header/NavBar';
-import CustomizableButton from '@/components/common/CustomizableButton';
-import FooterBar from '@/components/common/FooterBar';
-import styles from '../styles/managerForm.module.css';
+import { useState, useRef } from "react";
+import React from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import NavBar from "@/components/Header/NavBar";
+import CustomizableButton from "@/components/common/CustomizableButton";
+import FooterBar from "@/components/common/FooterBar";
+import {
+  imageUpload,
+  uploadFile,
+  deleteFile,
+  resetInput,
+  goHome,
+} from "@/pages/helperFile";
+import styles from "../styles/managerForm.module.css";
+import { firebaseDb, firebaseStorage, firebaseAuth } from "@/firebase/config";
+import { collection, addDoc } from "firebase/firestore";
+import { uploadBytes, getDownloadURL, ref } from "firebase/storage";
+import useAuthContext from "@/context/useAuthContext";
+import { signOut } from "firebase/auth";
 
+function ManagerForm() {
+  const initialFormData = {
+    community_name: "",
+    community_manager: "",
+    community_location: "",
+    community_url: "",
+    manager_linkedin: "",
+    manager_twitter: "",
+    community_date: "",
+    community_vision: "",
+    community_description: "",
+  };
+  const [formData, setFormData] = useState(initialFormData);
+  const fileInputRef = useRef(null);
+  const formRef = useRef(null);
+  const [fileUpload, setFileUpload] = useState();
+  const router = useRouter();
+  const handleChange = (event) => {
+    event.preventDefault();
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+  const inputFields = [
+    {
+      name: "community_name",
+      label: "Community Name",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "community_manager",
+      label: "Community Manager",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "community_url",
+      label: "Community URL",
+      type: "url",
+      placeholder: "https://example.com",
+      pattern: "https://.*",
+      required: true,
+    },
+    {
+      name: "manager_linkedin",
+      label: "Manager Linkedin",
+      type: "text",
+      required: false,
+    },
+    {
+      name: "manager_twitter",
+      label: "Manager Twitter",
+      type: "text",
+      required: false,
+    },
+    {
+      name: "community_date",
+      label: "Community Start Date",
+      type: "text",
+      required: false,
+    },
+    {
+      name: "community_vision",
+      label: "Community Vision",
+      type: "textarea",
+      minLength: 15,
+      maxLength: 300,
+      rows: 3,
+      required: false,
+    },
+    {
+      name: "community_description",
+      label: "Community Description",
+      type: "textarea",
+      minLength: 15,
+      maxLength: 300,
+      rows: 3,
+      required: true,
+    },
+  ];
+  const submitCommunity = async (event) => {
+    event.preventDefault();
+    const commCollectionRef = collection(
+      firebaseDb,
+      "MANAGERS",
+      "3fF17YaSFLHgRgksgVU8",
+      "MANAGER_LISTINGS"
+    );
+    await addDoc(commCollectionRef, {
+      formData,
+    }).then(() => {
+      setFormData(initialFormData);
+    });
+    alert(
+      "Listing created! Directory admins will review your listing and approve if it meets our guidelines. Thank you!"
+    );
+  };
 
-const managerForm = () => {
-    
-    const categoryChoice = () => {
-        console.log("clicked the button")
-    }
-    return (
-        <div>
-            <NavBar />
-            <h1 className={styles.textColor}>managerForm!!!</h1>
-            <div className={styles.firstBanner}>New Community</div>
-            <div className={styles.secondBanner}>
-                <h2>Choose category(s)</h2>
-                <div className={styles.secondBannerButtons}>
-                    <CustomizableButton
-                        customClass={styles.disableButton}
-                        onClickProp={categoryChoice}
-                        text="UI/UX"
-                    />
-                    
-                    <CustomizableButton
-                        customClass={styles.disableButton}
-                        onClickProp={categoryChoice}
-                        text="Frontend"
-                    />
-                    
-                    <CustomizableButton
-                        customClass={styles.highlightButton}
-                        onClickProp={categoryChoice}
-                        text="Software Engineering"
-                    />
-
-                    <CustomizableButton
-                        customClass={styles.disableButton}
-                        onClickProp={categoryChoice}
-                        text="Product Design"
-                    />
-
-                    <Image
-                        src='/arrow-right-line.png'
-                        width={25}
-                        height={25}
-                        alt='arrow pointing to the right'
-                    />
-                </div>
-
-                <div className={styles.communityGrid}>
-
-                </div>
-                
+  return (
+    <div>
+      <NavBar />
+      <h1 className={styles.firstBanner}>New Community</h1>
+      <form onSubmit={submitCommunity} action="/send-data-here" method="POST">
+        <container className={styles.communityLayout}>
+          {inputFields.map((field) => (
+            <div className={styles.layoutRow} key={field.name}>
+              <label htmlFor={field.name}>
+                {field.label}
+                {field.required && <span className="text-red-500">*</span>}
+              </label>
+              <input
+                type={field.type}
+                name={field.name}
+                id={field.name}
+                value={formData[field.name]}
+                onChange={handleChange}
+                required={field.required}
+                className={styles.inputStyle}
+                placeholder={field.placeholder}
+                pattern={field.pattern}
+              />
             </div>
-            <FooterBar />
+          ))}
+        </container>
+
+        <div className={styles.buttonsBottom}>
+          <button
+            className={styles.returnButton}
+            onClick={() => router.push("/")}
+            text="Return to Home"
+            type="submit"
+          >
+            Return to Home
+          </button>
+          <CustomizableButton
+            customClass={styles.communityBottomButtons}
+            onClick={submitCommunity}
+            text="Submit"
+            type="submit"
+          />
         </div>
-      
-    )
-  }
-  
-  export default managerForm
+      </form>
+      <FooterBar />
+    </div>
+  );
+}
+
+export default ManagerForm;

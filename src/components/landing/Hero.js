@@ -22,7 +22,7 @@ function Hero() {
               connect with people from all around the world!
             </h1>
           </div>
-          <p className="px-4 lg:text-xl md:px-2 lg:visible text-center sm:px-20  xl:px-20">
+          <p className="px-4 lg:text-xl md:px-2 lg:visible text-center sm:px-20 xl:px-20">
             Locate different techies across the globe; build your connections
             and network by browsing our directory of tech communities
           </p>
@@ -45,8 +45,8 @@ function Hero() {
         </div>
       </div>
 
-      <div className="bg-[url('/bkgd-overlay-image.png')] bg-cover bg-no-repeat bg-center  ">
-        <div className="flex p-14  gap-6 items-center xl:flex-row overflow-scroll">
+      <div className="bg-[url('/bkgd-overlay-image.png')] bg-cover bg-no-repeat bg-center">
+        <div className="flex p-14  gap-6 items-center justify-center xl:flex-row overflow-hidden lg:mt-10 lg:mb-8 h-80 ">
           <Image
             src="/woman-smile.png"
             height={500}

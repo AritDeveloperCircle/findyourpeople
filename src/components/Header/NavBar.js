@@ -7,6 +7,8 @@ import { useState } from "react";
 export default function NavBar({ fetchData }) {
   const navList = [
     { text: "About", href: "/about" },
+    { text: "Home", href: "/" },
+    { text: "Contact", href: "/contact" },
     { text: "Login", href: "/login" },
     { text: "Sign up", href: "/signup" },
   ];
@@ -61,7 +63,9 @@ export default function NavBar({ fetchData }) {
       </nav>
       <button
         onClick={() => setOpen(!open)}
-        className={`z-50 col-start-5 self-end row-start-1 w-10 h-6 bg-no-repeat bg-center md:hidden ${open ? "bg-close-icon":"bg-menu-icon"}` }
+        className={`z-50 col-start-5 self-end row-start-1 w-10 h-6 bg-no-repeat bg-center md:hidden ${
+          open ? "bg-close-icon" : "bg-menu-icon"
+        }`}
         aria-label={open ? "close menu" : "open menu"}
       ></button>
     </div>
