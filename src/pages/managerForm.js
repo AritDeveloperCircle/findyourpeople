@@ -21,6 +21,7 @@ function ManagerForm() {
     community_date: "",
     community_vision: "",
     community_description: "",
+    approved:false
   };
   const [formData, setFormData] = useState(initialFormData);
   const router = useRouter();
@@ -95,14 +96,15 @@ function ManagerForm() {
       "MANAGER_LISTINGS"
     );
     await addDoc(commCollectionRef, {
-      formData,
+      ...formData,
     }).then(() => {
       setFormData(initialFormData);
     });
+    router.push("/managerDashboard");
   };
 
   return (
-    <div className="">
+    <>
       <header className="flex items-center justify-between px-4 py-4">
         <h1>Findyourpeople.tech</h1>
         <ul className="flex items-center gap-3">
@@ -158,7 +160,7 @@ function ManagerForm() {
         </div>
       </form>
       <FooterBar />
-    </div>
+    </>
   );
 }
 
