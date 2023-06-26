@@ -1,17 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./listing.module.css";
 
 function Listing({ data }) {
-  const avatarWidth = 200;
-  const avatarHeight = 200;
+  const avatarWidth = 100;
+  const avatarHeight = 100;
 
   return (
     <>
       <article className="bg-grey-lite my-2.5 mx-4 px-13 max-w-xl md:max-w-3xl lg:max-w-5xl h-85 lg:max-h-max rounded-2xl drop-shadow-md flex content-center font-sans">
-        <div className={styles.listing__image__container}>
+        <div>
           <Image
-            className="ml-8 mt-6 rounded-full"
+            className="ml-8 mt-10 rounded-full"
             src="/avatar 1.png"
             width={avatarWidth}
             height={avatarHeight}
@@ -22,12 +21,10 @@ function Listing({ data }) {
           <h2 className="text-primary-dark capitalize font-medium text-2xl ">
             {data.community_name}
           </h2>
-          <p className="italic text-gradient-lite-blue capitalize text-xl font-medium">
-            {" "}
-            {data.community_manager}{" "}
+          <p className="italic text-gradient-lite-blue capitalize text-lg font-medium mb-2">
+            {data.community_manager}
           </p>
-          <p className="text-grey-dark font-normal text-xl">
-            {" "}
+          <p className="text-grey-dark font-normal text-lg max-h-[200px] overflow-auto ">
             {data.community_description}
           </p>
           <Link

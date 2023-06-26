@@ -3,8 +3,7 @@ import NavBar from "@/components/Header/NavBar";
 import FooterBar from "@/components/common/FooterBar";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { getDocs, collection } from "firebase/firestore";
-import { firebaseDb } from "@/firebase/config";
+
 import CommunityHeader from "@/components/landing/CommunityListingHeader";
 import ListingDetails from "@/components/landing/ListingDetails";
 import { useCollection } from "@/hook/useCollection";
