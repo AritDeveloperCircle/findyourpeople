@@ -19,11 +19,11 @@ export default function NavBar({ fetchData }) {
     <div className=" relative grid grid-cols-5 items-center gap-4 sm:text-left md:flex py-4 px-3 md:flex-row md:justify-between md:px-10">
       <Link href="/">
         <Image
-          src="/LOGO.png"
+          src="/find-your-people-logo.png"
           alt="Find Your People Tech Logo"
           className="sm:h-full"
-          width={80}
-          height={28}
+          width={150}
+          height={50}
           priority
         />
       </Link>
