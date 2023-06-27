@@ -1,29 +1,43 @@
-import Image from "next/image";
 import styles from "./dashboardlisting.module.css";
 import CustomizableButton from "../common/CustomizableButton";
+import { doc, deleteDoc } from "firebase/firestore";
+import { firebaseDb } from "@/firebase/config";
+import useAuthContext from "@/context/useAuthContext";
 
-function DashboardListing({ customClass }) {
+function DashboardListing({ community }) {
+  const { state } = useAuthContext();
+  const deleteCommunity = async (e) => {
+    e.preventDefault();
+ 
+    const communityRef = doc(
+      firebaseDb,
+      "MANAGERS",
+      state?.user?.userid,
+      "MANAGER_LISTINGS",
+      community.community_id
+    );
+    console.log("communityRef", communityRef);
+    await deleteDoc(communityRef);
+  };
   return (
-    <main className={styles.card}>
-      <div className={styles.imgContainer}>
-        <Image
-          src="/background.png"
-          className={styles.img}
-          height={100}
-          width={100}
-          alt="community photo"
-        />
-      </div>
-      <div className={styles.cardBody}>
-        <p className={customClass}>
-          Community Name: <span>Approved</span>
+    <main className={`bg-white py-4 rounded-lg shadow-md col-span-1 p-2`}>
+      <div>
+        <p className="mb-3">
+          <span className="capitalize">{community.community_name}:</span>{" "}
+          {community.approved ? (
+            <span className="text-accent-green">Approved</span>
+          ) : (
+            "Pending"
+          )}
         </p>
-        <div className={styles.ctaButtons}>
-          <CustomizableButton customClass={styles.edit} text="Edit Page" />
+        <div className={`flex items-center justify-center gap-4 mb-2`}>
           <CustomizableButton customClass={styles.view} text="View Page" />
         </div>
-        <CustomizableButton customClass={styles.unpublish} text="UNPUBLISH" />
-        <CustomizableButton customClass={styles.delete} text="DELETE" />
+        <CustomizableButton
+          onClickProp={deleteCommunity}
+          customClass={styles.delete}
+          text="Delete Page"
+        />
       </div>
     </main>
   );

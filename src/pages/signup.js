@@ -1,4 +1,3 @@
-import Link from "next/link";
 import CustomizableAside from "@/components/common/customizableAside";
 import SignupFormContainer from "@/components/signupform/SignupFormContainer";
 
@@ -8,7 +7,7 @@ export default function signup() {
   const photo = "/Signupimage.png";
   const header = "You are just a step away from an";
   const span = " amazing experience!";
-  const info = "Let's get you started with joining our community";
+  const info = "Let's get you started with finding your community";
 
   return (
     <>
@@ -30,7 +29,7 @@ export default function signup() {
               paragraphText={info}
               headerClassName="font-semibold text-4xl text-left leading-10 text-white"
               spanClassName="font-semibold block text-4xl leading-15  text-accent-blue"
-              paragraphClassName="text-white text-base text-left self-start tracking-wider mt-2"
+              paragraphClassName="text-white/80 text-base text-left self-start tracking-wider mt-2"
             />
           </div>
         </section>

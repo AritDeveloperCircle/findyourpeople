@@ -20,7 +20,9 @@ export default function Home() {
     if (e.target.value !== "") {
       Array.from(listing).forEach((article) => {
         if (
-          article.children[0].children[0].textContent.includes(e.target.value)
+          article
+            .querySelector(".community-name")
+            .textContent.includes(e.target.value)
         ) {
           article.style.display = "block";
         } else {
@@ -50,9 +52,9 @@ export default function Home() {
           fetchData={fetchData}
         />
         <Hero />
-        <section className={styles.listingsContainer}>
+        <section className='p-4 grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
           {isLoading && <>loading...</>}
-          {error && <>{error}</>}
+          {error && <>{error}</>}         
           {data.map((listing) => (
             <Listing data={listing} key={listing.community_id} />
           ))}

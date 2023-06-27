@@ -37,7 +37,10 @@ module.exports = {
         "gray-lite": "#D9D9D9",
       },
       backgroundImage: {
-        'blue-background': "url('/bkgd-overlay-image.png')"
+        'blue-background': "url('/bkgd-overlay-image.png')",
+        "menu-icon" : "url('/icons8-menu.svg')",
+        "close-icon" : "url('/icons8-close.svg')",
+
       }
     },
   },
