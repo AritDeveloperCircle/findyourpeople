@@ -16,7 +16,7 @@ export default function NavBar({ fetchData }) {
   const { error } = useCollection();
 
   return (
-    <div className=" relative grid grid-cols-5 gap-4 sm:text-left md:flex py-4 px-3 lg:flex-row lg:justify-between">
+    <div className=" relative grid grid-cols-5 items-center gap-4 sm:text-left md:flex py-4 px-3 md:flex-row md:justify-between md:px-10">
       <Link href="/">
         <Image
           src="/LOGO.png"
@@ -27,8 +27,8 @@ export default function NavBar({ fetchData }) {
           priority
         />
       </Link>
-      <div className="flex gap-6 col-span-5">
-        <div className=" flex min-w-fit relative">
+      <div className="col-span-5">
+        <div className="relative">
           <Image
             src="/search-glass.svg"
             alt="Search Image"
@@ -38,7 +38,7 @@ export default function NavBar({ fetchData }) {
           />
           {error && <p>{error}</p>}
           <input
-            className="pl-8 h-10 border-2 border-solid border-gray-300 rounded-lg "
+            className="pl-8 w-full px-4 py-2 border-2 border-solid border-gray-300 rounded-lg "
             id="searchInputBar"
             type="text"
             placeholder="Search for..."
@@ -53,9 +53,9 @@ export default function NavBar({ fetchData }) {
       <nav
         className={`${
           open ? "fixed left-0 top-0 h-full w-full p-3 z-50 bg-white" : "hidden"
-        } lg:relative lg:block lg:h-auto lg:w-auto lg:top-auto lg:left-auto`}
+        } md:relative md:block md:h-auto md:w-auto md:top-auto md:left-auto`}
       >
-        <ul className=" lg:flex lg:items-center lg:justify-between lg:gap-10">
+        <ul className=" md:flex md:items-center md:justify-between md:gap-10">
           {navList.map(({ text, href }) => (
             <ReusableNavLink key={href} text={text} href={href} />
           ))}
@@ -63,10 +63,11 @@ export default function NavBar({ fetchData }) {
       </nav>
       <button
         onClick={() => setOpen(!open)}
-        className="z-50 grid- col-start-4 col-span-2 row-start-1 lg:hidden "
-      >
-        {open ? "close menu" : "open menu"}
-      </button>
+        className={`z-50 col-start-5 self-end row-start-1 w-10 h-6 bg-no-repeat bg-center md:hidden ${
+          open ? "bg-close-icon" : "bg-menu-icon"
+        }`}
+        aria-label={open ? "close menu" : "open menu"}
+      ></button>
     </div>
   );
 }

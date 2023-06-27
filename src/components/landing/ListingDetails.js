@@ -38,18 +38,18 @@ const ListingDetails = ({ listing }) => {
                 />
                 <h1 className="text-white pt-1">Our Community Vision</h1>
               </div>
-              <p className="py-1 px-8 text-sm my-0 mx-auto">
+              <p className="py-1 px-8 text-sm my-0 mx-auto py-2">
                 {listing.community_vision}
               </p>
             </div>
           </section>
-          <div className="bg-gradient-lite-grey flex justify-between p-[52px] mt-12 ">
+          <div className="bg-gradient-lite-grey flex justify-between gap-2 p-[52px] mt-12 ">
             <h2 className="text-grey-dark text-lg sm:text-lg lg:text-xl font-medium leading-[52px]">
               Would you like to be a part of this community?
             </h2>
             <Link
               href={listing.community_url}
-              className="bg-gradient-lite-blue cursor-pointer rounded-md w-[250px] text-center px-6 py-2 text-white shadow-sm hover:bg-indigo-500"
+              className="bg-gradient-lite-blue cursor-pointer rounded-md w-[250px] text-center px-6 py-2 text-white shadow-sm hover:bg-indigo-500 flex justify-center items-center"
             >
               Visit Community
             </Link>

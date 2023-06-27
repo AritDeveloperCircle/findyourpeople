@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 function Listing({ data }) {
-  const avatarWidth = 100;
-  const avatarHeight = 100;
+  const avatarWidth = 50;
+  const avatarHeight = 50;
 
   return (
     <>
