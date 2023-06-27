@@ -10,7 +10,7 @@ function Listing({ data }) {
       <article className="bg-grey-lite rounded-2xl drop-shadow-md flex gap-4 items-start font-sans px-4 py-6">
         <Image
           className="rounded-full"
-          src="/avatar 1.png"
+          src="/avatar-1.png"
           width={avatarWidth}
           height={avatarHeight}
           alt={`${data.community_name} avatar`}
