@@ -1,4 +1,6 @@
 import ReusableNavLink from "./ReusableNavLink";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 function FooterBar() {
@@ -16,7 +18,18 @@ function FooterBar() {
   return (
     <footer className="bg-primary-dark px-3 md:px-8 table-fixed w-[90] h-32">
       <div className="flex justify-between items-center">
-        <span className="text-logo-blue uppercase text-s mt-6">Logo</span>
+        <span className="text-logo-blue uppercase text-s mt-6">
+          <Link href="/">
+                <Image
+                src="/find-your-people-logo.png"
+                alt="Find Your People Tech Logo"
+                className="sm:h-full"
+                width={150}
+                height={50}
+                priority
+                />
+          </Link>
+        </span>
         <section className="navItem mt-8 text-footer-gray uppercase text-xs flex flex-row space-x-12 ">
           {navList.map(({ text, href }) => (
             <ReusableNavLink key={href} text={text} href={href} />
