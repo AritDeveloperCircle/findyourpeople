@@ -14,7 +14,7 @@ function FooterBar() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary-dark px-3 md:px-8">
+    <footer className="bg-primary-dark px-3 md:px-8 table-fixed w-[90] h-32">
       <div className="flex justify-between items-center">
         <span className="text-logo-blue uppercase text-s mt-6">Logo</span>
         <section className="navItem mt-8 text-footer-gray uppercase text-xs flex flex-row space-x-12 ">
