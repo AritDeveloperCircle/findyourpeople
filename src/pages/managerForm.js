@@ -12,7 +12,7 @@ import {
   deleteFile,
   resetInput,
   goHome,
-} from "@/pages/helperFile";
+} from "@/composables/helperFile";
 import styles from "../styles/managerForm.module.css";
 import { firebaseDb, firebaseStorage, firebaseAuth } from "@/firebase/config";
 import { collection, addDoc } from "firebase/firestore";
